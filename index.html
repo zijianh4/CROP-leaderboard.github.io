@@ -93,23 +93,11 @@
     <section id="introduction">
       <div class="overview">
         <p class="doublealign">
-          The goal of <strong>RobustBench</strong> is to systematically track
-          the <em>real</em> progress in adversarial robustness. There are
-          already
-          <a href="https://nicholas.carlini.com/writing/2019/all-adversarial-example-papers.html">more than 2&#39;000
-            papers</a>
-          on this topic, but it is still unclear which approaches really work
+          The goal of <strong>CROP-leaderboard</strong> is to systematically track
+          the <em>real</em> progress in certified adversarial robustness of RL algorithms. There are
+          already thousands of papers on this topic, but it is still unclear which approaches really work
           and which only lead to
-          <a href="https://arxiv.org/abs/1802.00420">overestimated robustness</a>. We start from benchmarking common
-          corruptions,
-          \(\ell_\infty\)- and
-          \(\ell_2\)-robustness since these are the most studied settings in the
-          literature. We use
-          <a href="https://github.com/fra31/auto-attack">AutoAttack</a>, an
-          ensemble of white-box and black-box attacks, to standardize the
-          evaluation (for details see <a href="https://arxiv.org/abs/2010.09670">our paper</a>) of the \(\ell_p\)
-          robustness and
-          CIFAR-10-C for the evaluation of robustness to common corruptions. Additionally,
+          <a href="https://arxiv.org/abs/1802.00420">overestimated robustness</a>. We start from benchmarking the CROP-LoAct, CROP-GRe, and CROP-LoRe proposed by our paper in [different OpneAI gym environments](https://gym.openai.com).  Additionally,
           we open source the
           <a href="https://github.com/RobustBench/robustbench">RobustBench library</a>
           that contains models used for the leaderboard to facilitate their
