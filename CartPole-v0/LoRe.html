@@ -3,20 +3,19 @@
     <tr>
         <th class="rank">Rank</th>
         <th class="method">Method</th>
-        <th class="ca">
-            Standard<br/>
-            accuracy
+        <th class="sigma_e-3">
+            &sigma; = 0.001
         </th>
         
         
-        <th class="aa">
-            Robust <br/>
-            accuracy
+        <th class="sigma_5e-3">
+            &sigma; = 0.005
         </th>
         
-        <th class="extra-data">Extra <br/>data</th>
-        <th class="arch">Architecture</th>
-        <th class="venue">Venue</th>
+        <th class="sigma_1e-2">&sigma; = 0.01</th>
+        <th class="sigma_3e-2">&sigma; = 0.03</th>
+        <th class="sigma_5e-2">&sigma; = 0.05</th>
+        <th class="sigma_1e-1">&sigma; = 0.1</th>
     </tr>
     </thead>
     <tbody>
@@ -24,271 +23,141 @@
     <tr>
         <td class="ranktd">1</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2104.01086" target="_blank">Defending Against Image Corruptions Through Adversarial Augmentations</a>
-            
-            <br>
-            <span class="td-footer">
-                Uses extra data indirectly via a super resolution and autoencoder networks that were pre-trained on other datasets.
-            </span>
+            <a href="https://arxiv.org/abs/2008.01976" target="_blank">Robust Deep Reinforcement Learning through Adversarial Loss</a>
             
         </td>
-        <td class="catd">94.93%</td>
-        <td class="aatd">92.17%</td>
+        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RadialRL/CartPole_adasearch_sigma-0.001_cmp.pdf'></td>
+        <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RadialRL/CartPole_adasearch_sigma-0.005_cmp.pdf'></td>
         
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">ResNet-50</td>
-        <td class="venuetd">arXiv, Apr 2021</td>
+        <td class="datatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RadialRL/CartPole_adasearch_sigma-0.01_cmp.pdf'></td>
+        <td class="archtd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RadialRL/CartPole_adasearch_sigma-0.03_cmp.pdf'></td>
+        <td class="venuetd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RadialRL/CartPole_adasearch_sigma-0.05_cmp.pdf'></td>
+        <td class="venuetd_2"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RadialRL/CartPole_adasearch_sigma-0.1_cmp.pdf'></td>
     </tr>
     
     <tr>
         <td class="ranktd">2</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.02325" target="_blank">On the effectiveness of adversarial training against common corruptions</a>
-            
-            <br>
-            <span class="td-footer">
-                Trained with RLAT and AugMix.
-            </span>
+            <a href="https://arxiv.org/abs/2004.06496" target="_blank">Certifiable Robustness to Adversarial State Uncertainty in Deep Reinforcement Learning</a>
             
         </td>
-        <td class="catd">94.75%</td>
-        <td class="aatd">89.60%</td>
+        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_CARRL/CartPole_adasearch_sigma-0.001_cmp.pdf'></td>
+        <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_CARRL/CartPole_adasearch_sigma-0.005_cmp.pdf'></td>
         
-        <td class="datatd">&#215;</td>
-        <td class="archtd">ResNet-18</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
+        <td class="datatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_CARRL/CartPole_adasearch_sigma-0.01_cmp.pdf'></td>
+        <td class="archtd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_CARRL/CartPole_adasearch_sigma-0.03_cmp.pdf'></td>
+        <td class="venuetd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_CARRL/CartPole_adasearch_sigma-0.05_cmp.pdf'></td>
+        <td class="venuetd_2"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_CARRL/CartPole_adasearch_sigma-0.1_cmp.pdf'></td>
     </tr>
     
     <tr>
         <td class="ranktd">3</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/1912.02781" target="_blank">AugMix: A Simple Data Processing Method to Improve Robustness and Uncertainty</a>
+            <a href="https://arxiv.org/abs/2003.08938" target="_blank">Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations</a>
+            
+            <br>
+            <span class="td-footer">
+                Trained with PGD regularization.
+            </span>
             
         </td>
-        <td class="catd">95.83%</td>
-        <td class="aatd">89.09%</td>
+        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegPGD/CartPole_adasearch_sigma-0.001_cmp.pdf'></td>
+        <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegPGD/CartPole_adasearch_sigma-0.005_cmp.pdf'></td>
         
-        <td class="datatd">&#215;</td>
-        <td class="archtd">ResNeXt29_32x4d</td>
-        <td class="venuetd">ICLR 2020</td>
+        <td class="datatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegPGD/CartPole_adasearch_sigma-0.01_cmp.pdf'></td>
+        <td class="archtd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegPGD/CartPole_adasearch_sigma-0.03_cmp.pdf'></td>
+        <td class="venuetd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegPGD/CartPole_adasearch_sigma-0.05_cmp.pdf'></td>
+        <td class="venuetd_2"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegPGD/CartPole_adasearch_sigma-0.1_cmp.pdf'></td>
     </tr>
     
     <tr>
         <td class="ranktd">4</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/1912.02781" target="_blank">AugMix: A Simple Data Processing Method to Improve Robustness and Uncertainty</a>
+            <a href="https://arxiv.org/abs/1312.5602" target="_blank">Playing Atari with Deep Reinforcement Learning</a>
             
         </td>
-        <td class="catd">95.08%</td>
-        <td class="aatd">88.82%</td>
+        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_StdTrain/CartPole_adasearch_sigma-0.001_cmp.pdf'></td>
+        <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_StdTrain/CartPole_adasearch_sigma-0.005_cmp.pdf'></td>
         
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-40-2</td>
-        <td class="venuetd">ICLR 2020</td>
+        <td class="datatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_StdTrain/CartPole_adasearch_sigma-0.01_cmp.pdf'></td>
+        <td class="archtd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_StdTrain/CartPole_adasearch_sigma-0.03_cmp.pdf'></td>
+        <td class="venuetd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_StdTrain/CartPole_adasearch_sigma-0.05_cmp.pdf'></td>
+        <td class="venuetd_2"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_StdTrain/CartPole_adasearch_sigma-0.1_cmp.pdf'></td>
     </tr>
     
     <tr>
         <td class="ranktd">5</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.02325" target="_blank">On the effectiveness of adversarial training against common corruptions</a>
-            
+            <a href="https://arxiv.org/abs/1712.09344" target="_blank">Whatever Does Not Kill Deep Reinforcement Learning, Makes It Stronger</a>
+
             <br>
             <span class="td-footer">
-                Trained with RLAT and AugMix without the JSD term.
+                Trained with Gaussian augmentation states.
             </span>
             
         </td>
-        <td class="catd">94.77%</td>
-        <td class="aatd">88.53%</td>
+        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GaussAug/CartPole_adasearch_sigma-0.001_cmp.pdf'></td>
+        <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GaussAug/CartPole_adasearch_sigma-0.005_cmp.pdf'></td>
         
-        <td class="datatd">&#215;</td>
-        <td class="archtd">ResNet-18</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
+        <td class="datatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GaussAug/CartPole_adasearch_sigma-0.01_cmp.pdf'></td>
+        <td class="archtd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GaussAug/CartPole_adasearch_sigma-0.03_cmp.pdf'></td>
+        <td class="venuetd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GaussAug/CartPole_adasearch_sigma-0.05_cmp.pdf'></td>
+        <td class="venuetd_2"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GaussAug/CartPole_adasearch_sigma-0.1_cmp.pdf'></td>
     </tr>
     
     <tr>
         <td class="ranktd">6</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.01946" target="_blank">Fixing Data Augmentation to Improve Adversarial Robustness</a>
+            <a href="https://arxiv.org/abs/2003.08938" target="_blank">Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations</a>
             
             <br>
             <span class="td-footer">
-                Trained for \(\ell_2 \) robustness with \(\varepsilon = 0.5\).
+                Training with convex regularization.
             </span>
             
         </td>
-        <td class="catd">92.23%</td>
-        <td class="aatd">88.23%</td>
+        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegCVX/CartPole_adasearch_sigma-0.001_cmp.pdf'></td>
+        <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegCVX/CartPole_adasearch_sigma-0.005_cmp.pdf'></td>
         
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
+        <td class="datatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegCVX/CartPole_adasearch_sigma-0.01_cmp.pdf'></td>
+        <td class="archtd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegCVX/CartPole_adasearch_sigma-0.03_cmp.pdf'></td>
+        <td class="venuetd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegCVX/CartPole_adasearch_sigma-0.05_cmp.pdf'></td>
+        <td class="venuetd_2"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_RegCVX/CartPole_adasearch_sigma-0.1_cmp.pdf'></td>
     </tr>
     
     <tr>
         <td class="ranktd">7</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2010.03593" target="_blank">Uncovering the Limits of Adversarial Training against Norm-Bounded Adversarial Examples</a>
-            
-            <br>
-            <span class="td-footer">
-                Trained for \(\ell_2 \) robustness with \(\varepsilon = 0.5\).
-            </span>
+            <a href="https://arxiv.org/abs/1712.03632" target="_blank">Robust Deep Reinforcement Learning with Adversarial Attacks</a>
             
         </td>
-        <td class="catd">94.74%</td>
-        <td class="aatd">87.68%</td>
+        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GradDQN/CartPole_adasearch_sigma-0.001_cmp.pdf'></td>
+        <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GradDQN/CartPole_adasearch_sigma-0.005_cmp.pdf'></td>
         
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Oct 2020</td>
+        <td class="datatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GradDQN/CartPole_adasearch_sigma-0.01_cmp.pdf'></td>
+        <td class="archtd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GradDQN/CartPole_adasearch_sigma-0.03_cmp.pdf'></td>
+        <td class="venuetd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GradDQN/CartPole_adasearch_sigma-0.05_cmp.pdf'></td>
+        <td class="venuetd_2"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_GradDQN/CartPole_adasearch_sigma-0.1_cmp.pdf'></td>
     </tr>
     
     <tr>
         <td class="ranktd">8</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.02325" target="_blank">On the effectiveness of adversarial training against common corruptions</a>
-            
+            <a href="https://arxiv.org/abs/1712.09344" target="_blank">Whatever Does Not Kill Deep Reinforcement Learning, Makes It Stronger</a>
+
             <br>
             <span class="td-footer">
-                Training with AugMix without the JSD term.
+                Trained with adversarial states.
             </span>
             
         </td>
-        <td class="catd">94.97%</td>
-        <td class="aatd">86.60%</td>
+        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_AdvTrain/CartPole_adasearch_sigma-0.001_cmp.pdf'></td>
+        <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_AdvTrain/CartPole_adasearch_sigma-0.005_cmp.pdf'></td>
         
-        <td class="datatd">&#215;</td>
-        <td class="archtd">ResNet-18</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">9</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.02325" target="_blank">On the effectiveness of adversarial training against common corruptions</a>
-            
-            <br>
-            <span class="td-footer">
-                Trained with 50% Gaussian noise per batch. Note: Gaussian noise is contained in CIFAR-10-C.
-            </span>
-            
-        </td>
-        <td class="catd">93.24%</td>
-        <td class="aatd">85.04%</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">ResNet-18</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">10</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2010.03593" target="_blank">Uncovering the Limits of Adversarial Training against Norm-Bounded Adversarial Examples</a>
-            
-            <br>
-            <span class="td-footer">
-                Trained for \(\ell_2 \) robustness with \(\varepsilon = 0.5\).
-            </span>
-            
-        </td>
-        <td class="catd">90.90%</td>
-        <td class="aatd">84.90%</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Oct 2020</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">11</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.02325" target="_blank">On the effectiveness of adversarial training against common corruptions</a>
-            
-            <br>
-            <span class="td-footer">
-                Trained with RLAT.
-            </span>
-            
-        </td>
-        <td class="catd">93.10%</td>
-        <td class="aatd">84.10%</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">ResNet-18</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">12</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.01946" target="_blank">Fixing Data Augmentation to Improve Adversarial Robustness</a>
-            
-            <br>
-            <span class="td-footer">
-                Trained for \(\ell_{\infty} \) robustness with \(\varepsilon = 8/255\).
-            </span>
-            
-        </td>
-        <td class="catd">92.23%</td>
-        <td class="aatd">82.82%</td>
-        
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">13</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2010.03593" target="_blank">Uncovering the Limits of Adversarial Training against Norm-Bounded Adversarial Examples</a>
-            
-            <br>
-            <span class="td-footer">
-                Trained for \(\ell_{\infty} \) robustness with \(\varepsilon = 8/255\).
-            </span>
-            
-        </td>
-        <td class="catd">91.10%</td>
-        <td class="aatd">81.84%</td>
-        
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Oct 2020</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">14</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2010.03593" target="_blank">Uncovering the Limits of Adversarial Training against Norm-Bounded Adversarial Examples</a>
-            
-            <br>
-            <span class="td-footer">
-                Trained for \(\ell_{\infty} \) robustness with \(\varepsilon = 8/255\).
-            </span>
-            
-        </td>
-        <td class="catd">85.29%</td>
-        <td class="aatd">76.37%</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Oct 2020</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">15</td>
-        <td class="methoddt">
-            <a href="https://github.com/RobustBench/robustbench/" target="_blank">Standardly trained model</a>
-            
-        </td>
-        <td class="catd">94.78%</td>
-        <td class="aatd">73.46%</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-28-10</td>
-        <td class="venuetd">N/A</td>
+        <td class="datatd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_AdvTrain/CartPole_adasearch_sigma-0.01_cmp.pdf'></td>
+        <td class="archtd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_AdvTrain/CartPole_adasearch_sigma-0.03_cmp.pdf'></td>
+        <td class="venuetd"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_AdvTrain/CartPole_adasearch_sigma-0.05_cmp.pdf'></td>
+        <td class="venuetd_2"><img src='./CartPole-v0/images/figs_0911_CartPole_ada_AdvTrain/CartPole_adasearch_sigma-0.1_cmp.pdf'></td>
     </tr>
     
     </tbody>
