@@ -210,8 +210,8 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
         </u>
       </div>
       <a class="btn btn-secondary" href="#CartPole-v0_LoAct_heading">CartPole-v0(LoAct)</a>
-      <a class="btn btn-secondary" href="#CartPole-v0_GRe_heading">CartPole-v0(GRe-mean)</a>
-      <a class="btn btn-secondary" href="#CartPole-v0_GRe_heading">CartPole-v0(GRe-median)</a>
+      <a class="btn btn-secondary" href="#CartPole-v0_GRe-mean_heading">CartPole-v0(GRe-mean)</a>
+      <a class="btn btn-secondary" href="#CartPole-v0_GRe-median_heading">CartPole-v0(GRe-median)</a>
       <a class="btn btn-secondary" href="#CartPole-v0_LoRe_heading">CartPole-v0(LoRe)</a>
       <a class="btn btn-secondary" href="#PongNoFrameskip-v4_LoAct_heading">PongNoFrameskip-v4(LoAct)</a>
       <a class="btn btn-secondary" href="#PongNoFrameskip-v4_GRe_heading">PongNoFrameskip-v4(GRe)</a>
@@ -242,16 +242,28 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       <div id="CartPole-v0_LoAct"></div>
     </section>
 
-    <section class="container" id="CartPole-v0_GRe_heading">
+    <section class="container" id="CartPole-v0_GRe-mean_heading">
       <div class="heading">
         <p>
 <!--          <div style="opacity:0;">1<br>1<br>1<br>1</div> &lt;!&ndash; Needed to introduce a margin for the navigation bar between leaderboards &ndash;&gt;-->
           Leaderboard:
-          CartPole-v0(GRe)
+          CartPole-v0(GRe-mean)
         </p>
       </div>
 
-      <div id="CartPole-v0_GRe"></div>
+      <div id="CartPole-v0_GRe-mean"></div>
+    </section>
+
+    <section class="container" id="CartPole-v0_GRe-median_heading">
+      <div class="heading">
+        <p>
+<!--          <div style="opacity:0;">1<br>1<br>1<br>1</div> &lt;!&ndash; Needed to introduce a margin for the navigation bar between leaderboards &ndash;&gt;-->
+          Leaderboard:
+          CartPole-v0(GRe-median)
+        </p>
+      </div>
+
+      <div id="CartPole-v0_GRe-median"></div>
     </section>
 
     <section class="container" id="CartPole-v0_LoRe_heading">
@@ -652,8 +664,8 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
   </script>
   <script>
     $("#CartPole-v0_LoAct").load("./CartPole-v0/LoAct.html");
-    $("#CartPole-v0_GRe").load("./CartPole-v0/GRe-mean.html");
-    $("#CartPole-v0_GRe").load("./CartPole-v0/GRe-median.html");
+    $("#CartPole-v0_GRe-mean").load("./CartPole-v0/GRe-mean.html");
+    $("#CartPole-v0_GRe-median").load("./CartPole-v0/GRe-median.html");
     $("#CartPole-v0_LoRe").load("./CartPole-v0/LoRe.html");
     $("#PongNoFrameskip-v4_LoAct").load("./PongNoFrameskip-v4/LoAct.html");
     $("#PongNoFrameskip-v4_GRe").load("./PongNoFrameskip-v4/GRe.html");
