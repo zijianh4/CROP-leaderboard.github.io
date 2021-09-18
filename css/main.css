@@ -389,7 +389,7 @@ table .catd,
 
 .box2 ul li::before {
   content: "➥";
-  display: inline-block;
+  /*display: inline-block;*/
   margin-right: 1rem;
 }
 
