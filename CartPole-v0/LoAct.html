@@ -390,16 +390,17 @@ span.onclick = function() {
 </script> -->
 
 <script>
+    var modal = document.getElementsByClassName('modal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementsByClassName('ori_img');
+    var modalImg = document.getElementsByClassName("modal-content");
+    // var captionText = document.getElementsByTagName("caption");
+    var span = document.getElementsByClassName("close");
     function AddImgClickEvent()
     {
         // Get the modal
-        var modal = document.getElementsByClassName('modal');
-
-        // Get the image and insert it inside the modal - use its "alt" text as a caption
-        var img = document.getElementsByClassName('ori_img');
-        var modalImg = document.getElementsByClassName("modal-content");
-        // var captionText = document.getElementsByTagName("caption");
-        var span = document.getElementsByClassName("close");
+        
         for (var i=0; i<img.length; i++){
             img[i].onclick = function(){
                 modal[i].style.display = "block";
