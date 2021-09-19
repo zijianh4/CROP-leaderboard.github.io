@@ -182,13 +182,25 @@
             
         </td>
         <td class="catd">
-            <!-- <style type="text/css">
-                .pic img:nth-of-type(2){display: none; width: 200%; position: absolute;}
-                .pic:hover img:nth-of-type(2){display: block;}
-            </style> -->
-            <img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.001.pdf'>
-            <!-- <img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.001.pdf'> -->
+            <img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.001.pdf' onmousemove="enlargeImg()" id="img1">
         </td>
+        <script>
+            // Get the img object using its Id
+            img = document.getElementById("img1");
+            // Function to increase image size
+            function enlargeImg() {
+                // Set image size to 1.5 times original
+                img.style.transform = "scale(1.5)";
+                // Animation effect 
+                img.style.transition = "transform 0.25s ease";
+            }
+            // Function to reset image size
+            function resetImg() {
+                // Set image size to original
+                img.style.transform = "scale(1)";
+                img.style.transition = "transform 0.25s ease";
+          }
+        </script>
         <td class="aatd"><img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.005.pdf'></td>
         
         <td class="datatd"><img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.01.pdf'></td>
