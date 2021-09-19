@@ -239,7 +239,7 @@
         function enlargeImg(id) {
             img = document.getElementById(id);
             // Set image size to 1.5 times original
-            img.style.transform = "scale(5.0)";
+            img.style.transform = "scale3d(1)";
             // img.style.position = "absolute";
             // img.style.zIndex = 2;
             // Animation effect 
@@ -249,7 +249,7 @@
         function resetImg(id) {
             img = document.getElementById(id);
             // Set image size to original
-            img.style.transform = "scale(0.2)";
+            img.style.transform = "scale3d(1)";
             // img.style.position = "absolute";
             // img.style.zIndex = 1;
             img.style.transition = "transform 0.25s ease";
