@@ -182,7 +182,7 @@
             
         </td>
         <td class="catd">
-            <img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.001.pdf' onmousemove="enlargeImg()" id="img1">
+            <img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.001.pdf' onmousemove="enlargeImg()" onmouseout="resetImg()" id="img1">
         </td>
         <script>
             // Get the img object using its Id
@@ -190,7 +190,7 @@
             // Function to increase image size
             function enlargeImg() {
                 // Set image size to 1.5 times original
-                img.style.transform = "scale(1.5)";
+                img.style.transform = "scale(5.0)";
                 // Animation effect 
                 img.style.transition = "transform 0.25s ease";
             }
