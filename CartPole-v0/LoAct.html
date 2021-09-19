@@ -34,7 +34,7 @@
 }
 
 /* Caption of Modal Image */
-#caption {
+/*#caption {
   margin: auto;
   display: block;
   width: 80%;
@@ -43,10 +43,11 @@
   color: #ccc;
   padding: 10px 0;
   height: 150px;
-}
+}*/
 
 /* Add Animation */
-.modal-content, #caption {  
+/*.modal-content, #caption { */
+.modal-content { 
   animation-name: zoom;
   animation-duration: 0.6s;
 }
@@ -116,7 +117,6 @@
             <div id="myModal3" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img03">
-              <div id="caption3"></div>
             </div>
         </td>
         <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.005.pdf'></td>
@@ -279,7 +279,7 @@
             <div id="myModal1" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img01">
-              <div id="caption1"></div>
+              <!-- <div id="caption1"></div> -->
             </div>
         </td>
         <!-- <script>
@@ -307,7 +307,7 @@
             <div id="myModal2" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img02">
-              <div id="caption2"></div>
+              <!-- <div id="caption2"></div> -->
             </div>
         </td>
         <!-- <script>
@@ -396,14 +396,14 @@ var modal = document.getElementsByTagName('myModal');
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = document.getElementsByTagName('myImg');
 var modalImg = document.getElementsByTagName("img");
-var captionText = document.getElementsByTagName("caption");
+// var captionText = document.getElementsByTagName("caption");
 var span = document.getElementsByTagName("close");
 for (var i=0; i<img.length; i++)
 {
     img[i].onclick = function(){
         modal[i].style.display = "block";
         modalImg[i].src = this.src;
-        captionText[i].innerHTML = this.alt;
+        // captionText[i].innerHTML = this.alt;
     }
     // When the user clicks on <span> (x), close the modal
     span[i][0].onclick = function() { 
