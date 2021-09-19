@@ -399,7 +399,7 @@ span.onclick = function() {
         var img = document.getElementsByClassName('ori_img');
         var modalImg = document.getElementsByClassName("modal-content");
         // var captionText = document.getElementsByTagName("caption");
-        var span = document.getElementsByClassName("close");
+        var span = document.getElementsByClassName("close")[0];
         for (var i=0; i<img.length; i++){
             img[i].onclick = function(){
                 modal[i].style.display = "block";
@@ -407,7 +407,7 @@ span.onclick = function() {
                 // captionText[i].innerHTML = this.alt;
             }
             // When the user clicks on <span> (x), close the modal
-            span[i].onclick = function() { 
+            span.onclick = function() { 
                 modal[i].style.display = "none";
             }
         }
