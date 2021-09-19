@@ -26,7 +26,25 @@
             <a href="https://arxiv.org/abs/2004.06496" target="_blank">CARRL</a>
             
         </td>
-        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.pdf'></td>
+        <td class="catd"><img src='./CartPole-v0/images/figs_0911_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.pdf' onmousemove="enlargeImg()" onmouseout="resetImg()" id="img1-1">
+        </td>
+        <script>
+            // Get the img object using its Id
+            img = document.getElementById("img1-1");
+            // Function to increase image size
+            function enlargeImg() {
+                // Set image size to 1.5 times original
+                img.style.transform = "scale(6.0)";
+                // Animation effect 
+                img.style.transition = "transform 0.25s ease";
+            }
+            // Function to reset image size
+            function resetImg() {
+                // Set image size to original
+                img.style.transform = "scale(1)";
+                img.style.transition = "transform 0.25s ease";
+            }
+        </script>
         <td class="aatd"><img src='./CartPole-v0/images/figs_0911_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.005.pdf'></td>
         
         <td class="datatd"><img src='./CartPole-v0/images/figs_0911_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.01.pdf'></td>
