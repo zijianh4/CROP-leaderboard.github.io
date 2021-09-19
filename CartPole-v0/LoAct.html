@@ -390,26 +390,29 @@ span.onclick = function() {
 </script> -->
 
 <script>
-// Get the modal
-var modal = document.getElementsByClassName('modal');
+    function AddImgClickEvent()
+    {
+        // Get the modal
+        var modal = document.getElementsByClassName('modal');
 
-// Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementsByTagName('ori_img');
-var modalImg = document.getElementsByClassName("modal-content");
-// var captionText = document.getElementsByTagName("caption");
-var span = document.getElementsByClassName("close");
-for (var i=0; i<img.length; i++)
-{
-    img[i].onclick = function(){
-        modal[i].style.display = "block";
-        modalImg[i].src = this.src;
-        // captionText[i].innerHTML = this.alt;
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementsByTagName('ori_img');
+        var modalImg = document.getElementsByClassName("modal-content");
+        // var captionText = document.getElementsByTagName("caption");
+        var span = document.getElementsByClassName("close");
+        for (var i=0; i<img.length; i++){
+            img[i].onclick = function(){
+                modal[i].style.display = "block";
+                modalImg[i].src = this.src;
+                // captionText[i].innerHTML = this.alt;
+            }
+            // When the user clicks on <span> (x), close the modal
+            span[i].onclick = function() { 
+                modal[i].style.display = "none";
+            }
+        }
     }
-    // When the user clicks on <span> (x), close the modal
-    span[i].onclick = function() { 
-        modal[i].style.display = "none";
-    
-}
+    AddImgClickEvent();
 </script>
 
 <script>
