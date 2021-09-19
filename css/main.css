@@ -340,12 +340,12 @@ table .arch {
 table .venue {
   width: 12%;
 }
-table .rank {
+/*table .rank {
   width: 7%;
 }
 table .method {
   width: 15%;
-}
+}*/
 table .extra-data {
   width: 8%;
 }
