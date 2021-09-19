@@ -284,7 +284,7 @@ section .heading {
 
 .datatable td {
   text-align: center;
-  padding-right: 20px;
+  /*padding-right: 20px;*/
 }
 
 .td-footer {
