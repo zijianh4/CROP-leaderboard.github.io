@@ -210,6 +210,9 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       </div>
       <a class="btn btn-secondary" href="#leaderboard-CartPole">CartPole-v0</a>
       <a class="btn btn-secondary" href="#leaderboard-Pong">PongNoFrameskip-v4</a>
+      <a class="btn btn-secondary" href="#leaderboard-Freeway">FreewayNoFrameskip-v4</a>
+      <a class="btn btn-secondary" href="#leaderboard-Boxing">BoxingNoFrameskip-v4</a>
+      <a class="btn btn-secondary" href="#leaderboard-Breakout">BreakoutNoFrameskip-v4</a>
     </div>
 
     <div id="leaderboard-CartPole" class="container button-list">
@@ -225,18 +228,18 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       <!-- <a class="btn btn-secondary" href="#PongNoFrameskip-v4_LoAct_heading">PongNoFrameskip-v4 (LoAct)</a>
       <a class="btn btn-secondary" href="#PongNoFrameskip-v4_GRe_heading">PongNoFrameskip-v4 (GRe)</a>
       <a class="btn btn-secondary" href="#PongNoFrameskip-v4_LoRe_heading">PongNoFrameskip-v4 (LoRe)</a> -->
-      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoAct_heading">FreewayNoFrameskip-v4 (LoAct)</a>
+      <!-- <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoAct_heading">FreewayNoFrameskip-v4 (LoAct)</a>
       <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_GRe_heading">FreewayNoFrameskip-v4 (GRe)</a>
-      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoRe_heading">FreewayNoFrameskip-v4 (LoRe)</a>
-      <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_LoAct_heading">BoxingNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoRe_heading">FreewayNoFrameskip-v4 (LoRe)</a> -->
+      <!-- <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_LoAct_heading">BoxingNoFrameskip-v4 (LoAct)</a>
       <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_GRe_heading">BoxingNoFrameskip-v4 (GRe)</a>
-      <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_LoRe_heading">BoxingNoFrameskip-v4 (LoRe)</a>
-      <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_LoAct_heading">BreakoutNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_LoRe_heading">BoxingNoFrameskip-v4 (LoRe)</a> -->
+      <!-- <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_LoAct_heading">BreakoutNoFrameskip-v4 (LoAct)</a>
       <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_GRe_heading">BreakoutNoFrameskip-v4 (GRe)</a>
-      <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_LoRe_heading">BreakoutNoFrameskip-v4 (LoRe)</a>
-      <a class="btn btn-secondary" href="#div_imagenet_Linf_heading">ImageNet (\( \ell_\infty\))</a>
+      <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_LoRe_heading">BreakoutNoFrameskip-v4 (LoRe)</a> -->
+      <!-- <a class="btn btn-secondary" href="#div_imagenet_Linf_heading">ImageNet (\( \ell_\infty\))</a>
       <a class="btn btn-secondary" href="#div_imagenet_corruptions_heading">ImageNet (Corruptions)</a>
-    </div>
+    </div> -->
 
 
     <section class="container" id="CartPole-v0_LoAct_heading">
@@ -334,6 +337,17 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       <div id="PongNoFrameskip-v4_LoRe"></div>
     </section>
 
+    <div id="leaderboard-Freeway" class="container button-list">
+      <div class="heading">
+        <u>
+          FreewayNoFrameskip-v4
+        </u>
+      </div>
+      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoAct_heading">FreewayNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_GRe_heading">FreewayNoFrameskip-v4 (GRe)</a>
+      <a class="btn btn-secondary" href="#FreewayNoFrameskip-v4_LoRe_heading">FreewayNoFrameskip-v4 (LoRe)</a>
+    </div>
+
     <section>
       <div class="heading" id="FreewayNoFrameskip-v4_LoAct_heading">
         <p>
@@ -369,6 +383,17 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
 
       <div id="FreewayNoFrameskip-v4_LoRe"></div>
     </section>
+
+    <div id="leaderboard-Boxing" class="container button-list">
+      <div class="heading">
+        <u>
+          BoxingNoFrameskip-v4
+        </u>
+      </div>
+      <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_LoAct_heading">BoxingNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_GRe_heading">BoxingNoFrameskip-v4 (GRe)</a>
+      <a class="btn btn-secondary" href="#BoxingNoFrameskip-v4_LoRe_heading">BoxingNoFrameskip-v4 (LoRe)</a>
+    </div>
 
     <section>
       <div class="heading" id="BoxingNoFrameskip-v4_LoAct_heading">
@@ -406,6 +431,17 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       <div id="BoxingNoFrameskip-v4_LoRe"></div>
     </section>
 
+    <div id="leaderboard-Breakout" class="container button-list">
+      <div class="heading">
+        <u>
+          BreakoutNoFrameskip-v4
+        </u>
+      </div>
+      <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_LoAct_heading">BreakoutNoFrameskip-v4 (LoAct)</a>
+      <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_GRe_heading">BreakoutNoFrameskip-v4 (GRe)</a>
+      <a class="btn btn-secondary" href="#BreakoutNoFrameskip-v4_LoRe_heading">BreakoutNoFrameskip-v4 (LoRe)</a>
+    </div>
+
     <section>
       <div class="heading" id="BreakoutNoFrameskip-v4_LoAct_heading">
         <p>
@@ -442,10 +478,10 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       <div id="BreakoutNoFrameskip-v4_LoRe"></div>
     </section>
 
-    <section>
+    <!-- <section>
       <div class="heading" id="div_imagenet_Linf_heading">
         <p>
-          <div style="opacity:0;">1<br>1<br>1<br>1</div> <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          <div style="opacity:0;">1<br>1<br>1<br>1</div> 
           Leaderboard:
           <span class="heading-math">ImageNet, \( \ell_\infty = 4/255 \)</span>,
           untargeted attack
@@ -458,7 +494,7 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
     <section>
       <div class="heading" id="div_imagenet_corruptions_heading">
         <p>
-          <div style="opacity:0;">1<br>1<br>1<br>1</div> <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          <div style="opacity:0;">1<br>1<br>1<br>1</div> 
           Leaderboard:
           <span class="heading-math">ImageNet, Common Corruptions</span>,
           ImageNet-C
@@ -466,7 +502,7 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       </div>
 
       <div id="div_imagenet_corruptions"></div>
-    </section>
+    </section> -->
 
     <div class="vspace30"></div>
 
@@ -699,7 +735,7 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
     $("#BreakoutNoFrameskip-v4_LoAct").load("./BreakoutNoFrameskip-v4/LoAct.html");
     $("#BreakoutNoFrameskip-v4_GRe").load("./BreakoutNoFrameskip-v4/GRe.html");
     $("#BreakoutNoFrameskip-v4_LoRe").load("./BreakoutNoFrameskip-v4/LoRe.html");
-    $("#div_imagenet_Linf").load("./imagenet/Linf.html");
-    $("#div_imagenet_corruptions").load("./imagenet/corruptions.html");
+    // $("#div_imagenet_Linf").load("./imagenet/Linf.html");
+    // $("#div_imagenet_corruptions").load("./imagenet/corruptions.html");
   </script>
 </body>
