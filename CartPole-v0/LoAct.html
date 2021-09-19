@@ -112,7 +112,7 @@
             
         </td>
         <td class="catd" id="myModal3">
-            <img src='./CartPole-v0/images/figs_0911_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.pdf' id="myImg3" alt="Northern Lights, Norway">
+            <img src='./CartPole-v0/images/figs_0911_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.pdf' class="ori_img" id="myImg3" alt="Northern Lights, Norway">
             <!-- The Modal -->
             <div id="myModal3" class="modal">
               <span class="close">&times;</span>
@@ -274,7 +274,7 @@
             
         </td>
         <td class="catd" id="myModal1">
-            <img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.001.pdf' id="myImg1" alt="Northern Lights, Norway">
+            <img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.001.pdf' class="ori_img" id="myImg1" alt="Northern Lights, Norway">
             <!-- The Modal -->
             <div id="myModal1" class="modal">
               <span class="close">&times;</span>
@@ -302,7 +302,7 @@
             }
         </script> -->
         <td class="aatd" id="'myModal2'">
-            <img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.005.pdf' id="myImg2" alt="Northern Lights, Norway">
+            <img src='./CartPole-v0/images/figs_0917_CartPole_stepwise/CartPole_stepwise_sigma-0.005.pdf' class="ori_img" id="myImg2" alt="Northern Lights, Norway">
             <!-- The Modal -->
             <div id="myModal2" class="modal">
               <span class="close">&times;</span>
@@ -391,11 +391,11 @@ span.onclick = function() {
 
 <script>
 // Get the modal
-var modal = document.getElementsByTagName('myModal');
+var modal = document.getElementsByClassName('modal');
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
-var img = document.getElementsByTagName('myImg');
-var modalImg = document.getElementsByTagName("img");
+var img = document.getElementsByTagName('ori_img');
+var modalImg = document.getElementsByClassName("modal-content");
 // var captionText = document.getElementsByTagName("caption");
 var span = document.getElementsByClassName("close");
 for (var i=0; i<img.length; i++)
