@@ -401,7 +401,7 @@ span.onclick = function() {
     {
         // Get the modal
         
-        for (var i=0; i<img.length; i++){
+        for (let i=0; i<img.length; i++){
             img[i].onclick = function(){
                 modal[i].style.display = "block";
                 modalImg[i].src = this.src;
