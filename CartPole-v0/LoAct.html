@@ -239,7 +239,8 @@
         function enlargeImg(id) {
             img = document.getElementById(id);
             // Set image size to 1.5 times original
-            img.style.transform = "scale(5)";
+            // img.style.transform = "scale(5)";
+            img.style.width = 500%;
             img.style.transformStyle = "preserve-3d";
             // img.style.position = "absolute";
             // img.style.zIndex = 2;
@@ -250,7 +251,8 @@
         function resetImg(id) {
             img = document.getElementById(id);
             // Set image size to original
-            img.style.transform = "scale(1)";
+            // img.style.transform = "scale(1)";
+            mg.style.width = 100%;
             img.style.transformStyle = "preserve-3d";
             // img.style.position = "absolute";
             // img.style.zIndex = 1;
