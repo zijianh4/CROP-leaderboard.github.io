@@ -117,6 +117,7 @@
             <div id="myModal1-1" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img1-1">
+              <div class="caption"></div>
             </div>
         </td>
         <td class="aatd">
@@ -124,6 +125,7 @@
             <div id="myModal1-2" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img1-2">
+              <div class="caption"></div>
             </div>
         </td>
         
@@ -132,6 +134,7 @@
             <div id="myModal1-3" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img1-3">
+              <div class="caption"></div>
             </div>
         </td>
         <td class="archtd">
@@ -139,6 +142,7 @@
             <div id="myModal1-4" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img1-4">
+              <div class="caption"></div>
             </div>
         </td>
         <td class="venuetd"><img src='./CartPole-v0/images/figs_0911_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.05.pdf'></td>
@@ -413,7 +417,7 @@ span.onclick = function() {
     // Get the image and insert it inside the modal - use its "alt" text as a caption
     var img = document.getElementsByClassName('ori_img');
     var modalImg = document.getElementsByClassName("modal-content");
-    var captionText = document.getElementsByTagName("caption");
+    var captionText = document.getElementsByClassName("caption");
     var span = document.getElementsByClassName("close");
     function AddImgClickEvent()
     {
