@@ -512,44 +512,6 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       </div>
 
       <p class="qa-box">
-        <span class="question">&#10148; Wait, how does this leaderboard differ from the
-          <a href="https://github.com/fra31/auto-attack">AutoAttack leaderboard</a>? 🤔
-        </span>
-        <br />
-        <span class="answer"> The <a href="https://github.com/fra31/auto-attack">AutoAttack leaderboard</a> is
-          maintained simultaneously
-          with the <strong>RobustBench</strong> L2 / Linf leaderboards by <a href="https://github.com/fra31">Francesco
-            Croce</a>, and all
-          the changes to either of them will be synchronized (given that the 3 restrictions on the models are met
-          for the <strong>RobustBench</strong> leaderboard). One can see the current L2 / Linf
-          <strong>RobustBench</strong> leaderboard as a
-          continuously updated fork of the <a href="https://github.com/fra31/auto-attack">AutoAttack leaderboard</a>
-          extended
-          by adaptive evaluations, Model Zoo, and clear restrictions on the models we accept. And in the future,
-          we will extend <strong>RobustBench</strong> with other threat models and potentially with a different
-          standardized attack
-          if it's shown to perform better than AutoAttack.
-        </span>
-      </p>
-
-      <p class="qa-box">
-        <span class="question">&#10148; Wait, how is it different from
-          <a href="https://www.robust-ml.org/">robust-ml.org</a>? 🤔
-        </span>
-        <br />
-        <span class="answer"><a href="https://www.robust-ml.org/">robust-ml.org</a> focuses on
-          <em>adaptive</em> evaluations, but we provide a
-          <strong>standardized benchmark</strong>. Adaptive evaluations are
-          great (e.g., see
-          <a href="https://arxiv.org/abs/2002.08347">Tramer et al., 2020</a>),
-          but very time-consuming and cannot be standardized. Instead, we argue
-          that one can estimate robustness accurately <em>without</em> adaptive
-          attacks but for this one has to introduce some restrictions on the
-          considered models. See <a href="https://arxiv.org/abs/2010.09670">our paper</a> for more details.
-        </span>
-      </p>
-
-      <p class="qa-box">
         <span class="question">&#10148; How is it related to libraries like
           <a href="https://github.com/bethgelab/foolbox">foolbox</a> /
           <a href="https://github.com/tensorflow/cleverhans">cleverhans</a> /
@@ -558,8 +520,8 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
         <br />
         <span class="answer">These libraries provide implementations of different
           <em>attacks</em>. Besides the standardized benchmark,
-          <strong>RobustBench</strong> additionally provides a repository of the
-          most robust models. So you can start using the robust models in one
+          <strong>CROP</strong> additionally provides a repository of the
+          most robust models' certification. So you can compare different reinforcement learning algorithm in one
           line of code (see the tutorial
           <a href="https://github.com/RobustBench/robustbench#model-zoo-quick-tour">here</a>).</span>
       </p>
@@ -582,20 +544,6 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
           (<a href="https://arxiv.org/abs/1911.09665">Xie et al. (2019)</a>, <a
             href="https://arxiv.org/abs/1905.01034">Kang et al. (2019)</a>),
           stabilization of GAN training (<a href="https://arxiv.org/abs/2008.03364">Zhong et al. (2020)</a>).</span>
-      </p>
-
-      <p class="qa-box">
-        <span class="question">&#10148; What about verified adversarial robustness? 🤔
-        </span>
-        <br />
-        <span class="answer">We specifically focus on defenses which improve
-          <em>empirical</em> robustness, given the lack of clarity regarding
-          which approaches really improve robustness and which only make some
-          particular attacks unsuccessful. For methods targeting verified
-          robustness, we encourage the readers to check out
-          <a href="https://arxiv.org/abs/1902.08722">Salman et al. (2019)</a>
-          and <a href="https://arxiv.org/abs/2009.04131">Li et al. (2020)</a>.
-        </span>
       </p>
 
       <p class="qa-box">
@@ -628,11 +576,14 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       <div
         style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.0em .0em .0em .0em;padding:.2em .6em;">
         <pre style="margin: 0; line-height: 125%"><span style="color: #555555; font-weight: bold">@article</span>{croce2020robustbench,
-    title<span style="color: #333333">=</span>{RobustBench: a standardized adversarial robustness benchmark},
-    author<span style="color: #333333">=</span>{Croce, Francesco <span style="color: #000000; font-weight: bold">and</span> Andriushchenko, Maksym <span style="color: #000000; font-weight: bold">and</span> Sehwag, Vikash <span style="color: #000000; font-weight: bold">and</span> Debenedetti, Edoardo <span style="color: #000000; font-weight: bold">and</span> Flammarion, Nicolas
-    <span style="color: #000000; font-weight: bold">and</span> Chiang, Mung <span style="color: #000000; font-weight: bold">and</span> Mittal, Prateek <span style="color: #000000; font-weight: bold">and</span> Matthias Hein},
-    journal<span style="color: #333333">=</span>{arXiv preprint arXiv:2010.09670},
-    year<span style="color: #333333">=</span>{2020}
+    title<span style="color: #333333">=</span>{CROP: Certifying Robust Policies for Reinforcement Learning through Functional Smoothing},
+    author<span style="color: #333333">=</span>{Fan Wu <span style="color: #000000; font-weight: bold">and</span> Linyi Li <span style="color: #000000; font-weight: bold">and</span> Zijian Huang <span style="color: #000000; font-weight: bold">and</span> Yevgeniy Vorobeychik <span style="color: #000000; font-weight: bold">and</span> Ding Zhao
+    <span style="color: #000000; font-weight: bold">and</span> Bo Li},
+    year<span style="color: #333333">=</span>{2021},
+    eprint<span style="color: #333333">=</span>{2106.09292},
+    archivePrefix<span style="color: #333333">=</span>{arXiv},
+    primaryClass<span style="color: #333333">=</span>{cs.LG}
+    <!-- journal<span style="color: #333333">=</span>{arXiv preprint arXiv:2010.09670}, -->
 }</pre>
       </div>
 
@@ -663,29 +614,17 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
           </div>
           <ul>
             <li>
-              <a href="https://twitter.com/fra__31" target="_blank">Francesco Croce
+              <a href="https://kkkkahlua.github.io/" target="_blank">Fan Wu
               </a>
-              <a href="https://twitter.com/fra__31"><i class="fas fa-globe"></i></a>
-              <a href="https://github.com/fra31"><i class="fab fa-github"></i></a>
-              <a href="https://scholar.google.com/citations?user=laq9cq0AAAAJ"><i class="ai ai-google-scholar"></i></a>
+              <a href="https://kkkkahlua.github.io/"><i class="fas fa-globe"></i></a>
+              <a href="https://github.com/kkkkahlua"><i class="fab fa-github"></i></a>
+              <a href="https://scholar.google.com/citations?user=xWuB--YAAAAJ&hl=en"><i class="ai ai-google-scholar"></i></a>
             </li>
             <li>
-              <a href="https://people.epfl.ch/maksym.andriushchenko" target="_blank">Maksym Andriushchenko</a>
-              <a href="https://people.epfl.ch/maksym.andriushchenko"><i class="fas fa-globe"></i></a>
-              <a href="https://github.com/max-andr"><i class="fab fa-github"></i></a>
-              <a href="https://scholar.google.com/citations?user=ZNtuJYoAAAAJ"><i class="ai ai-google-scholar"></i></a>
-            </li>
-            <li>
-              <a href="https://vsehwag.github.io/" target="_blank">Vikash Sehwag</a>
-              <a href="https://vsehwag.github.io/"><i class="fas fa-globe"></i></a>
-              <a href="https://github.com/VSehwag"><i class="fab fa-github"></i></a>
-              <a href="https://scholar.google.com/citations?user=JAkeEG8AAAAJ"><i class="ai ai-google-scholar"></i></a>
-            </li>
-            <li>
-              <a href="https://edoardo.science" target="_blank">Edoardo Debenedetti</a>
-              <a href="https://edoardo.science"><i class="fas fa-globe"></i></a>
-              <a href="https://github.com/dedeswim"><i class="fab fa-github"></i></a>
-              <a href="https://twitter.com/edoardo_debe"><i class="fab fa-twitter"></i></a>
+              <a href="https://zijianh4.github.io" target="_blank">Zijian Huang</a>
+              <a href="https://zijianh4.github.io"><i class="fas fa-globe"></i></a>
+              <a href="https://github.com/zijianh4"><i class="fab fa-github"></i></a>
+              <a href="https://scholar.google.com/citations?user=kJMFTw0AAAAJ&hl=en"><i class="ai ai-google-scholar"></i></a>
             </li>
           </ul>
         </div>
