@@ -276,7 +276,6 @@ section .heading {
   border-collapse: collapse;
   table-layout: fixed;
   word-wrap: break-word;
-  background-color: white;
 }
 
 .datatable thead,
@@ -291,7 +290,6 @@ section .heading {
 
 .datatable td {
   text-align: center;
-  background-color: white;
   /*padding-right: 20px;*/
 }
 
