@@ -291,6 +291,7 @@ section .heading {
 
 .datatable td {
   text-align: center;
+  background-color: white;
   /*padding-right: 20px;*/
 }
 
