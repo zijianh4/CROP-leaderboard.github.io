@@ -31,7 +31,8 @@ a {
 
 .container,
 footer {
-  max-width: 1250px;
+  /*max-width: 1250px;*/
+  max-width: 1300px;
   margin: 0px auto;
 }
 
