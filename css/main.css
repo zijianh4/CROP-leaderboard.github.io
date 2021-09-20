@@ -51,7 +51,8 @@ footer {
   position: fixed;
   background-color: whitesmoke;
   margin-bottom: 30px;
-  background-image: linear-gradient(to bottom, #f4a460, white);
+  /*background-image: linear-gradient(to bottom, #f4a460, white);*/
+  background-image: linear-gradient(to bottom, #6082B6, white);
   top: 0;
   width: 100%;
   z-index: 1;
