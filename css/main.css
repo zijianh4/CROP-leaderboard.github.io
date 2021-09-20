@@ -251,8 +251,7 @@ section .heading {
   font-size: 1.6em;
   font-weight: normal;
   margin-top: 20px;
-  /*margin-bottom: 0px;*/
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   text-align: center;
 }
 
