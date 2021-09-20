@@ -365,14 +365,12 @@ table .ca {
   width: 10%;
 }
 
-table .aatd,
-.catd,
-.methoddt,
+table .methoddt,
 .aa-extd {
   font-size: 1.1em;
 }
 
-table .datatd, .flagsd-emoji {
+table .catd, .aatd, .datatd, .archtd, .venuetd, .venuetd_2.flagsd-emoji {
   font-size: 2em;
 }
 
