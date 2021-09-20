@@ -25,6 +25,7 @@ header {
 
 a {
   text-decoration: none;
+  /*color: #f4720d;*/
   color: #6082B6;
 }
 
@@ -86,7 +87,8 @@ footer {
   margin: 0px 0px;
   border: 0;
   height: 20px;
-  background: #f58025;
+  /*background: #f58025;*/
+  background: #6082B6;
 }
 
 .header-block {
@@ -111,7 +113,8 @@ footer {
   grid-column: 2;
   grid-row: 1;
   font-size: 4em;
-  color: #f58025;
+  /*color: #f58025;*/
+  color: #6082B6;
   font-weight: bolder;
   font-variant: small-caps;
   text-align: left;
