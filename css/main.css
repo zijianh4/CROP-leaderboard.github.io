@@ -262,7 +262,8 @@ section .heading {
   margin: 0px 0px;
   border: 0;
   height: 4px;
-  background: #e87722;
+  /*background: #e87722;*/
+  background: #6082B6;
 }
 
 .datatable {
@@ -308,7 +309,8 @@ section .heading {
 .btn {
   background-color: gainsboro;
   border-color: gainsboro;
-  color: #E87722;
+  /*color: #E87722;*/
+  color: #6082B6;
   font-size: 1.2em;
   margin-right: 20px;
   margin-bottom: 10px;
@@ -319,7 +321,8 @@ section .heading {
 .btn:hover {
   background-color: #a9c4f5;
   border-color: #a9c4f5;
-  color: #E87722;
+  /*color: #E87722;*/
+  color: #6082B6;
 }
 
 .button-list .heading {
@@ -331,7 +334,8 @@ section .heading {
 
 .button-list .heading u {
   text-decoration: none;
-  border-bottom: 6px solid #E87722;
+  /*border-bottom: 6px solid #E87722;*/
+  border-bottom: 6px solid #6082B6;
 }
 
 
