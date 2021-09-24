@@ -441,7 +441,6 @@ footer {
 /* The container must be positioned relative: */
 .custom-select {
   position: relative;
-  font-family: Arial;
 }
 
 .select-selected {
