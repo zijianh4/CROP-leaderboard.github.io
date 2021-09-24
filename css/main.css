@@ -444,10 +444,6 @@ footer {
   font-family: Arial;
 }
 
-.custom-select select {
-  display: none; /*hide original SELECT element: */
-}
-
 .select-selected {
   background-color: DodgerBlue;
 }
@@ -487,11 +483,6 @@ footer {
   left: 0;
   right: 0;
   z-index: 99;
-}
-
-/* Hide the items when the select box is closed: */
-.select-hide {
-  display: none;
 }
 
 .select-items div:hover, .same-as-selected {
