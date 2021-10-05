@@ -1,33 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.datatable img {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.datatable img:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+.caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation */
+.modal-content, .caption { 
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.1)} 
+  to {transform: scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+</style>
+</head>
 <table id="PongNoFrameskip-v4_leaderboard_LoAct" class="datatable" style="width: 100%">
     <thead>
     <tr>
         <th class="rank">Rank</th>
         <th class="method">Method</th>
-        <th class="ca">
-            Standard<br/>
-            accuracy
-        </th>
-        
-        <th class="aa">
-            AutoAttack<br/>
-            robust<br/>
-            accuracy
-        </th>
-        <th class="aa-ext">
-            Best known<br/>
-            robust<br/>
-            accuracy
-        </th>
-        <th class="aa-ext">
-            AA eval.<br/>
-            potentially<br/>
-            unreliable
+        <th class="sigma_e-3">
+            &sigma; = 0.001
         </th>
         
         
-        <th class="extra-data">Extra <br/>data</th>
-        <th class="arch">Architecture</th>
-        <th class="venue">Venue</th>
+        <th class="sigma_5e-3">
+            &sigma; = 0.005
+        </th>
+        
+        <th class="sigma_1e-2">&sigma; = 0.01</th>
+        <th class="sigma_3e-2">&sigma; = 0.03</th>
+        <th class="sigma_5e-2">&sigma; = 0.05</th>
+        <th class="sigma_1e-1">&sigma; = 0.1</th>
     </tr>
     </thead>
     <tbody>
@@ -35,359 +107,727 @@
     <tr>
         <td class="ranktd">1</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.01946" target="_blank">Fixing Data Augmentation to Improve Adversarial Robustness</a>
-            
-            <br>
-            <span class="td-footer">
-                
-            </span>
+            <a href="https://arxiv.org/abs/2004.06496" target="_blank">CARRL</a>
             
         </td>
-        <td class="catd">95.74%</td>
-        <td class="aatd">82.32%</td>
+        <td class="catd" id="myModal3">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-1" alt="CartPole LoAct, model=CARRL, sigma=0.001">
+            <!-- The Modal -->
+            <div id="myModal1-1" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img1-1">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="aatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.005.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-2" alt="CartPole LoAct, model=CARRL, sigma=0.005">
+            <div id="myModal1-2" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img1-2">
+              <div class="caption"></div>
+            </div>
+        </td>
         
-        <td class="aa-extd">82.32%</td>
-        <td class="flagsd"><div class="flagsd-emoji">&#215;</div></td>
-        
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.01.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-3" alt="CartPole LoAct, model=CARRL, sigma=0.01">
+            <div id="myModal1-3" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img1-3">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.03.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-4" alt="CartPole LoAct, model=CARRL, sigma=0.03">
+            <div id="myModal1-4" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img1-4">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.05.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-5" alt="CartPole LoAct, model=CARRL, sigma=0.05">
+            <div id="myModal1-5" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img1-5">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.1.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-6" alt="CartPole LoAct, model=CARRL, sigma=0.1">
+            <div id="myModal1-6" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img1-6">
+              <div class="caption"></div>
+            </div>
+        </td>
     </tr>
     
     <tr>
         <td class="ranktd">2</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2010.03593" target="_blank">Uncovering the Limits of Adversarial Training against Norm-Bounded Adversarial Examples</a>
+            <a href="https://arxiv.org/abs/1706.10295" target="_blank">NoisyNet</a>
             
         </td>
-        <td class="catd">94.74%</td>
-        <td class="aatd">80.53%</td>
+        <td class="catd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.001.png' class="ori_img" alt="CartPole LoAct, model=NoisyNet, sigma=0.001">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="aatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.005.png' class="ori_img" alt="CartPole LoAct, model=NoisyNet, sigma=0.005">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
         
-        <td class="aa-extd">80.53%</td>
-        <td class="flagsd"><div class="flagsd-emoji">&#215;</div></td>
-        
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Oct 2020</td>
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.01.png' class="ori_img" alt="CartPole LoAct, model=NoisyNet, sigma=0.01">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.03.png' class="ori_img" alt="CartPole LoAct, model=NoisyNet, sigma=0.03">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.05.png' class="ori_img" alt="CartPole LoAct, model=NoisyNet, sigma=0.05">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.1.png' class="ori_img" alt="CartPole LoAct, model=NoisyNet, sigma=0.1">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
     </tr>
     
     <tr>
         <td class="ranktd">3</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.01946" target="_blank">Fixing Data Augmentation to Improve Adversarial Robustness</a>
-            
-            <br>
-            <span class="td-footer">
-                It uses additional 1M synthetic images in training.
-            </span>
+            <a href="https://arxiv.org/abs/2008.01976" target="_blank">RadialRL</a>
             
         </td>
-        <td class="catd">92.41%</td>
-        <td class="aatd">80.42%</td>
+        <td class="catd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RadialRL/CartPole_stepwise_sigma-0.001.png' class="ori_img" alt="CartPole LoAct, model=RadialRL, sigma=0.001">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="aatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RadialRL/CartPole_stepwise_sigma-0.005.png' class="ori_img" alt="CartPole LoAct, model=RadialRL, sigma=0.005">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
         
-        <td class="aa-extd">80.42%</td>
-        <td class="flagsd"><div class="flagsd-emoji">&#215;</div></td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RadialRL/CartPole_stepwise_sigma-0.01.png' class="ori_img" alt="CartPole LoAct, model=RadialRL, sigma=0.01">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RadialRL/CartPole_stepwise_sigma-0.03.png' class="ori_img" alt="CartPole LoAct, model=RadialRL, sigma=0.03">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RadialRL/CartPole_stepwise_sigma-0.05.png' class="ori_img" alt="CartPole LoAct, model=RadialRL, sigma=0.05">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RadialRL/CartPole_stepwise_sigma-0.1.png' class="ori_img" alt="CartPole LoAct, model=RadialRL, sigma=0.1">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
     </tr>
     
     <tr>
         <td class="ranktd">4</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.01946" target="_blank">Fixing Data Augmentation to Improve Adversarial Robustness</a>
-            
-            <br>
+            <a href="https://arxiv.org/abs/1712.09344" target="_blank">AdvTrain</a>
+
+            <!-- <br>
             <span class="td-footer">
-                It uses additional 1M synthetic images in training.
-            </span>
+                Trained with adversarial states.
+            </span> -->
             
         </td>
-        <td class="catd">91.79%</td>
-        <td class="aatd">78.80%</td>
+        <td class="catd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_AdvTrain/CartPole_stepwise_sigma-0.001.png' class="ori_img" alt="CartPole LoAct, model=AdvTrain, sigma=0.001">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="aatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_AdvTrain/CartPole_stepwise_sigma-0.005.png' class="ori_img" alt="CartPole LoAct, model=AdvTrain, sigma=0.005">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
         
-        <td class="aa-extd">78.80%</td>
-        <td class="flagsd"><div class="flagsd-emoji">&#215;</div></td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-28-10</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_AdvTrain/CartPole_stepwise_sigma-0.01.png' class="ori_img" alt="CartPole LoAct, model=AdvTrain, sigma=0.01">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_AdvTrain/CartPole_stepwise_sigma-0.03.png' class="ori_img" alt="CartPole LoAct, model=AdvTrain, sigma=0.03">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_AdvTrain/CartPole_stepwise_sigma-0.05.png' class="ori_img" alt="CartPole LoAct, model=AdvTrain, sigma=0.05">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_AdvTrain/CartPole_stepwise_sigma-0.1.png' class="ori_img" alt="CartPole LoAct, model=AdvTrain, sigma=0.1">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
     </tr>
     
     <tr>
         <td class="ranktd">5</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2003.09461" target="_blank">Adversarial Robustness on In- and Out-Distribution Improves Explainability</a>
+            <a href="https://arxiv.org/abs/1712.03632" target="_blank">GradDQN</a>
             
         </td>
-        <td class="catd">93.96%</td>
-        <td class="aatd">78.79%</td>
+        <td class="catd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GradDQN/CartPole_stepwise_sigma-0.001.png' class="ori_img" alt="CartPole LoAct, model=GradDQN, sigma=0.001">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="aatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GradDQN/CartPole_stepwise_sigma-0.005.png' class="ori_img" alt="CartPole LoAct, model=GradDQN, sigma=0.005">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
         
-        <td class="aa-extd">78.79%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">WideResNet-34-10</td>
-        <td class="venuetd">ECCV 2020</td>
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GradDQN/CartPole_stepwise_sigma-0.01.png' class="ori_img" alt="CartPole LoAct, model=GradDQN, sigma=0.01">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GradDQN/CartPole_stepwise_sigma-0.03.png' class="ori_img" alt="CartPole LoAct, model=GradDQN, sigma=0.03">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GradDQN/CartPole_stepwise_sigma-0.05.png' class="ori_img" alt="CartPole LoAct, model=GradDQN, sigma=0.05">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GradDQN/CartPole_stepwise_sigma-0.1.png' class="ori_img" alt="CartPole LoAct, model=GradDQN, sigma=0.1">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
     </tr>
     
     <tr>
         <td class="ranktd">6</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2003.09461" target="_blank">Adversarial Robustness on In- and Out-Distribution Improves Explainability</a>
-            
-            <br>
-            <span class="td-footer">
-                Extra data used only as OOD dataset.
-            </span>
+            <a href="https://arxiv.org/abs/1312.5602" target="_blank">StdTrain</a>
             
         </td>
-        <td class="catd">92.23%</td>
-        <td class="aatd">76.25%</td>
+        <td class="catd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_StdTrain/CartPole_stepwise_sigma-0.001.png' class="ori_img" alt="CartPole LoAct, model=StdTrain, sigma=0.001">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="aatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_StdTrain/CartPole_stepwise_sigma-0.005.png' class="ori_img" alt="CartPole LoAct, model=StdTrain, sigma=0.005">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
         
-        <td class="aa-extd">76.25%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">WideResNet-34-10</td>
-        <td class="venuetd">ECCV 2020</td>
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_StdTrain/CartPole_stepwise_sigma-0.01.png' class="ori_img" alt="CartPole LoAct, model=StdTrain, sigma=0.01">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_StdTrain/CartPole_stepwise_sigma-0.03.png' class="ori_img" alt="CartPole LoAct, model=StdTrain, sigma=0.03">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_StdTrain/CartPole_stepwise_sigma-0.05.png' class="ori_img" alt="CartPole LoAct, model=StdTrain, sigma=0.05">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_StdTrain/CartPole_stepwise_sigma-0.1.png' class="ori_img" alt="CartPole LoAct, model=StdTrain, sigma=0.1">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
     </tr>
     
     <tr>
         <td class="ranktd">7</td>
         <td class="methoddt">
-            <a href="https://openreview.net/forum?id=BuD2LmNaU3a" target="_blank">Helper-based Adversarial Training: Reducing Excessive Margin to Achieve a Better Accuracy vs. Robustness Trade-off</a>
-            
-            <br>
+            <a href="https://arxiv.org/abs/1712.09344" target="_blank">GaussAug</a>
+
+            <!-- <br>
             <span class="td-footer">
-                It uses additional 1M synthetic images in training.
-            </span>
+                Trained with Gaussian augmentation states.
+            </span> -->
             
         </td>
-        <td class="catd">90.57%</td>
-        <td class="aatd">76.15%</td>
+        <td class="catd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.001.png' class="ori_img" alt="CartPole LoAct, model=GaussAug, sigma=0.001">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="aatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.005.png' class="ori_img" alt="CartPole LoAct, model=GaussAug, sigma=0.005">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
         
-        <td class="aa-extd">76.15%</td>
-        <td class="flagsd"><div class="flagsd-emoji">&#215;</div></td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">PreActResNet-18</td>
-        <td class="venuetd">OpenReview, Jun 2021</td>
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.01.png' class="ori_img" alt="CartPole LoAct, model=GaussAug, sigma=0.01">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.03.png' class="ori_img" alt="CartPole LoAct, model=GaussAug, sigma=0.03">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.05.png' class="ori_img" alt="CartPole LoAct, model=GaussAug, sigma=0.05">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.1.png' class="ori_img" alt="CartPole LoAct, model=GaussAug, sigma=0.1">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
     </tr>
     
     <tr>
         <td class="ranktd">8</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2104.09425" target="_blank">Improving Adversarial Robustness Using Proxy Distributions</a>
+            <a href="https://arxiv.org/abs/2003.08938" target="_blank">RegCVX</a>
             
-            <br>
+            <!-- <br>
             <span class="td-footer">
-                It uses additional ~6M synthetic images in training.
-            </span>
+                Training with convex regularization.
+            </span> -->
             
         </td>
-        <td class="catd">90.31%</td>
-        <td class="aatd">76.12%</td>
+        <td class="catd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegCVX/CartPole_stepwise_sigma-0.001.png' class="ori_img" alt="CartPole LoAct, model=RegCVX, sigma=0.001">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="aatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegCVX/CartPole_stepwise_sigma-0.005.png' class="ori_img" alt="CartPole LoAct, model=RegCVX, sigma=0.005">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
         
-        <td class="aa-extd">76.12%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-34-10</td>
-        <td class="venuetd">arXiv, Apr 2021</td>
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegCVX/CartPole_stepwise_sigma-0.01.png' class="ori_img" alt="CartPole LoAct, model=RegCVX, sigma=0.01">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegCVX/CartPole_stepwise_sigma-0.03.png' class="ori_img" alt="CartPole LoAct, model=RegCVX, sigma=0.03">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegCVX/CartPole_stepwise_sigma-0.05.png' class="ori_img" alt="CartPole LoAct, model=RegCVX, sigma=0.05">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegCVX/CartPole_stepwise_sigma-0.1.png' class="ori_img" alt="CartPole LoAct, model=RegCVX, sigma=0.1">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
     </tr>
-    
+
     <tr>
         <td class="ranktd">9</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2103.01946" target="_blank">Fixing Data Augmentation to Improve Adversarial Robustness</a>
+            <a href="https://arxiv.org/abs/2003.08938" target="_blank">RegPGD</a>
             
-            <br>
+            <!-- <br>
             <span class="td-footer">
-                It uses additional 1M synthetic images in training.
-            </span>
+                Trained with PGD regularization.
+            </span> -->
             
         </td>
-        <td class="catd">90.33%</td>
-        <td class="aatd">75.86%</td>
+        <td class="catd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.png' class="ori_img" alt="CartPole LoAct, model=RegPGD, sigma=0.001">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="aatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.005.png' class="ori_img" alt="CartPole LoAct, model=RegPGD, sigma=0.005">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
         
-        <td class="aa-extd">75.86%</td>
-        <td class="flagsd"><div class="flagsd-emoji">&#215;</div></td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">PreActResNet-18</td>
-        <td class="venuetd">arXiv, Mar 2021</td>
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.01.png' class="ori_img" alt="CartPole LoAct, model=RegPGD, sigma=0.01">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.03.png' class="ori_img" alt="CartPole LoAct, model=RegPGD, sigma=0.03">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.05.png' class="ori_img" alt="CartPole LoAct, model=RegPGD, sigma=0.05">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.1.png' class="ori_img" alt="CartPole LoAct, model=RegPGD, sigma=0.1">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+        </td>
     </tr>
-    
+
     <tr>
-        <td class="ranktd">10</td>
+        <td class="ranktd">All</td>
         <td class="methoddt">
-            <a href="https://arxiv.org/abs/2010.03593" target="_blank">Uncovering the Limits of Adversarial Training against Norm-Bounded Adversarial Examples</a>
+            All
             
         </td>
-        <td class="catd">90.90%</td>
-        <td class="aatd">74.50%</td>
-        
-        <td class="aa-extd">74.50%</td>
-        <td class="flagsd"><div class="flagsd-emoji">&#215;</div></td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-70-16</td>
-        <td class="venuetd">arXiv, Oct 2020</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">11</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2004.05884" target="_blank">Adversarial Weight Perturbation Helps Robust Generalization</a>
-            
+        <td class="catd" id="myModal1">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_stepwise_sigma-0.001.png' class="ori_img" alt="CartPole LoAct, sigma=0.001">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+            <!-- The Modal -->
+            <!-- <div id="myModal1" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img01">
+              <div id="caption1"></div> -->
+            <!-- </div> --> 
         </td>
-        <td class="catd">88.51%</td>
-        <td class="aatd">73.66%</td>
-        
-        <td class="aa-extd">73.66%</td>
-        <td class="flagsd"><div class="flagsd-emoji">&#215;</div></td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-34-10</td>
-        <td class="venuetd">NeurIPS 2020</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">12</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2104.09425" target="_blank">Improving Adversarial Robustness Using Proxy Distributions</a>
-            
-            <br>
-            <span class="td-footer">
-                It uses additional ~6M synthetic images in training.
-            </span>
-            
+        <!-- <script>
+            // Get the img object using its Id
+            // img = document.getElementById("img1");
+            // Function to increase image size
+            function enlargeImg(id) {
+                img = document.getElementById(id);
+                // Set image size to 1.5 times original
+                img.style.transform = "scale(5.0)";
+                // Animation effect 
+                img.style.transition = "transform 0.25s ease";
+            }
+            // Function to reset image size
+            function resetImg(id) {
+                img = document.getElementById(id);
+                // Set image size to original
+                img.style.transform = "scale(1)";
+                img.style.transition = "transform 0.25s ease";
+            }
+        </script> -->
+        <td class="aatd" id="'myModal2'">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_stepwise_sigma-0.005.png' class="ori_img" alt="CartPole LoAct, sigma=0.005">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
+            <!-- The Modal -->
+            <!-- <div id="myModal2" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img02">
+              <div id="caption2"></div>
+            </div> --> 
         </td>
-        <td class="catd">89.52%</td>
-        <td class="aatd">73.39%</td>
+        <!-- <script>
+            // Get the img object using its Id
+            // img = document.getElementById("img1");
+            // Function to increase image size
+            function enlargeImg(id) {
+                img = document.getElementById(id);
+                // Set image size to 1.5 times original
+                img.style.transform = "scale(5.0)";
+                // Animation effect 
+                img.style.transition = "transform 0.25s ease";
+            }
+            // Function to reset image size
+            function resetImg(id) {
+                img = document.getElementById(id);
+                // Set image size to original
+                img.style.transform = "scale(1)";
+                img.style.transition = "transform 0.25s ease";
+            }
+        </script> -->
         
-        <td class="aa-extd">73.39%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">ResNet-18</td>
-        <td class="venuetd">arXiv, Apr 2021</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">13</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2003.09461" target="_blank">Adversarial Robustness on In- and Out-Distribution Improves Explainability</a>
-            
-            <br>
-            <span class="td-footer">
-                Extra data used only as OOD dataset.
-            </span>
-            
+        <!-- <td class="datatd"><img src='./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_stepwise_sigma-0.01.png' onmousemove="enlargeImg(this.id)" onmouseout="resetImg(this.id)" id="img3"></td> -->
+        <td class="datatd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_stepwise_sigma-0.01.png' class="ori_img" alt="CartPole LoAct, sigma=0.01">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
         </td>
-        <td class="catd">91.08%</td>
-        <td class="aatd">72.91%</td>
-        
-        <td class="aa-extd">72.91%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#9745;</td>
-        <td class="archtd">ResNet-50</td>
-        <td class="venuetd">ECCV 2020</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">14</td>
-        <td class="methoddt">
-            <a href="https://github.com/MadryLab/robustness" target="_blank">Robustness library</a>
-            
+        <td class="archtd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_stepwise_sigma-0.03.png' class="ori_img" alt="CartPole LoAct, sigma=0.03">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
         </td>
-        <td class="catd">90.83%</td>
-        <td class="aatd">69.24%</td>
-        
-        <td class="aa-extd">69.24%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">ResNet-50</td>
-        <td class="venuetd">GitHub,<br>Sep 2019</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">15</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/2002.11569" target="_blank">Overfitting in adversarially robust deep learning</a>
-            
+        <td class="venuetd">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_stepwise_sigma-0.05.png' class="ori_img" alt="CartPole LoAct, sigma=0.05">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
         </td>
-        <td class="catd">88.67%</td>
-        <td class="aatd">67.68%</td>
-        
-        <td class="aa-extd">67.68%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">PreActResNet-18</td>
-        <td class="venuetd">ICML 2020</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">16</td>
-        <td class="methoddt">
-            <a href="https://arxiv.org/abs/1811.09600" target="_blank">Decoupling Direction and Norm for Efficient Gradient-Based L2 Adversarial Attacks and Defenses</a>
-            
+        <td class="venuetd_2">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_stepwise_sigma-0.1.png' class="ori_img" alt="CartPole LoAct, sigma=0.1">
+            <div class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content">
+              <div class="caption"></div>
+            </div>
         </td>
-        <td class="catd">89.05%</td>
-        <td class="aatd">66.44%</td>
-        
-        <td class="aa-extd">66.44%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-28-10</td>
-        <td class="venuetd">CVPR 2019</td>
     </tr>
-    
-    <tr>
-        <td class="ranktd">17</td>
-        <td class="methoddt">
-            <a href="https://openreview.net/forum?id=HkeryxBtPB" target="_blank">MMA Training: Direct Input Space Margin Maximization through Adversarial Training</a>
-            
-        </td>
-        <td class="catd">88.02%</td>
-        <td class="aatd">66.09%</td>
-        
-        <td class="aa-extd">66.09%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-28-4</td>
-        <td class="venuetd">ICLR 2020</td>
-    </tr>
-    
-    <tr>
-        <td class="ranktd">18</td>
-        <td class="methoddt">
-            <a href="https://github.com/RobustBench/robustbench/" target="_blank">Standardly trained model</a>
-            
-        </td>
-        <td class="catd">94.78%</td>
-        <td class="aatd">0.0%</td>
-        
-        <td class="aa-extd">0.0%</td>
-        <td class="flagsd">Unknown</td>
-        
-        <td class="datatd">&#215;</td>
-        <td class="archtd">WideResNet-28-10</td>
-        <td class="venuetd">N/A</td>
-    </tr>
+
+    <!-- <script>
+        // Get the img object using its Id
+        // img = document.getElementById("img1");
+        // Function to increase image size
+        function enlargeImg(id) {
+            img = document.getElementById(id);
+            // Set image size to 1.5 times original
+            img.style.transform = "scale(5)";
+            // img.style.zoom = 500%;
+            // img.style.transformStyle = "preserve-3d";
+            // img.style.position = "absolute";
+            // Animation effect 
+            img.style.transition = "transform 0.25s ease";
+        }
+        // Function to reset image size
+        function resetImg(id) {
+            img = document.getElementById(id);
+            // Set image size to original
+            img.style.transform = "scale(1)";
+            // img.style.zoom = 100%;
+            // img.style.transformStyle = "preserve-3d";
+            // img.style.position = "absolute";
+            img.style.transition = "transform 0.25s ease";
+        }
+    </script> -->
     
     </tbody>
 </table>
+
+<!-- <script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script> -->
+
+<script>
+    var modal = document.getElementsByClassName('modal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var img = document.getElementsByClassName('ori_img');
+    var modalImg = document.getElementsByClassName("modal-content");
+    var captionText = document.getElementsByClassName("caption");
+    var span = document.getElementsByClassName("close");
+    function AddImgClickEvent()
+    {
+        // Get the modal
+        
+        for (let i=0; i<img.length; i++){
+            img[i].onclick = function(){
+                modal[i].style.display = "block";
+                modalImg[i].src = this.src;
+                captionText[i].innerHTML = this.alt;
+            }
+            // When the user clicks on <span> (x), close the modal
+            span[i].onclick = function() { 
+                modal[i].style.display = "none";
+            }
+        }
+    }
+    AddImgClickEvent();
+</script>
+
 <script>
     $(document).ready(function () {
-        $("#PongNoFrameskip-v4_leaderboard_LoAct").DataTable({
+        $("#CartPole-v0_leaderboard_LoAct").DataTable({
             lengthMenu: [15, 25, 50, 75, 100],
             "drawCallback": function (settings) {
                 MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
@@ -395,11 +835,6 @@
             language: {
                 searchPlaceholder: "Papers, architectures, venues"
             },
-            
-            columnDefs: [
-                { width: "15%", targets: 4 },
-                { width: "15%", targets: 5 }
-            ]
             
         });
     });
