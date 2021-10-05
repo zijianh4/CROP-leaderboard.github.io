@@ -56,7 +56,8 @@
               <a class="nav-link" href="#leaderboard">Leaderboards</a>
             </li>
             <li>
-              <a class="nav-link" href="https://arxiv.org/abs/2106.09292">Paper</a>
+              <!-- <a class="nav-link" href="https://arxiv.org/abs/2106.09292">Paper</a> -->
+              <a class="nav-link" href="javascript:;">Paper</a>
             </li>
             <li>
               <a class="nav-link" href="#faq"
@@ -94,16 +95,9 @@
       <div class="overview">
         <p class="doublealign">
           The goal of <strong>CROP-leaderboard</strong> is to systematically track
-          the <em>real</em> progress in certified adversarial robustness of RL algorithms. There are
-          already thousands of papers on this topic, but it is still unclear which approaches really work
-          and which only lead to
-          <a href="https://arxiv.org/abs/1802.00420">overestimated robustness</a>. We start from benchmarking the CROP-LoAct, CROP-GRe, and CROP-LoRe proposed by our paper in different <a href="https://gym.openai.com">OpneAI gym environments</a>.  Additionally,
-          we open source the
-          <a href="https://github.com/RobustBench/robustbench">RobustBench library</a>
-          that contains models used for the leaderboard to facilitate their
-          usage for downstream applications.
+          the <em>real</em> progress in certified adversarial robustness of RL algorithms. We start from benchmarking the CROP-LoAct, CROP-GRe, and CROP-LoRe proposed by our paper in different <a href="https://gym.openai.com">OpneAI gym environments</a>. 
         </p>
-        <div class="flexbox-container features">
+        <!-- <div class="flexbox-container features">
           <div class="element">
             <div class="icon">
               <img src="https://img.icons8.com/wired/100/000000/leaderboard.png" />
@@ -122,9 +116,9 @@
               Model Zoo
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
-      <div class="details">
+      <!-- <div class="details">
         <div class="box usage">
           <p>Model Zoo</p>
           <div class="divider">
@@ -135,7 +129,7 @@
           and our
           <a href="javascript:;">Online certification API</a>.
           <div class="codeblock">
-            <div class="vspace10"></div>
+            <div class="vspace10"></div> -->
             <!--
 # !pip install git+https://github.com/RobustBench/robustbench.git@v0.2.1
 from robustbench.utils import load_model
@@ -152,7 +146,7 @@ clean_acc, robust_acc = benchmark(model,
 
             -->
             <!-- HTML generated using hilite.me -->
-            <div style="background: #ffffff; overflow:auto;width:auto;padding:.2em .6em;">
+            <!-- <div style="background: #ffffff; overflow:auto;width:auto;padding:.2em .6em;">
               <pre style="margin: 0; line-height: 125%"><span style="color: #888888"># !pip install git+https://github.com/RobustBench/robustbench@v0.2.1</span>
 <span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">robustbench.utils</span> <span style="color: #008800; font-weight: bold">import</span> load_model
 <span style="color: #888888"># Load a model from the model zoo</span>
@@ -166,11 +160,11 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
                                   dataset<span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;cifar10&#39;</span>,
                                   threat_model<span style="color: #333333">=</span><span style="background-color: #fff0f0">&#39;Linf&#39;</span>)
 </pre>
-            </div>
+            </div> -->
 
 
             <!-- HTML generated using hilite.me -->
-            <div style="
+            <!-- <div style="
                 background: #ffffff;
                 overflow: auto;
                 width: auto;
@@ -189,17 +183,17 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
             <hr />
           </div>
           Check out <a href="https://arxiv.org/abs/2106.09292">our paper</a> with a detailed analysis.
-          <div>
+          <div> -->
             <!--          <div class="scroller analysis-images">-->
-            <img class="analysis" src="./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_loact_clean.png" alt="Example figure" />
+            <!-- <img class="analysis" src="./CartPole-v0/images/figs_0920_CartPole_stepwise/CartPole_loact_clean.png" alt="Example figure" /> -->
             <!--            <img-->
             <!--              src="./images/aa_robustness_vs_standard_Linf.png"-->
             <!--              alt="robustness_vs_clean"-->
             <!--            />-->
-          </div>
+        <!--   </div>
         </div>
       </div>
-      <div class="vspace10"></div>
+      <div class="vspace10"></div> -->
     </section>
 
     <div id="leaderboard" class="container button-list">
