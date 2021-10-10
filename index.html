@@ -98,7 +98,7 @@
     <section id="introduction">
       <div class="overview">
         <p class="doublealign">
-          TThe goal of <b>CROP-leaderboard</b> is to systematically certify the robustness of different RL algorithms based on certification criteria such as per-state action and the lower bound of cumulative reward. The related paper can be found here.
+          The goal of <b>CROP-leaderboard</b> is to systematically certify the robustness of different RL algorithms based on certification criteria such as per-state action and the lower bound of cumulative reward. The related paper can be found here.
         </p>
         <!-- <div class="flexbox-container features">
           <div class="element">
@@ -205,7 +205,7 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
           Available Leaderboards
         </u>
       </div>
-      <div>
+      <div style="display: flex">
         <select id="games" style="width:150px">
           <option value="CartPole-v0">CartPole-v0</option>
           <option value="PongNoFrameskip-v4">PongNoFrameskip-v4</option>
@@ -213,8 +213,8 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
           <!-- <option value="BoxingNoFrameskip-v4">BoxingNoFrameskip-v4</option>
           <option value="BreakoutNoFrameskip-v4">BreakoutNoFrameskip-v4</option> -->
         </select>
-      </div>
-      <div>
+      <!-- </div>
+      <div> -->
         <select id="cert-methods" style="width:150px">
           <option value="LoAct">LoAct</option>
           <option value="GRe-mean">GRe-mean</option>
