@@ -206,21 +206,25 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
         </u>
       </div>
       <div style="display: flex">
-        <select id="games" style="width:150px">
-          <option value="CartPole-v0">CartPole-v0</option>
-          <option value="PongNoFrameskip-v4">PongNoFrameskip-v4</option>
-          <option value="FreewayNoFrameskip-v4">FreewayNoFrameskip-v4</option>
-          <!-- <option value="BoxingNoFrameskip-v4">BoxingNoFrameskip-v4</option>
-          <option value="BreakoutNoFrameskip-v4">BreakoutNoFrameskip-v4</option> -->
-        </select>
+        <label>Game: 
+          <select id="games" style="width:150px">
+            <option value="CartPole-v0">CartPole-v0</option>
+            <option value="PongNoFrameskip-v4">PongNoFrameskip-v4</option>
+            <option value="FreewayNoFrameskip-v4">FreewayNoFrameskip-v4</option>
+            <!-- <option value="BoxingNoFrameskip-v4">BoxingNoFrameskip-v4</option>
+            <option value="BreakoutNoFrameskip-v4">BreakoutNoFrameskip-v4</option> -->
+          </select>
+        </label>
       <!-- </div>
       <div> -->
-        <select id="cert-methods" style="width:150px">
-          <option value="LoAct">LoAct</option>
-          <option value="GRe-mean">GRe-mean</option>
-          <option value="GRe-median">GRe-median</option>
-          <option value="LoRe">LoRe</option>
-        </select>
+        <label>Certification strategy: 
+          <select id="cert-methods" style="width:150px">
+            <option value="LoAct">LoAct</option>
+            <option value="GRe-mean">GRe-mean</option>
+            <option value="GRe-median">GRe-median</option>
+            <option value="LoRe">LoRe</option>
+          </select>
+        </label>
       </div>
       <div>
         <button type="button" class="button" onclick="choice()">Certify!</button>
