@@ -32,6 +32,7 @@
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.24/js/dataTables.foundation.min.js"></script>
+  <script type="text/javascript" src="/static/js/jquery.min.js"></script>
 
   <link rel="stylesheet" href="./css/main.css" />
 </head>
@@ -590,10 +591,6 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
     </section> -->
   </div>
 
-  <div class="top">
-    <span title="Top" id="topArrow"></span>
-  </div>
-
   <hr class="bottomrule" />
 
   <footer>
@@ -647,16 +644,5 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
     // $("#BreakoutNoFrameskip-v4_LoRe").load("./BreakoutNoFrameskip-v4/LoRe.html");
     // $("#div_imagenet_Linf").load("./imagenet/Linf.html");
     // $("#div_imagenet_corruptions").load("./imagenet/corruptions.html");
-  </script>
-  <script>
-    $("#topArrow").click(function(){
-      $(document).scrollTop(0);
-    })
-  </script>
-  <script>
-    var topArrow=document.getElementById('topArrow');
-    topArrow.οnclick=function(){
-      document.scrollTop = document.body.scrollTop =0;
-    }
   </script>
 </body>
