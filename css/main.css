@@ -450,28 +450,25 @@ footer {
     width: 100%;
 }
 
-.back-to {
-    bottom: 55px;
-    overflow: hidden;
-    position: fixed;
-    right: 10px;
-    width: 110px;
-    z-index: 999;
+.top{
+  width: 50px;
+  height: 100px;
+  background-color: rgba(0,0,255,0.5);
+  border-radius: 10px;
+  position: fixed;
+  right: 100px;
+  bottom: 40%;
 }
-
-.back-to .back-top {
-    background: url("./images/top.png") no-repeat scroll 0 0 transparent;
-    display: block;
-    float: right;
-    height: 50px;
-    margin-left: 10px;
-    outline: 0 none;
-    text-indent: -9999em;
-    width: 50px;
+.top #topArrow{
+  width: 30px;
+  height: 30px;
+  border-top: 2px solid #fff;//利用border和rotate绘制向上的箭头
+  border-left: 2px solid #fff;
+  display: inline-block;
+  transform: translate(9px,35px) rotate(45deg);
+  cursor: pointer;
+  z-index: 1000;//避免被其他div遮盖
 }
-    
-.back-to .back-top:hover {
-    background-position: -50px 0
+.top #topArrow:hover{
+  border-width: 4px;
 }
-
-
