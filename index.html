@@ -649,6 +649,11 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
     // $("#div_imagenet_corruptions").load("./imagenet/corruptions.html");
   </script>
   <script>
+    $("#topArrow").click(function(){
+      $(document).scrollTop(0);
+    })
+  </script>
+  <script>
     var topArrow=document.getElementById('topArrow');
     topArrow.οnclick=function(){
       document.scrollTop = document.body.scrollTop =0;
