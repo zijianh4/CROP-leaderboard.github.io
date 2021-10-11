@@ -465,7 +465,7 @@ footer {
   border-top: 2px solid #fff;//利用border和rotate绘制向上的箭头
   border-left: 2px solid #fff;
   display: inline-block;
-  transform: translate(9px,35px) rotate(45deg);
+  /*transform: translate(9px,35px) rotate(45deg);*/
   cursor: pointer;
   z-index: 1000;//避免被其他div遮盖
 }
