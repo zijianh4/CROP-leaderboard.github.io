@@ -112,7 +112,7 @@
             
         </td>
         <td class="catd" id="myModal3">
-            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-1" alt="CartPole LoAct, model=CARRL, sigma=0.001">
+            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-0.001" alt="CartPole LoAct, model=CARRL, sigma=0.001">
             <!-- The Modal -->
             <div id="myModal1-1" class="modal">
               <span class="close">&times;</span>
@@ -813,6 +813,8 @@ span.onclick = function() {
         
         for (let i=0; i<img.length; i++){
             img[i].onclick = function(){
+                // window.location.href = "./Interactive_LoAct/CARRL_1e-3.html"
+                window.open("./Interactive_LoAct/"+img[i].id+".html")
                 modal[i].style.display = "block";
                 modalImg[i].src = this.src;
                 captionText[i].innerHTML = this.alt;
