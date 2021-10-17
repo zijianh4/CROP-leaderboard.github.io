@@ -814,9 +814,9 @@ span.onclick = function() {
         for (let i=0; i<img.length; i++){
             img[i].onclick = function(){
                 // window.location.href = "./Interactive_LoAct/CARRL_1e-3.html"
-                let tempwindow = window.open('_blank');
-                tempwindow.location = "https://crop-leaderboard.me/CartPole-v0/Interactive_LoAct/"+img[i].id+".html"
-                // window.open("https://crop-leaderboard.me/CartPole-v0/Interactive_LoAct/"+img[i].id+".html")
+                // let tempwindow = window.open('_blank');
+                // tempwindow.location = "https://crop-leaderboard.me/CartPole-v0/Interactive_LoAct/"+img[i].id+".html"
+                window.open("https://crop-leaderboard.me/CartPole-v0/Interactive_LoAct/"+img[i].id+".html")
                 modal[i].style.display = "block";
                 modalImg[i].src = this.src;
                 captionText[i].innerHTML = this.alt;
