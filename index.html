@@ -645,12 +645,4 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
     // $("#div_imagenet_Linf").load("./imagenet/Linf.html");
     // $("#div_imagenet_corruptions").load("./imagenet/corruptions.html");
   </script>
-  <script>
-    var img = document.getElementsByClassName('ori_img');
-    for (let i=0; i<img.length; i++){
-      img[i].onclick = function(){
-        window.open('https://crop-leaderboard.me/CartPole-v0/Interactive_LoAct/'+img[i].id+'.html');
-      }
-    }
-  </script>
 </body>
