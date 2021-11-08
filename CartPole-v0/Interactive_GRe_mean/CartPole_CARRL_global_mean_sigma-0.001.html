@@ -24,7 +24,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("./data/data_1107_CartPole_global_mean_AdvTrain/CartPole_global_mean_sigma-0.001.csv",function(data) {
+d3.csv("./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0.001.csv",function(data) {
   console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()

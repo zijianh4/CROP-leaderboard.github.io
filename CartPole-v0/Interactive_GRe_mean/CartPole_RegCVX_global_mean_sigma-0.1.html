@@ -24,11 +24,11 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("./data/data_1107_CartPole_global_mean_AdvTrain/CartPole_global_mean_sigma-0.001.csv",function(data) {
+d3.csv("./data/data_1107_CartPole_global_mean_RegCVX/CartPole_global_mean_sigma-0.1.csv",function(data) {
   console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
-    .domain([0,0.00016])
+    .domain([0,0.016])
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -36,7 +36,7 @@ d3.csv("./data/data_1107_CartPole_global_mean_AdvTrain/CartPole_global_mean_sigm
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([-160, 200])
+    .domain([-280, 100])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
