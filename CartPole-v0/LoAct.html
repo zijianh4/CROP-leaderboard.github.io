@@ -111,14 +111,14 @@
             <a href="https://arxiv.org/abs/2004.06496" target="_blank">CARRL</a>
             
         </td>
-        <td class="catd" id="myModal3">
-            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-0.001" alt="CartPole LoAct, model=CARRL, sigma=0.001 (click here for the detailed figure)">
+        <td class="catd" id="CartPole_LoAct_CARRL_0.001">
+            <!-- <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-0.001" alt="CartPole LoAct, model=CARRL, sigma=0.001 (click here for the detailed figure)"> -->
             <!-- The Modal -->
-            <div id="myModal1-1" class="modal">
+            <!-- <div id="myModal1-1" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img1-1">
               <div class="caption" onclick="window.open('https://crop-leaderboard.me/CartPole-v0/Interactive_LoAct/CartPole_CARRL_stepwise_sigma-0.001.html')"></div>
-            </div>
+            </div> -->
         </td>
         <td class="aatd">
             <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.005.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-0.005" alt="CartPole LoAct, model=CARRL, sigma=0.005 (click here for the detailed figure)">
@@ -846,4 +846,8 @@ span.onclick = function() {
             "searching": false,
         });
     });
+</script>
+
+<script>
+    $("#CartPole_LoAct_CARRL_0.001").load("./Interactive_LoAct/CartPole_CARRL_stepwise_sigma-0.001.html");
 </script>
