@@ -32,17 +32,14 @@ d3.csv("./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.c
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x)
-    .tickValues([0, 50, 100, 150, 200]));
+    .call(d3.axisBottom(x));
 
   // Add Y axis
   var y = d3.scaleLinear()
     .domain([0, 0.0003])
     .range([ height, 0 ]);
   svg.append("g")
-    .call(d3.axisLeft(y)
-    .tickValues([0, 0.0001, 0.0002, 0.0003])
-    .tickFormat(d3.format(".1e")));
+    .call(d3.axisLeft(y));
 
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
@@ -53,7 +50,7 @@ d3.csv("./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.c
     .append('circle')
       .style("fill", "none")
       .attr("stroke", "black")
-      .attr('r', 4.0)
+      .attr('r', 8.5)
       .style("opacity", 0)
 
   // Create the text that travels along the curve of chart
@@ -69,9 +66,9 @@ d3.csv("./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.c
     .append("path")
     .datum(data)
     .attr("fill", "none")
-    // .attr("stroke", "steelblue")
-    .attr("stroke", "#f77189")
-    .attr("stroke-width", 1)
+    .attr("stroke", "steelblue")
+    // .attr("stroke", "#f77189")
+    .attr("stroke-width", 1.5)
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
