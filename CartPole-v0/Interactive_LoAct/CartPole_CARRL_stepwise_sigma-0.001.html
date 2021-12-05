@@ -42,7 +42,7 @@ d3.csv("./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.c
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y)
-    tickValues([0, 0.0001, 0.0002, 0.0003])
+    .tickValues([0, 0.0001, 0.0002, 0.0003])
     .tickFormat(d3.format(".1e")));
 
   // This allows to find the closest X index of the mouse:
