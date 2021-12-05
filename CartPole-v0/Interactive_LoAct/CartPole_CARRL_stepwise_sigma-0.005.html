@@ -12,7 +12,7 @@
 // set the dimensions and margins of the graph
 var margin = {top: 10, right: 150, bottom: 30, left: 60},
     width = 950 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+    height = 540 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -66,7 +66,8 @@ d3.csv("./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.005.c
     .append("path")
     .datum(data)
     .attr("fill", "none")
-    .attr("stroke", "steelblue")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#f77189")
     .attr("stroke-width", 1.5)
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
