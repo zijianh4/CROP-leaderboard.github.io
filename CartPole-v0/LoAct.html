@@ -880,6 +880,7 @@ d3.csv("./CartPole-v0/Interactive_LoAct/data/data_1015_CartPole_stepwise_CARRL/C
     .domain([1,200])
     .range([ 0, width ]);
   svg.append("g")
+    .style("font", "10px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
     .tickValues([0, 50, 100, 150, 200]));
@@ -889,6 +890,7 @@ d3.csv("./CartPole-v0/Interactive_LoAct/data/data_1015_CartPole_stepwise_CARRL/C
     .domain([0, 0.0003])
     .range([ height, 0 ]);
   svg.append("g")
+    .style("font", "10px times")
     .call(d3.axisLeft(y)
     .tickValues([0, 0.0001, 0.0002, 0.0003])
     .tickFormat(d3.format(".1e")));
