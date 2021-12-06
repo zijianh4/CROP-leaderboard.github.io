@@ -10,9 +10,10 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 860 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin = {top: 10, right: 150, bottom: 30, left: 60},
+// var margin = {top: 1, right: 3, bottom: 3, left: 6},
+    width = 950 - margin.left - margin.right,
+    height = 540 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -28,7 +29,7 @@ d3.csv("./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.1.csv
   console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
-    .domain([1,200])
+    .domain([0,200])
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
