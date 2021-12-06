@@ -124,7 +124,7 @@ d3.csv("./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.c
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
+      .html("(" + selectedData.x + ", " + selectedData.y + ")")
       .attr("x", x(selectedData.x)+15)
       .attr("y", y(selectedData.y))
     }
