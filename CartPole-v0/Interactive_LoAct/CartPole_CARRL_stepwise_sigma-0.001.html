@@ -65,8 +65,8 @@ d3.csv("./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.c
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
   
-  console.log(d.y+d.R_std)
-  console.log(d.y-d.R_std)
+  console.log(data.y+data.R_std)
+  console.log(data.y-data.R_std)
   svg.append("path")
       .datum(data)
       .attr("fill", d3.color("#f77189").brighter(2))
