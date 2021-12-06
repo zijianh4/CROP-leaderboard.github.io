@@ -134,12 +134,13 @@
         </td>
         
         <td class="datatd">
-            <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.01.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-0.01" alt="CartPole LoAct, model=CARRL, sigma=0.01 (click here for the detailed figure)">
+            <div id="CartPole_LoAct_CARRL_001" onclick="window.open('https://crop-leaderboard.me/CartPole-v0/Interactive_LoAct/CartPole_CARRL_stepwise_sigma-0.01.html')" onmouseover="document.body.style.cursor = 'pointer'"></div>
+            <!-- <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.01.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-0.01" alt="CartPole LoAct, model=CARRL, sigma=0.01 (click here for the detailed figure)">
             <div id="myModal1-3" class="modal">
               <span class="close">&times;</span>
               <img class="modal-content" id="img1-3">
               <div class="caption" onclick="window.open('https://crop-leaderboard.me/CartPole-v0/Interactive_LoAct/CartPole_CARRL_stepwise_sigma-0.01.html')"></div>
-            </div>
+            </div> -->
         </td>
         <td class="archtd">
             <img src='./CartPole-v0/images/figs_0920_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.03.png' class="ori_img" id="CartPole_CARRL_stepwise_sigma-0.03" alt="CartPole LoAct, model=CARRL, sigma=0.03 (click here for the detailed figure)">
@@ -858,7 +859,7 @@ span.onclick = function() {
 </script> -->
 
 <script>
-
+(function(){
 // set the dimensions and margins of the graph
 var margin = {top: 5, right: 15, bottom: 15, left: 30},
     width = 140 - margin.left - margin.right,
@@ -915,6 +916,16 @@ d3.csv("./CartPole-v0/Interactive_LoAct/data/data_1015_CartPole_stepwise_CARRL/C
       .style("opacity", 0)
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
+  
+  svg.append("path")
+      .datum(data)
+      .attr("fill", d3.color("#f77189").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
 
   // Add the line
   svg
@@ -967,7 +978,7 @@ d3.csv("./CartPole-v0/Interactive_LoAct/data/data_1015_CartPole_stepwise_CARRL/C
   }
 
 })
-
+})();
 </script>
 
 <script>
@@ -994,20 +1005,22 @@ d3.csv("./CartPole-v0/Interactive_LoAct/data/data_1015_CartPole_stepwise_CARRL/C
     .domain([0,200])
     .range([ 0, width ]);
   svg.append("g")
-    .style("font", "5px times")
+    .style("font", "8px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
-    .tickValues([0, 50, 100, 150, 200]));
+    .tickValues([0, 50, 100, 150, 200])
+    .tickSize(3));
 
   // Add Y axis
   var y = d3.scaleLinear()
     .domain([0, 0.0015])
     .range([ height, 0 ]);
   svg.append("g")
-    .style("font", "5px times")
+    .style("font", "8px times")
     .call(d3.axisLeft(y)
     .tickValues([0, 0.0005, 0.001, 0.0015])
-    .tickFormat(d3.format(".1e")));
+    .tickFormat(d3.format(".1e"))
+    .tickSize(3));
 
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
@@ -1028,6 +1041,16 @@ d3.csv("./CartPole-v0/Interactive_LoAct/data/data_1015_CartPole_stepwise_CARRL/C
       .style("opacity", 0)
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
+  
+  svg.append("path")
+      .datum(data)
+      .attr("fill", d3.color("#f77189").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
 
   // Add the line
   svg
