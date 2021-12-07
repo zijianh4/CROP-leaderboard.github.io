@@ -10,10 +10,10 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 150, bottom: 30, left: 60},
+var margin = {top: 40, right: 150, bottom: 60, left: 100},
 // var margin = {top: 1, right: 3, bottom: 3, left: 6},
-    width = 950 - margin.left - margin.right,
-    height = 540 - margin.top - margin.bottom;
+    width = 1000 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -32,6 +32,7 @@ d3.csv("./data/data_1015_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.00
     .domain([1,200])
     .range([ 0, width ]);
   svg.append("g")
+    .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
     .tickValues([0, 50, 100, 150, 200]));
@@ -41,6 +42,7 @@ d3.csv("./data/data_1015_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.00
     .domain([0, 0.006])
     .range([ height, 0 ]);
   svg.append("g")
+    .style("font", "20px times")
     .call(d3.axisLeft(y)
     .tickValues([0, 0.002, 0.004, 0.006])
     .tickFormat(d3.format(".1e")));
@@ -98,6 +100,13 @@ d3.csv("./data/data_1015_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.00
     .on('mousemove', mousemove)
     .on('mouseout', mouseout);
 
+  svg.append("text")
+    .attr("x", (width / 2))             
+    .attr("y", 0)
+    .attr("text-anchor", "middle")  
+    .style("font-size", "16px") 
+    .style("text-decoration", "underline")  
+    .text("CartPole LoAct, model=NoisyNet, sigma=0.005")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
@@ -114,9 +123,9 @@ d3.csv("./data/data_1015_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.00
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("(" + selectedData.x + ", " + selectedData.y + ")")
-      .attr("x", x(selectedData.x)+15)
-      .attr("y", y(selectedData.y))
+      .html("(" + selectedData.x + ", " + d3.format(".3e")(selectedData.y) + ")")
+      .attr("x", 500)
+      .attr("y", 20)
     }
   function mouseout() {
     focus.style("opacity", 0)
