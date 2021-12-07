@@ -10,9 +10,9 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 860 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin = {top: 40, right: 150, bottom: 60, left: 100},
+    width = 1000 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -31,15 +31,37 @@ d3.csv("./data/data_1015_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.00
     .domain([0,200])
     .range([ 0, width ]);
   svg.append("g")
+    .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x));
+    .call(d3.axisBottom(x)
+    .tickValues([0, 50, 100, 150, 200]));
+
+  // text label for the x axis
+  svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top) + ")")
+      .style("text-anchor", "middle")
+      .text("Step");
 
   // Add Y axis
   var y = d3.scaleLinear()
     .domain([0, 0.00025])
     .range([ height, 0 ]);
   svg.append("g")
-    .call(d3.axisLeft(y));
+    .style("font", "20px times")
+    .call(d3.axisLeft(y)
+    .tickValues([0, 0.00005, 0.0001, 0.00015, 0.0002])
+    .tickFormat(d3.format(".1e")));
+  
+  // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("R (Radius)"); 
 
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
@@ -60,13 +82,23 @@ d3.csv("./data/data_1015_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.00
       .style("opacity", 0)
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
+  
+  svg.append("path")
+      .datum(data)
+      .attr("fill", d3.color("#d3db57").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
 
   // Add the line
   svg
     .append("path")
     .datum(data)
     .attr("fill", "none")
-    .attr("stroke", "steelblue")
+    .attr("stroke", "#d3db57")
     .attr("stroke-width", 1.5)
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
@@ -84,6 +116,13 @@ d3.csv("./data/data_1015_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.00
     .on('mousemove', mousemove)
     .on('mouseout', mouseout);
 
+  svg.append("text")
+    .attr("x", (width / 2))             
+    .attr("y", 0)
+    .attr("text-anchor", "middle")  
+    .style("font-size", "16px") 
+    .style("text-decoration", "underline")  
+    .text("CartPole LoAct, model=GaussAug, sigma=0.001")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
@@ -100,9 +139,9 @@ d3.csv("./data/data_1015_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.00
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
-      .attr("x", x(selectedData.x)+15)
-      .attr("y", y(selectedData.y))
+      .html("(" + selectedData.x + ", " + d3.format(".3e")(selectedData.y) + ")")
+      .attr("x", 500)
+      .attr("y", 20)
     }
   function mouseout() {
     focus.style("opacity", 0)

@@ -29,13 +29,21 @@ d3.csv("./data/data_1015_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.03
   console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
-    .domain([1,200])
+    .domain([0,200])
     .range([ 0, width ]);
   svg.append("g")
     .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
     .tickValues([0, 50, 100, 150, 200]));
+  
+  // text label for the x axis
+  svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top) + ")")
+      .style("text-anchor", "middle")
+      .text("Step");
 
   // Add Y axis
   var y = d3.scaleLinear()
@@ -46,7 +54,16 @@ d3.csv("./data/data_1015_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.03
     .call(d3.axisLeft(y)
     .tickValues([0, 0.01, 0.02, 0.03])
     .tickFormat(d3.format(".1e")));
-
+  
+  // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("R (Radius)"); 
+      
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
 

@@ -29,7 +29,7 @@ d3.csv("./data/data_1015_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.00
   console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
-    .domain([1,200])
+    .domain([0,200])
     .range([ 0, width ]);
   svg.append("g")
     .style("font", "20px times")
