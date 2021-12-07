@@ -2881,13 +2881,18 @@ svg.append("path")
 });
 };
 (function(){
-var dev_ids = ['#CartPole_LoAct_All_0001'];
+var dev_ids = ['#CartPole_LoAct_All_0001', '#CartPole_LoAct_All_0005', '#CartPole_LoAct_All_001', '#CartPole_LoAct_All_003', '#CartPole_LoAct_All_005', '#CartPole_LoAct_All_01'];
 
-var data_paths = [['CARRL/CartPole_stepwise_sigma-0.001.csv', 'NoisyNet/CartPole_stepwise_sigma-0.001.csv', 'RadialRL/CartPole_stepwise_sigma-0.001.csv', 'AdvTrain/CartPole_stepwise_sigma-0.001.csv', 'GradDQN/CartPole_stepwise_sigma-0.001.csv', 'StdTrain/CartPole_stepwise_sigma-0.001.csv', 'GaussAug/CartPole_stepwise_sigma-0.001.csv', 'RegCVX/CartPole_stepwise_sigma-0.001.csv', 'RegPGD/CartPole_stepwise_sigma-0.001.csv']];
+var data_paths = [['CARRL/CartPole_stepwise_sigma-0.001.csv', 'NoisyNet/CartPole_stepwise_sigma-0.001.csv', 'RadialRL/CartPole_stepwise_sigma-0.001.csv', 'AdvTrain/CartPole_stepwise_sigma-0.001.csv', 'GradDQN/CartPole_stepwise_sigma-0.001.csv', 'StdTrain/CartPole_stepwise_sigma-0.001.csv', 'GaussAug/CartPole_stepwise_sigma-0.001.csv', 'RegCVX/CartPole_stepwise_sigma-0.001.csv', 'RegPGD/CartPole_stepwise_sigma-0.001.csv'],
+['CARRL/CartPole_stepwise_sigma-0.005.csv', 'NoisyNet/CartPole_stepwise_sigma-0.005.csv', 'RadialRL/CartPole_stepwise_sigma-0.005.csv', 'AdvTrain/CartPole_stepwise_sigma-0.005.csv', 'GradDQN/CartPole_stepwise_sigma-0.005.csv', 'StdTrain/CartPole_stepwise_sigma-0.005.csv', 'GaussAug/CartPole_stepwise_sigma-0.005.csv', 'RegCVX/CartPole_stepwise_sigma-0.005.csv', 'RegPGD/CartPole_stepwise_sigma-0.005.csv'],
+['CARRL/CartPole_stepwise_sigma-0.01.csv', 'NoisyNet/CartPole_stepwise_sigma-0.01.csv', 'RadialRL/CartPole_stepwise_sigma-0.01.csv', 'AdvTrain/CartPole_stepwise_sigma-0.01.csv', 'GradDQN/CartPole_stepwise_sigma-0.01.csv', 'StdTrain/CartPole_stepwise_sigma-0.01.csv', 'GaussAug/CartPole_stepwise_sigma-0.01.csv', 'RegCVX/CartPole_stepwise_sigma-0.01.csv', 'RegPGD/CartPole_stepwise_sigma-0.01.csv'],
+['CARRL/CartPole_stepwise_sigma-0.03.csv', 'NoisyNet/CartPole_stepwise_sigma-0.03.csv', 'RadialRL/CartPole_stepwise_sigma-0.03.csv', 'AdvTrain/CartPole_stepwise_sigma-0.03.csv', 'GradDQN/CartPole_stepwise_sigma-0.03.csv', 'StdTrain/CartPole_stepwise_sigma-0.03.csv', 'GaussAug/CartPole_stepwise_sigma-0.03.csv', 'RegCVX/CartPole_stepwise_sigma-0.03.csv', 'RegPGD/CartPole_stepwise_sigma-0.03.csv'],
+['CARRL/CartPole_stepwise_sigma-0.05.csv', 'NoisyNet/CartPole_stepwise_sigma-0.05.csv', 'RadialRL/CartPole_stepwise_sigma-0.05.csv', 'AdvTrain/CartPole_stepwise_sigma-0.05.csv', 'GradDQN/CartPole_stepwise_sigma-0.05.csv', 'StdTrain/CartPole_stepwise_sigma-0.05.csv', 'GaussAug/CartPole_stepwise_sigma-0.05.csv', 'RegCVX/CartPole_stepwise_sigma-0.05.csv', 'RegPGD/CartPole_stepwise_sigma-0.05.csv'],
+['CARRL/CartPole_stepwise_sigma-0.1.csv', 'NoisyNet/CartPole_stepwise_sigma-0.1.csv', 'RadialRL/CartPole_stepwise_sigma-0.1.csv', 'AdvTrain/CartPole_stepwise_sigma-0.1.csv', 'GradDQN/CartPole_stepwise_sigma-0.1.csv', 'StdTrain/CartPole_stepwise_sigma-0.1.csv', 'GaussAug/CartPole_stepwise_sigma-0.1.csv', 'RegCVX/CartPole_stepwise_sigma-0.1.csv', 'RegPGD/CartPole_stepwise_sigma-0.1.csv'],];
 
-var y_ranges = [[0, 0.0017]];
+var y_ranges = [[0, 0.0017], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.05], [0, 0.08]];
 
-var y_tick_values_ls = [[0, 0.0005, 0.001, 0.0015]];
+var y_tick_values_ls = [[0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006, 0.008], [0, 0.005, 0.01, 0.015], [0, 0.01, 0.02, 0.03], [0, 0.01, 0.02, 0.03, 0.04, 0.05], [0, 0.02, 0.04, 0.06, 0.08]];
 
 var color_idx_ls = ["#f77189", "#bb9832", '#db57d3', '#57db5f', '#50b131', '#db5f57', '#d3db57', '#5f57db', '#57d3db'];
 
