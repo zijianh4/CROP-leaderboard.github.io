@@ -10,10 +10,10 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 60, right: 450, bottom: 60, left: 100},
+var margin = {top: 100, right: 450, bottom: 60, left: 100},
 // var margin = {top: 1, right: 3, bottom: 3, left: 6},
     width = 1300 - margin.left - margin.right,
-    height = 650 - margin.top - margin.bottom;
+    height = 700 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -39,6 +39,14 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
     .tickValues([0, 0.00005, 0.0001, 0.00015])
     .tickFormat(d3.format(".1e"))
     .tickSize(3));
+  
+  // text label for the x axis
+  svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top) + ")")
+      .style("text-anchor", "middle")
+      .text("Epsilon");
 
   // Add Y axis
   var y = d3.scaleLinear()
@@ -51,6 +59,15 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
     // .tickFormat(d3.format(".1e"))
     .tickSize(3));
 
+    // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Reward"); 
+
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
 
@@ -60,7 +77,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
     .append('circle')
       .style("fill", "none")
       .attr("stroke", "black")
-      .attr('r', 4.0)
+      .attr('r', 8.5)
       .style("opacity", 0)
 
   // Create the text that travels along the curve of chart
@@ -77,7 +94,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
     .append('circle')
       .style("fill", "none")
       .attr("stroke", "black")
-      .attr('r', 4.0)
+      .attr('r', 8.5)
       .style("opacity", 0)
 
   // Create the text that travels along the curve of chart
@@ -147,10 +164,10 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
   function mouseover() {
     focus.style("opacity", 1)
     focusText.style("opacity",1)
-    focusText.style("font-size", "8px")
+    focusText.style("font-size", "20px")
     focus_atk.style("opacity", 1)
     focusText_atk.style("opacity",1)
-    focusText_atk.style("font-size", "8px")
+    focusText_atk.style("font-size", "20px")
   }
 
   function mousemove() {
