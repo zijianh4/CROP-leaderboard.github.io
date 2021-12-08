@@ -355,7 +355,7 @@ section .heading_second {
   border-bottom: 6px solid #6082b6;
 }
 
-..heading_second {
+.heading_second {
   text-decoration: none;
   /*border-bottom: 6px solid #E87722;*/
   border-bottom: 6px solid #6082b6;
