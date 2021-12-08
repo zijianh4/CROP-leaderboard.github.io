@@ -256,6 +256,14 @@ section .heading {
   text-align: center;
 }
 
+.heading_second {
+  font-size: 1em;
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
 .heading-math {
   font-size: 0.9em;
 }
@@ -327,17 +335,17 @@ section .heading {
   color: #6082b6;
 }
 
-.button-list .heading {
+.button-list .heading .heading_second{
   text-align: left;
   margin-top: 20;
   margin-bottom: 20px;
   font-size: 1.6em;
 }
 
-.button-list .heading u {
+.button-list .heading .heading_second u {
   text-decoration: none;
   /*border-bottom: 6px solid #E87722;*/
-  border-bottom: 6px solid #6082b6;
+  border-bottom: 4px solid #6082b6;
 }
 
 
