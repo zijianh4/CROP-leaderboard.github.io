@@ -256,12 +256,12 @@ section .heading {
   text-align: center;
 }
 
-section .heading_second {
+.heading_second {
   font-size: 1em;
   font-weight: normal;
   margin-top: 10px;
   margin-bottom: 0px;
-  text-align: center;
+  text-align: left;
 }
 
 .heading-math {
