@@ -10,8 +10,9 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 60, right: 150, bottom: 60, left: 100},
-    width = 1000 - margin.left - margin.right,
+var margin = {top: 60, right: 450, bottom: 60, left: 100},
+// var margin = {top: 1, right: 3, bottom: 3, left: 6},
+    width = 1300 - margin.left - margin.right,
     height = 650 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -24,22 +25,31 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0.001.csv",function(data) {
-  console.log(data)
+d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0.001.csv',function(data) {
+d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk) {
+  // console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
-    .domain([0,0.00016])
+    .domain([0, 0.00015])
     .range([ 0, width ]);
   svg.append("g")
+    .style("font", "8px times")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x));
+    .call(d3.axisBottom(x)
+    .tickValues([0, 0.00005, 0.0001, 0.00015])
+    .tickFormat(d3.format(".1e"))
+    .tickSize(3));
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([-160, 200])
+    .domain([-150, 200])
     .range([ height, 0 ]);
   svg.append("g")
-    .call(d3.axisLeft(y));
+    .style("font", "8px times")
+    .call(d3.axisLeft(y)
+    .tickValues([-150, -100, -50, 0, 50, 100, 150, 200])
+    // .tickFormat(d3.format(".1e"))
+    .tickSize(3));
 
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
@@ -50,7 +60,7 @@ d3.csv("./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
     .append('circle')
       .style("fill", "none")
       .attr("stroke", "black")
-      .attr('r', 8.5)
+      .attr('r', 4.0)
       .style("opacity", 0)
 
   // Create the text that travels along the curve of chart
@@ -61,13 +71,54 @@ d3.csv("./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
 
+  // Create the circle that travels along the curve of chart
+  var focus_atk = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 4.0)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_atk = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+  
+  // svg.append("path")
+  //     .datum(data)
+  //     .attr("fill", d3.color(color_idx).brighter(brightness))
+  //     .attr("stroke", "none")
+  //     .attr("d", d3.area()
+  //     .x(function(d) { return x(d.x) })
+  //     .y0(function(d) { return y(d.y_hi) })
+  //     .y1(function(d) { return y(d.y_lo) })
+  //     )
+
   // Add the line
   svg
     .append("path")
     .datum(data)
     .attr("fill", "none")
-    .attr("stroke", "steelblue")
-    .attr("stroke-width", 1.5)
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#f77189')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#f77189')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
@@ -84,11 +135,22 @@ d3.csv("./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
     .on('mousemove', mousemove)
     .on('mouseout', mouseout);
 
+  svg.append("text")
+    .attr("x", (width / 2))             
+    .attr("y", 0)
+    .attr("text-anchor", "middle")  
+    .style("font-size", "16px") 
+    .style("text-decoration", "underline")  
+    .text("CartPole GRe, model=CARRL, sigma=0.001")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
     focus.style("opacity", 1)
     focusText.style("opacity",1)
+    focusText.style("font-size", "8px")
+    focus_atk.style("opacity", 1)
+    focusText_atk.style("opacity",1)
+    focusText_atk.style("font-size", "8px")
   }
 
   function mousemove() {
@@ -100,15 +162,30 @@ d3.csv("./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
-      .attr("x", x(selectedData.x)+15)
-      .attr("y", y(selectedData.y))
+      .html("expection bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
+      .attr("x", 700)
+      .attr("y", 20)
+      // .attr("x", x(selectedData.x)+5)
+      // .attr("y", y(selectedData.y))
+    selectedData_atk = data_atk[i]
+    focus_atk
+      .attr("cx", x(selectedData_atk.x))
+      .attr("cy", y(selectedData_atk.y))
+    focusText_atk
+      .html("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1e")(selectedData_atk.y) + ")")
+      .attr("x", 700)
+      .attr("y", 400)
+      // .attr("x", x(selectedData.x)+5)
+      // .attr("y", y(selectedData.y))
     }
   function mouseout() {
     focus.style("opacity", 0)
     focusText.style("opacity", 0)
+    focus_atk.style("opacity", 0)
+    focusText_atk.style("opacity", 0)
   }
 
-})
+});
+});
 
 </script>
