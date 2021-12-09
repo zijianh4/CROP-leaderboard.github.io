@@ -51,7 +51,7 @@ d3.csv('./data/data_1207_Pong_stepwise_RadialRL/Pong_stepwise_sigma-0.005.csv',f
     .domain([0, 0.003])
     .range([ height, 0 ]);
   svg.append("g")
-    .style("font", "8px times")
+    .style("font", "16px times")
     .call(d3.axisLeft(y)
     .tickValues([0, 0.001, 0.002, 0.003])
     .tickFormat(d3.format(".1e"))
@@ -132,7 +132,7 @@ d3.csv('./data/data_1207_Pong_stepwise_RadialRL/Pong_stepwise_sigma-0.005.csv',f
   function mouseover() {
     focus.style("opacity", 1)
     focusText.style("opacity",1)
-    focusText.style("font-size", "10px")
+    focusText.style("font-size", "16px")
   }
 
   function mousemove() {

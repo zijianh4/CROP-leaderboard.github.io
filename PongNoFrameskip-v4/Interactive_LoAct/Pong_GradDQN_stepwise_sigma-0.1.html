@@ -51,7 +51,7 @@ d3.csv('./data/data_1207_Pong_stepwise_GradDQN/Pong_stepwise_sigma-0.1.csv',func
     .domain([0, 0.025])
     .range([ height, 0 ]);
   svg.append("g")
-    .style("font", "8px times")
+    .style("font", "16px times")
     .call(d3.axisLeft(y)
     .tickValues([0, 0.005, 0.01, 0.015, 0.02])
     .tickFormat(d3.format(".1e"))
@@ -132,7 +132,7 @@ d3.csv('./data/data_1207_Pong_stepwise_GradDQN/Pong_stepwise_sigma-0.1.csv',func
   function mouseover() {
     focus.style("opacity", 1)
     focusText.style("opacity",1)
-    focusText.style("font-size", "10px")
+    focusText.style("font-size", "16px")
   }
 
   function mousemove() {
