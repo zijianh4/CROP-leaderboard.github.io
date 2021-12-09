@@ -10,9 +10,9 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 40, right: 150, bottom: 60, left: 100},
+var margin = {top: 40, right: 300, bottom: 60, left: 100},
 // var margin = {top: 1, right: 3, bottom: 3, left: 6},
-    width = 1000 - margin.left - margin.right,
+    width = 1150 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
@@ -513,7 +513,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
       .attr("cy", y(selectedData_0.y))
     focusText_0
       .html("CARRL: (" + selectedData_0.x + ", " + d3.format(".1e")(selectedData_0.y) + ")")
-      .attr("x", 700)
+      .attr("x", 800)
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
@@ -525,7 +525,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
       .attr("cy", y(selectedData_1.y))
     focusText_1
       .html("NoisyNet: (" + selectedData_1.x + ", " + d3.format(".1e")(selectedData_1.y) + ")")
-      .attr("x", 700)
+      .attr("x", 800)
       .attr("y", 40)
 
     var i_2 = bisect(data_2, x0, 1);
@@ -535,7 +535,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
       .attr("cy", y(selectedData_2.y))
     focusText_2
       .html("RadialRL: (" + selectedData_2.x + ", " + d3.format(".1e")(selectedData_2.y) + ")")
-      .attr("x", 700)
+      .attr("x", 800)
       .attr("y", 60)
 
     var i_3 = bisect(data_3, x0, 1);
@@ -545,7 +545,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
       .attr("cy", y(selectedData_3.y))
     focusText_3
       .html("AdvTrain: (" + selectedData_3.x + ", " + d3.format(".1e")(selectedData_3.y) + ")")
-      .attr("x", 700)
+      .attr("x", 800)
       .attr("y", 80)
 
     var i_4 = bisect(data_4, x0, 1);
@@ -555,7 +555,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
       .attr("cy", y(selectedData_4.y))
     focusText_4
       .html("GradDQN: (" + selectedData_4.x + ", " + d3.format(".1e")(selectedData_4.y) + ")")
-      .attr("x", 700)
+      .attr("x", 800)
       .attr("y", 100)
 
     var i_5 = bisect(data_5, x0, 1);
@@ -565,7 +565,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
       .attr("cy", y(selectedData_5.y))
     focusText_5
       .html("StdTrain: (" + selectedData_5.x + ", " + d3.format(".1e")(selectedData_5.y) + ")")
-      .attr("x", 700)
+      .attr("x", 800)
       .attr("y", 120)
 
     var i_6 = bisect(data_6, x0, 1);
@@ -575,7 +575,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
       .attr("cy", y(selectedData_6.y))
     focusText_6
       .html("GaussAug: (" + selectedData_6.x + ", " + d3.format(".1e")(selectedData_6.y) + ")")
-      .attr("x", 700)
+      .attr("x", 800)
       .attr("y", 140)
 
     var i_7 = bisect(data_7, x0, 1);
@@ -585,7 +585,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
       .attr("cy", y(selectedData_7.y))
     focusText_7
       .html("RegCVX: (" + selectedData_7.x + ", " + d3.format(".1e")(selectedData_7.y) + ")")
-      .attr("x", 700)
+      .attr("x", 800)
       .attr("y", 160)
 
     var i_8 = bisect(data_8, x0, 1);
@@ -595,7 +595,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
       .attr("cy", y(selectedData_8.y))
     focusText_8
       .html("RegPGD(" + selectedData_8.x + ", " + d3.format(".1e")(selectedData_8.y) + ")")
-      .attr("x", 700)
+      .attr("x", 800)
       .attr("y", 180)
     }
 
