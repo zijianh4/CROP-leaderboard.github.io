@@ -25,34 +25,34 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0.1.csv',function(data_0) {
-    d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0.1_attack.csv',function(data_atk_0) {
-d3.csv('./data/data_1107_CartPole_global_mean_NoisyNet/CartPole_global_mean_sigma-0.1.csv',function(data_1) {
-    d3.csv('./data/data_1107_CartPole_global_mean_NoisyNet/CartPole_global_mean_sigma-0.1_attack.csv',function(data_atk_1) {
-d3.csv('./data/data_1107_CartPole_global_mean_RadialRL/CartPole_global_mean_sigma-0.1.csv',function(data_2) {
-    d3.csv('./data/data_1107_CartPole_global_mean_RadialRL/CartPole_global_mean_sigma-0.1_attack.csv',function(data_atk_2) {
-d3.csv('./data/data_1107_CartPole_global_mean_AdvTrain/CartPole_global_mean_sigma-0.1.csv',function(data_3) {
-    d3.csv('./data/data_1107_CartPole_global_mean_AdvTrain/CartPole_global_mean_sigma-0.1_attack.csv',function(data_atk_3) {
-d3.csv('./data/data_1107_CartPole_global_mean_GradDQN/CartPole_global_mean_sigma-0.1.csv',function(data_4) {
-    d3.csv('./data/data_1107_CartPole_global_mean_GradDQN/CartPole_global_mean_sigma-0.1_attack.csv',function(data_atk_4) {
-d3.csv('./data/data_1107_CartPole_global_mean_StdTrain/CartPole_global_mean_sigma-0.1.csv',function(data_5) {
-    d3.csv('./data/data_1107_CartPole_global_mean_StdTrain/CartPole_global_mean_sigma-0.1_attack.csv',function(data_atk_5) {
-d3.csv('./data/data_1107_CartPole_global_mean_GaussAug/CartPole_global_mean_sigma-0.1.csv',function(data_6) {
-    d3.csv('./data/data_1107_CartPole_global_mean_GaussAug/CartPole_global_mean_sigma-0.1_attack.csv',function(data_atk_6) {
-d3.csv('./data/data_1107_CartPole_global_mean_RegCVX/CartPole_global_mean_sigma-0.1.csv',function(data_7) {
-    d3.csv('./data/data_1107_CartPole_global_mean_RegCVX/CartPole_global_mean_sigma-0.1_attack.csv',function(data_atk_7) {
-d3.csv('./data/data_1107_CartPole_global_mean_RegPGD/CartPole_global_mean_sigma-0.1.csv',function(data_8) {
-    d3.csv('./data/data_1107_CartPole_global_mean_RegPGD/CartPole_global_mean_sigma-0.1_attack.csv',function(data_atk_8) {
+d3.csv('./data/data_1108_CartPole_global_median_CARRL/CartPole_global_median_sigma-0.005.csv',function(data_0) {
+    d3.csv('./data/data_1108_CartPole_global_median_CARRL/CartPole_global_median_sigma-0.005_attack.csv',function(data_atk_0) {
+d3.csv('./data/data_1108_CartPole_global_median_NoisyNet/CartPole_global_median_sigma-0.005.csv',function(data_1) {
+    d3.csv('./data/data_1108_CartPole_global_median_NoisyNet/CartPole_global_median_sigma-0.005_attack.csv',function(data_atk_1) {
+d3.csv('./data/data_1108_CartPole_global_median_RadialRL/CartPole_global_median_sigma-0.005.csv',function(data_2) {
+    d3.csv('./data/data_1108_CartPole_global_median_RadialRL/CartPole_global_median_sigma-0.005_attack.csv',function(data_atk_2) {
+d3.csv('./data/data_1108_CartPole_global_median_AdvTrain/CartPole_global_median_sigma-0.005.csv',function(data_3) {
+    d3.csv('./data/data_1108_CartPole_global_median_AdvTrain/CartPole_global_median_sigma-0.005_attack.csv',function(data_atk_3) {
+d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_sigma-0.005.csv',function(data_4) {
+    d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_sigma-0.005_attack.csv',function(data_atk_4) {
+d3.csv('./data/data_1108_CartPole_global_median_StdTrain/CartPole_global_median_sigma-0.005.csv',function(data_5) {
+    d3.csv('./data/data_1108_CartPole_global_median_StdTrain/CartPole_global_median_sigma-0.005_attack.csv',function(data_atk_5) {
+d3.csv('./data/data_1108_CartPole_global_median_GaussAug/CartPole_global_median_sigma-0.005.csv',function(data_6) {
+    d3.csv('./data/data_1108_CartPole_global_median_GaussAug/CartPole_global_median_sigma-0.005_attack.csv',function(data_atk_6) {
+d3.csv('./data/data_1108_CartPole_global_median_RegCVX/CartPole_global_median_sigma-0.005.csv',function(data_7) {
+    d3.csv('./data/data_1108_CartPole_global_median_RegCVX/CartPole_global_median_sigma-0.005_attack.csv',function(data_atk_7) {
+d3.csv('./data/data_1108_CartPole_global_median_RegPGD/CartPole_global_median_sigma-0.005.csv',function(data_8) {
+    d3.csv('./data/data_1108_CartPole_global_median_RegPGD/CartPole_global_median_sigma-0.005_attack.csv',function(data_atk_8) {
   //console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
-    .domain([0, 0.016])
+    .domain([0, 0.0008])
     .range([ 0, width ]);
   svg.append("g")
     .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
-    .tickValues([0, 0.005, 0.01, 0.015])
+    .tickValues([0, 0.0002, 0.0004, 0.0006, 0.0008])
     .tickFormat(d3.format(".1e"))
     .tickSize(3));
   
@@ -66,12 +66,12 @@ d3.csv('./data/data_1107_CartPole_global_mean_RegPGD/CartPole_global_mean_sigma-
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([-300, 200])
+    .domain([30, 200])
     .range([ height, 0 ]);
   svg.append("g")
     .style("font", "20px times")
     .call(d3.axisLeft(y)
-    .tickValues([-300, -200, -100, 0, 100, 200])
+    .tickValues([60, 90, 120, 150, 180])
     // .tickFormat(d3.format(".1e"))
     .tickSize(3));
 
@@ -580,7 +580,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_RegPGD/CartPole_global_mean_sigma-
     .attr("text-anchor", "middle")  
     .style("font-size", "20px") 
     .style("text-decoration", "underline")  
-    .text("CartPole GRe-mean, sigma = 0.1")
+    .text("CartPole GRe-median, sigma = 0.005")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {

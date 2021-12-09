@@ -26,23 +26,23 @@ var svg = d3.select("#my_dataviz")
 
 //Read the data
 d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0.005.csv',function(data_0) {
-    d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk_0) {
+    d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0.005_attack.csv',function(data_atk_0) {
 d3.csv('./data/data_1107_CartPole_global_mean_NoisyNet/CartPole_global_mean_sigma-0.005.csv',function(data_1) {
-    d3.csv('./data/data_1107_CartPole_global_mean_NoisyNet/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk_1) {
+    d3.csv('./data/data_1107_CartPole_global_mean_NoisyNet/CartPole_global_mean_sigma-0.005_attack.csv',function(data_atk_1) {
 d3.csv('./data/data_1107_CartPole_global_mean_RadialRL/CartPole_global_mean_sigma-0.005.csv',function(data_2) {
-    d3.csv('./data/data_1107_CartPole_global_mean_RadialRL/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk_2) {
+    d3.csv('./data/data_1107_CartPole_global_mean_RadialRL/CartPole_global_mean_sigma-0.005_attack.csv',function(data_atk_2) {
 d3.csv('./data/data_1107_CartPole_global_mean_AdvTrain/CartPole_global_mean_sigma-0.005.csv',function(data_3) {
-    d3.csv('./data/data_1107_CartPole_global_mean_AdvTrain/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk_3) {
+    d3.csv('./data/data_1107_CartPole_global_mean_AdvTrain/CartPole_global_mean_sigma-0.005_attack.csv',function(data_atk_3) {
 d3.csv('./data/data_1107_CartPole_global_mean_GradDQN/CartPole_global_mean_sigma-0.005.csv',function(data_4) {
-    d3.csv('./data/data_1107_CartPole_global_mean_GradDQN/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk_4) {
+    d3.csv('./data/data_1107_CartPole_global_mean_GradDQN/CartPole_global_mean_sigma-0.005_attack.csv',function(data_atk_4) {
 d3.csv('./data/data_1107_CartPole_global_mean_StdTrain/CartPole_global_mean_sigma-0.005.csv',function(data_5) {
-    d3.csv('./data/data_1107_CartPole_global_mean_StdTrain/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk_5) {
+    d3.csv('./data/data_1107_CartPole_global_mean_StdTrain/CartPole_global_mean_sigma-0.005_attack.csv',function(data_atk_5) {
 d3.csv('./data/data_1107_CartPole_global_mean_GaussAug/CartPole_global_mean_sigma-0.005.csv',function(data_6) {
-    d3.csv('./data/data_1107_CartPole_global_mean_GaussAug/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk_6) {
+    d3.csv('./data/data_1107_CartPole_global_mean_GaussAug/CartPole_global_mean_sigma-0.005_attack.csv',function(data_atk_6) {
 d3.csv('./data/data_1107_CartPole_global_mean_RegCVX/CartPole_global_mean_sigma-0.005.csv',function(data_7) {
-    d3.csv('./data/data_1107_CartPole_global_mean_RegCVX/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk_7) {
+    d3.csv('./data/data_1107_CartPole_global_mean_RegCVX/CartPole_global_mean_sigma-0.005_attack.csv',function(data_atk_7) {
 d3.csv('./data/data_1107_CartPole_global_mean_RegPGD/CartPole_global_mean_sigma-0.005.csv',function(data_8) {
-    d3.csv('./data/data_1107_CartPole_global_mean_RegPGD/CartPole_global_mean_sigma-0.001_attack.csv',function(data_atk_8) {
+    d3.csv('./data/data_1107_CartPole_global_mean_RegPGD/CartPole_global_mean_sigma-0.005_attack.csv',function(data_atk_8) {
   //console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
