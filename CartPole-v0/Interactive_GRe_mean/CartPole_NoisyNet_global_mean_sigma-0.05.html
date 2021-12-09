@@ -33,7 +33,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_NoisyNet/CartPole_global_mean_sigm
     .domain([0, 0.008])
     .range([ 0, width ]);
   svg.append("g")
-    .style("font", "8px times")
+    .style("font", "16px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
     .tickValues([0, 0.002, 0.004, 0.006, 0.008])
@@ -53,7 +53,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_NoisyNet/CartPole_global_mean_sigm
     .domain([-200, 150])
     .range([ height, 0 ]);
   svg.append("g")
-    .style("font", "8px times")
+    .style("font", "16px times")
     .call(d3.axisLeft(y)
     .tickValues([-200, -150, -100, -50, 0, 50, 100, 150])
     // .tickFormat(d3.format(".1e"))
