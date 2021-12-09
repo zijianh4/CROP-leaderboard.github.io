@@ -184,7 +184,8 @@ d3.csv('./data/data_1109_CartPole_tree_RadialRL/CartPole_tree_sigma-0.1_attack.c
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
-    selectedData_atk = data_atk[i]
+    var i_atk = bisect(data_atk, x0, 1);
+    selectedData_atk = data_atk[i_atk];
     focus_atk
       .attr("cx", x(selectedData_atk.x))
       .attr("cy", y(selectedData_atk.y))
