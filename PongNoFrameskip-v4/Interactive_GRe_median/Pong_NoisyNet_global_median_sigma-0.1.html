@@ -179,7 +179,7 @@ d3.csv('./data/data_1207_Pong_global_median_NoisyNet/Pong_global_median_sigma-0.
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("expection bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
+      .html("percentile bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
       .attr("x", 700)
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)

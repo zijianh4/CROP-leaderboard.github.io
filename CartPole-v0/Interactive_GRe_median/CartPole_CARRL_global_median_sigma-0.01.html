@@ -179,7 +179,7 @@ d3.csv('./data/data_1108_CartPole_global_median_CARRL/CartPole_global_median_sig
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("expection bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
+      .html("percentile bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
       .attr("x", 700)
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)

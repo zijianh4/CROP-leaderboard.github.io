@@ -179,7 +179,7 @@ d3.csv('./data/data_1207_Freeway_tree_RegCVX/Freeway_tree_sigma-0.1.csv',functio
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("expection bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
+      .html("absolute lower bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
       .attr("x", 700)
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)
