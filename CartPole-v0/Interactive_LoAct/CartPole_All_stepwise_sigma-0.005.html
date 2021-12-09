@@ -25,15 +25,15 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv('./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.001.csv', function(data_0){
-d3.csv('./data/data_1015_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.001.csv', function(data_1){
-d3.csv('./data/data_1015_CartPole_stepwise_RadialRL/CartPole_stepwise_sigma-0.001.csv', function(data_2){
-d3.csv('./data/data_1015_CartPole_stepwise_AdvTrain/CartPole_stepwise_sigma-0.001.csv', function(data_3){
-d3.csv('./data/data_1015_CartPole_stepwise_GradDQN/CartPole_stepwise_sigma-0.001.csv', function(data_4){
-d3.csv('./data/data_1015_CartPole_stepwise_StdTrain/CartPole_stepwise_sigma-0.001.csv', function(data_5){
-d3.csv('./data/data_1015_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.001.csv', function(data_6){
-d3.csv('./data/data_1015_CartPole_stepwise_RegCVX/CartPole_stepwise_sigma-0.001.csv', function(data_7){
-d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.csv', function(data_8){
+d3.csv('./data/data_1015_CartPole_stepwise_CARRL/CartPole_stepwise_sigma-0.005.csv', function(data_0){
+d3.csv('./data/data_1015_CartPole_stepwise_NoisyNet/CartPole_stepwise_sigma-0.005.csv', function(data_1){
+d3.csv('./data/data_1015_CartPole_stepwise_RadialRL/CartPole_stepwise_sigma-0.005.csv', function(data_2){
+d3.csv('./data/data_1015_CartPole_stepwise_AdvTrain/CartPole_stepwise_sigma-0.005.csv', function(data_3){
+d3.csv('./data/data_1015_CartPole_stepwise_GradDQN/CartPole_stepwise_sigma-0.005.csv', function(data_4){
+d3.csv('./data/data_1015_CartPole_stepwise_StdTrain/CartPole_stepwise_sigma-0.005.csv', function(data_5){
+d3.csv('./data/data_1015_CartPole_stepwise_GaussAug/CartPole_stepwise_sigma-0.005.csv', function(data_6){
+d3.csv('./data/data_1015_CartPole_stepwise_RegCVX/CartPole_stepwise_sigma-0.005.csv', function(data_7){
+d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.005.csv', function(data_8){
   // console.log(data_0)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
@@ -56,12 +56,12 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 0.0017])
+    .domain([0, 0.008])
     .range([ height, 0 ]);
   svg.append("g")
     .style("font", "20px times")
     .call(d3.axisLeft(y)
-    .tickValues([0, 0.0005, 0.001, 0.0015])
+    .tickValues([0, 0.002, 0.004, 0.006, 0.008])
     .tickFormat(d3.format(".1e"))
     .tickSize(3));
 
@@ -462,7 +462,7 @@ d3.csv('./data/data_1015_CartPole_stepwise_RegPGD/CartPole_stepwise_sigma-0.001.
     .attr("text-anchor", "middle")  
     .style("font-size", "20px") 
     .style("text-decoration", "underline")  
-    .text("CartPole LoAct, sigma=0.001")
+    .text("CartPole LoAct, sigma=0.005")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
