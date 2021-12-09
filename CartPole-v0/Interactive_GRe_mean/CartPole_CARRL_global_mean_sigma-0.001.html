@@ -154,9 +154,13 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
 
   svg.append("text")
     .attr("x", (width / 2))             
+<<<<<<< HEAD
     .attr("y", -20)
+=======
+    .attr("y", 0)
+>>>>>>> parent of 8040d2f (Update CartPole_CARRL_global_mean_sigma-0.001.html)
     .attr("text-anchor", "middle")  
-    .style("font-size", "20px") 
+    .style("font-size", "16px") 
     .style("text-decoration", "underline")  
     .text("CartPole GRe-mean, model = CARRL, sigma = 0.001")
 
@@ -191,7 +195,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
     focusText_atk
       .html("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1e")(selectedData_atk.y) + ")")
       .attr("x", 700)
-      .attr("y", 40)
+      .attr("y", 400)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
     }
