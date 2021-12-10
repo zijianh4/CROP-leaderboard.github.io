@@ -921,19 +921,19 @@ d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_pa
 (function(){
 var dev_ids = ['#Pong_LoRe_All_0001', '#Pong_LoRe_All_0005', '#Pong_LoRe_All_001', '#Pong_LoRe_All_003', '#Pong_LoRe_All_005', '#Pong_LoRe_All_01'];
 
-// var data_paths = [['RadialRL/CartPole_tree_sigma-0.001', 'AdvTrain/CartPole_tree_sigma-0.001', 'GradDQN/CartPole_tree_sigma-0.001', 'StdTrain/CartPole_tree_sigma-0.001', 'GaussAug/CartPole_tree_sigma-0.001', 'RegCVX/CartPole_tree_sigma-0.001', 'RegPGD/CartPole_tree_sigma-0.001'], 
-// ['RadialRL/CartPole_tree_sigma-0.005', 'AdvTrain/CartPole_tree_sigma-0.005', 'GradDQN/CartPole_tree_sigma-0.005', 'StdTrain/CartPole_tree_sigma-0.005', 'GaussAug/CartPole_tree_sigma-0.005', 'RegCVX/CartPole_tree_sigma-0.005', 'RegPGD/CartPole_tree_sigma-0.005'],
-// ['RadialRL/CartPole_tree_sigma-0.01', 'AdvTrain/CartPole_tree_sigma-0.01', 'GradDQN/CartPole_tree_sigma-0.01', 'StdTrain/CartPole_tree_sigma-0.01', 'GaussAug/CartPole_tree_sigma-0.01', 'RegCVX/CartPole_tree_sigma-0.01', 'RegPGD/CartPole_tree_sigma-0.01'],
-// ['RadialRL/CartPole_tree_sigma-0.03', 'AdvTrain/CartPole_tree_sigma-0.03', 'GradDQN/CartPole_tree_sigma-0.03', 'StdTrain/CartPole_tree_sigma-0.03', 'GaussAug/CartPole_tree_sigma-0.03', 'RegCVX/CartPole_tree_sigma-0.03', 'RegPGD/CartPole_tree_sigma-0.03'],
-// ['RadialRL/CartPole_tree_sigma-0.05', 'AdvTrain/CartPole_tree_sigma-0.05', 'GradDQN/CartPole_tree_sigma-0.05', 'StdTrain/CartPole_tree_sigma-0.05', 'GaussAug/CartPole_tree_sigma-0.05', 'RegCVX/CartPole_tree_sigma-0.05', 'RegPGD/CartPole_tree_sigma-0.05'],
-// ['RadialRL/CartPole_tree_sigma-0.1', 'AdvTrain/CartPole_tree_sigma-0.1', 'GradDQN/CartPole_tree_sigma-0.1', 'StdTrain/CartPole_tree_sigma-0.1', 'GaussAug/CartPole_tree_sigma-0.1', 'RegCVX/CartPole_tree_sigma-0.1', 'RegPGD/CartPole_tree_sigma-0.1']];
+// var data_paths = [['RadialRL/Pong_tree_sigma-0.001', 'AdvTrain/Pong_tree_sigma-0.001', 'GradDQN/Pong_tree_sigma-0.001', 'StdTrain/Pong_tree_sigma-0.001', 'GaussAug/Pong_tree_sigma-0.001', 'RegCVX/Pong_tree_sigma-0.001', 'RegPGD/Pong_tree_sigma-0.001'], 
+// ['RadialRL/Pong_tree_sigma-0.005', 'AdvTrain/Pong_tree_sigma-0.005', 'GradDQN/Pong_tree_sigma-0.005', 'StdTrain/Pong_tree_sigma-0.005', 'GaussAug/Pong_tree_sigma-0.005', 'RegCVX/Pong_tree_sigma-0.005', 'RegPGD/Pong_tree_sigma-0.005'],
+// ['RadialRL/Pong_tree_sigma-0.01', 'AdvTrain/Pong_tree_sigma-0.01', 'GradDQN/Pong_tree_sigma-0.01', 'StdTrain/Pong_tree_sigma-0.01', 'GaussAug/Pong_tree_sigma-0.01', 'RegCVX/Pong_tree_sigma-0.01', 'RegPGD/Pong_tree_sigma-0.01'],
+// ['RadialRL/Pong_tree_sigma-0.03', 'AdvTrain/Pong_tree_sigma-0.03', 'GradDQN/Pong_tree_sigma-0.03', 'StdTrain/Pong_tree_sigma-0.03', 'GaussAug/Pong_tree_sigma-0.03', 'RegCVX/Pong_tree_sigma-0.03', 'RegPGD/Pong_tree_sigma-0.03'],
+// ['RadialRL/Pong_tree_sigma-0.05', 'AdvTrain/Pong_tree_sigma-0.05', 'GradDQN/Pong_tree_sigma-0.05', 'StdTrain/Pong_tree_sigma-0.05', 'GaussAug/Pong_tree_sigma-0.05', 'RegCVX/Pong_tree_sigma-0.05', 'RegPGD/Pong_tree_sigma-0.05'],
+// ['RadialRL/Pong_tree_sigma-0.1', 'AdvTrain/Pong_tree_sigma-0.1', 'GradDQN/Pong_tree_sigma-0.1', 'StdTrain/Pong_tree_sigma-0.1', 'GaussAug/Pong_tree_sigma-0.1', 'RegCVX/Pong_tree_sigma-0.1', 'RegPGD/Pong_tree_sigma-0.1']];
 
-var data_paths = [['RadialRL/CartPole_tree_sigma-0.001', 'AdvTrain/CartPole_tree_sigma-0.001', 'StdTrain/CartPole_tree_sigma-0.001', 'GaussAug/CartPole_tree_sigma-0.001', 'RegCVX/CartPole_tree_sigma-0.001', 'RegPGD/CartPole_tree_sigma-0.001'], 
-['RadialRL/CartPole_tree_sigma-0.005', 'AdvTrain/CartPole_tree_sigma-0.005', 'StdTrain/CartPole_tree_sigma-0.005', 'GaussAug/CartPole_tree_sigma-0.005', 'RegCVX/CartPole_tree_sigma-0.005', 'RegPGD/CartPole_tree_sigma-0.005'],
-['RadialRL/CartPole_tree_sigma-0.01', 'AdvTrain/CartPole_tree_sigma-0.01', 'StdTrain/CartPole_tree_sigma-0.01', 'GaussAug/CartPole_tree_sigma-0.01', 'RegCVX/CartPole_tree_sigma-0.01', 'RegPGD/CartPole_tree_sigma-0.01'],
-['RadialRL/CartPole_tree_sigma-0.03', 'AdvTrain/CartPole_tree_sigma-0.03', 'StdTrain/CartPole_tree_sigma-0.03', 'GaussAug/CartPole_tree_sigma-0.03', 'RegCVX/CartPole_tree_sigma-0.03', 'RegPGD/CartPole_tree_sigma-0.03'],
-['RadialRL/CartPole_tree_sigma-0.05', 'AdvTrain/CartPole_tree_sigma-0.05', 'StdTrain/CartPole_tree_sigma-0.05', 'GaussAug/CartPole_tree_sigma-0.05', 'RegCVX/CartPole_tree_sigma-0.05', 'RegPGD/CartPole_tree_sigma-0.05'],
-['RadialRL/CartPole_tree_sigma-0.1', 'AdvTrain/CartPole_tree_sigma-0.1', 'StdTrain/CartPole_tree_sigma-0.1', 'GaussAug/CartPole_tree_sigma-0.1', 'RegCVX/CartPole_tree_sigma-0.1', 'RegPGD/CartPole_tree_sigma-0.1']];
+var data_paths = [['RadialRL/Pong_tree_sigma-0.001', 'AdvTrain/Pong_tree_sigma-0.001', 'StdTrain/Pong_tree_sigma-0.001', 'GaussAug/Pong_tree_sigma-0.001', 'RegCVX/Pong_tree_sigma-0.001', 'RegPGD/Pong_tree_sigma-0.001'], 
+['RadialRL/Pong_tree_sigma-0.005', 'AdvTrain/Pong_tree_sigma-0.005', 'StdTrain/Pong_tree_sigma-0.005', 'GaussAug/Pong_tree_sigma-0.005', 'RegCVX/Pong_tree_sigma-0.005', 'RegPGD/Pong_tree_sigma-0.005'],
+['RadialRL/Pong_tree_sigma-0.01', 'AdvTrain/Pong_tree_sigma-0.01', 'StdTrain/Pong_tree_sigma-0.01', 'GaussAug/Pong_tree_sigma-0.01', 'RegCVX/Pong_tree_sigma-0.01', 'RegPGD/Pong_tree_sigma-0.01'],
+['RadialRL/Pong_tree_sigma-0.03', 'AdvTrain/Pong_tree_sigma-0.03', 'StdTrain/Pong_tree_sigma-0.03', 'GaussAug/Pong_tree_sigma-0.03', 'RegCVX/Pong_tree_sigma-0.03', 'RegPGD/Pong_tree_sigma-0.03'],
+['RadialRL/Pong_tree_sigma-0.05', 'AdvTrain/Pong_tree_sigma-0.05', 'StdTrain/Pong_tree_sigma-0.05', 'GaussAug/Pong_tree_sigma-0.05', 'RegCVX/Pong_tree_sigma-0.05', 'RegPGD/Pong_tree_sigma-0.05'],
+['RadialRL/Pong_tree_sigma-0.1', 'AdvTrain/Pong_tree_sigma-0.1', 'StdTrain/Pong_tree_sigma-0.1', 'GaussAug/Pong_tree_sigma-0.1', 'RegCVX/Pong_tree_sigma-0.1', 'RegPGD/Pong_tree_sigma-0.1']];
 
 var x_ranges = [[0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12]];
 
