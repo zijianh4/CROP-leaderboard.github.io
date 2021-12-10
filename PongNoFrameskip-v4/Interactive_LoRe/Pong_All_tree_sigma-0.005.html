@@ -25,34 +25,34 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-// d3.csv('./data/data_1207_Pong_tree_CARRL/Pong_tree_sigma-0.001.csv',function(data_0) {
-//     d3.csv('./data/data_1207_Pong_tree_CARRL/Pong_tree_sigma-0.001_attack.csv',function(data_atk_0) {
-// d3.csv('./data/data_1207_Pong_tree_NoisyNet/Pong_tree_sigma-0.001.csv',function(data_1) {
-//     d3.csv('./data/data_1207_Pong_tree_NoisyNet/Pong_tree_sigma-0.001_attack.csv',function(data_atk_1) {
-d3.csv('./data/data_1207_Pong_tree_RadialRL/Pong_tree_sigma-0.001.csv',function(data_2) {
-    d3.csv('./data/data_1207_Pong_tree_RadialRL/Pong_tree_sigma-0.001_attack.csv',function(data_atk_2) {
-d3.csv('./data/data_1207_Pong_tree_AdvTrain/Pong_tree_sigma-0.001.csv',function(data_3) {
-    d3.csv('./data/data_1207_Pong_tree_AdvTrain/Pong_tree_sigma-0.001_attack.csv',function(data_atk_3) {
-// d3.csv('./data/data_1207_Pong_tree_GradDQN/Pong_tree_sigma-0.001.csv',function(data_4) {
-    // d3.csv('./data/data_1207_Pong_tree_GradDQN/Pong_tree_sigma-0.001_attack.csv',function(data_atk_4) {
-d3.csv('./data/data_1207_Pong_tree_StdTrain/Pong_tree_sigma-0.001.csv',function(data_5) {
-    d3.csv('./data/data_1207_Pong_tree_StdTrain/Pong_tree_sigma-0.001_attack.csv',function(data_atk_5) {
-d3.csv('./data/data_1207_Pong_tree_GaussAug/Pong_tree_sigma-0.001.csv',function(data_6) {
-    d3.csv('./data/data_1207_Pong_tree_GaussAug/Pong_tree_sigma-0.001_attack.csv',function(data_atk_6) {
-d3.csv('./data/data_1207_Pong_tree_RegCVX/Pong_tree_sigma-0.001.csv',function(data_7) {
-    d3.csv('./data/data_1207_Pong_tree_RegCVX/Pong_tree_sigma-0.001_attack.csv',function(data_atk_7) {
-d3.csv('./data/data_1207_Pong_tree_RegPGD/Pong_tree_sigma-0.001.csv',function(data_8) {
-    d3.csv('./data/data_1207_Pong_tree_RegPGD/Pong_tree_sigma-0.001_attack.csv',function(data_atk_8) {
+// d3.csv('./data/data_1207_Pong_tree_CARRL/Pong_tree_sigma-0.005.csv',function(data_0) {
+//     d3.csv('./data/data_1207_Pong_tree_CARRL/Pong_tree_sigma-0.005_attack.csv',function(data_atk_0) {
+// d3.csv('./data/data_1207_Pong_tree_NoisyNet/Pong_tree_sigma-0.005.csv',function(data_1) {
+//     d3.csv('./data/data_1207_Pong_tree_NoisyNet/Pong_tree_sigma-0.005_attack.csv',function(data_atk_1) {
+d3.csv('./data/data_1207_Pong_tree_RadialRL/Pong_tree_sigma-0.005.csv',function(data_2) {
+    d3.csv('./data/data_1207_Pong_tree_RadialRL/Pong_tree_sigma-0.005_attack.csv',function(data_atk_2) {
+d3.csv('./data/data_1207_Pong_tree_AdvTrain/Pong_tree_sigma-0.005.csv',function(data_3) {
+    d3.csv('./data/data_1207_Pong_tree_AdvTrain/Pong_tree_sigma-0.005_attack.csv',function(data_atk_3) {
+// d3.csv('./data/data_1207_Pong_tree_GradDQN/Pong_tree_sigma-0.005.csv',function(data_4) {
+    // d3.csv('./data/data_1207_Pong_tree_GradDQN/Pong_tree_sigma-0.005_attack.csv',function(data_atk_4) {
+d3.csv('./data/data_1207_Pong_tree_StdTrain/Pong_tree_sigma-0.005.csv',function(data_5) {
+    d3.csv('./data/data_1207_Pong_tree_StdTrain/Pong_tree_sigma-0.005_attack.csv',function(data_atk_5) {
+d3.csv('./data/data_1207_Pong_tree_GaussAug/Pong_tree_sigma-0.005.csv',function(data_6) {
+    d3.csv('./data/data_1207_Pong_tree_GaussAug/Pong_tree_sigma-0.005_attack.csv',function(data_atk_6) {
+d3.csv('./data/data_1207_Pong_tree_RegCVX/Pong_tree_sigma-0.005.csv',function(data_7) {
+    d3.csv('./data/data_1207_Pong_tree_RegCVX/Pong_tree_sigma-0.005_attack.csv',function(data_atk_7) {
+d3.csv('./data/data_1207_Pong_tree_RegPGD/Pong_tree_sigma-0.005.csv',function(data_8) {
+    d3.csv('./data/data_1207_Pong_tree_RegPGD/Pong_tree_sigma-0.005_attack.csv',function(data_atk_8) {
   //console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
-    .domain([0, 0.0016])
+    .domain([0, 0.008])
     .range([ 0, width ]);
   svg.append("g")
     .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
-    .tickValues([0, 0.0005, 0.001, 0.0015])
+    .tickValues([0, 0.002, 0.004, 0.006])
     .tickFormat(d3.format(".1e"))
     .tickSize(3));
   
@@ -580,7 +580,7 @@ d3.csv('./data/data_1207_Pong_tree_RegPGD/Pong_tree_sigma-0.001.csv',function(da
     .attr("text-anchor", "middle")  
     .style("font-size", "20px") 
     .style("text-decoration", "underline")  
-    .text("Pong LoRe, sigma = 0.001")
+    .text("Pong LoRe, sigma = 0.005")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
