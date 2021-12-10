@@ -66,12 +66,12 @@ d3.csv('./data/data_1207_Pong_global_median_RegPGD/Pong_global_median_sigma-0.05
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([-140, 10])
+    .domain([-14, 6])
     .range([ height, 0 ]);
   svg.append("g")
     .style("font", "20px times")
     .call(d3.axisLeft(y)
-    .tickValues([-120, -100, -80, -60, -40, -20, 0])
+    .tickValues([-12, -8, -4, 0, 4])
     // .tickFormat(d3.format(".1e"))
     .tickSize(3));
 
