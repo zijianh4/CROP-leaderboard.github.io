@@ -157,7 +157,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_RadialRL/CartPole_global_mean_sigm
     .enter().append("path")
     .attr("class", "point")
     .attr("d", d3.symbol().type(d3.symbolTriangle).size(60))
-    .attr("stroke", '#db57d3')
+    .attr("fill", '#db57d3')
     .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-180)"; });
 
   // Create a rect on top of the svg area: this rectangle recovers mouse position
