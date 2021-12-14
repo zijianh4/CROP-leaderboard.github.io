@@ -68,11 +68,15 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
       .attr("dy", "1em")
       .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("cumulative reward lower bound J")
+      .text("cumulative reward lower bound ")
+      .append("tspan")
+      .text("J")
+      .attr("text-decoration","underline")
       .append("tspan")
       .text("E")
-      .attr("dy",-5)
-      .attr("font-size",11); 
+      .attr("dy",5)
+      .attr("font-size",10)
+      .attr("text-decoration","underline"); 
 
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
@@ -207,7 +211,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
       .attr("cy", y(selectedData_atk.y))
     focusText_atk
       .html("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1e")(selectedData_atk.y) + ")")
-      .attr("x", 710)
+      .attr("x", 800)
       .attr("y", 40)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
