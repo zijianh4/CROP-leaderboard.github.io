@@ -74,7 +74,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
       .attr("text-decoration","underline")
       .append("tspan")
       .text("E")
-      // .attr("dy",5)
+      .attr("dy",1)
       .attr("font-size",10)
       .attr("text-decoration","underline"); 
 
@@ -156,7 +156,7 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
         .data(data_atk)
         .enter().append("path")
         .attr("class", "point")
-        .attr("d", d3.symbol().type(d3.symbolCross).size(40))
+        .attr("d", d3.symbol().type(d3.symbolCross).size(60))
         .attr("fill", "#f77189")
         .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y
         ) + ") rotate(-45)"; });
