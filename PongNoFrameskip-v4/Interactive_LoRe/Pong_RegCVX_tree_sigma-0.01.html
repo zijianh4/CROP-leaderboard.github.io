@@ -151,9 +151,9 @@ d3.csv('./data/data_1207_Pong_tree_RegCVX/Pong_tree_sigma-0.01_attack.csv',funct
     .data(data_atk)
     .enter().append("path")
     .attr("class", "point")
-    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
+    .attr("d", d3.symbol().type(d3.symbolStar).size(60))
     .attr("fill", '#5f57db')
-    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-180)"; });
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
   // Create a rect on top of the svg area: this rectangle recovers mouse position
   svg
