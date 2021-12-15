@@ -50,13 +50,13 @@ d3.csv('./data/data_1207_Pong_global_mean_RegCVX/Pong_global_mean_sigma-0.1.csv'
       .text("Epsilon");
 
   // Add Y axis
+  var y = d3.scaleLinear()
     .domain([-140, 0])
-    .domain([-150, 200])
     .range([ height, 0 ]);
   svg.append("g")
     .style("font", "20px times")
+    .call(d3.axisLeft(y)
     .tickValues([-120, -100, -80, -60, -40, -20])
-    .tickValues([-150, -100, -50, 0, 50, 100, 150, 200])
     // .tickFormat(d3.format(".1e"))
     .tickSize(3));
 
@@ -121,7 +121,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegCVX/Pong_global_mean_sigma-0.1.csv'
   //     .attr("stroke", "none")
   //     .attr("d", d3.area()
   //     .x(function(d) { return x(d.x) })
-    .attr("stroke", '#5f57db')
+  //     .y0(function(d) { return y(d.y_hi) })
   //     .y1(function(d) { return y(d.y_lo) })
   //     )
 
@@ -131,7 +131,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegCVX/Pong_global_mean_sigma-0.1.csv'
     .datum(data)
     .attr("fill", "none")
     // .attr("stroke", "steelblue")
-    .attr("stroke", '#f77189')
+    .attr("stroke", '#5f57db')
     .attr("stroke-width", 1)
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
@@ -158,7 +158,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegCVX/Pong_global_mean_sigma-0.1.csv'
     .style("pointer-events", "all")
     .attr('width', width)
     .attr('height', height)
-    .text("Pong GRe-mean, model = RegCVX, sigma = 0.1")
+    .on('mouseover', mouseover)
     .on('mousemove', mousemove)
     .on('mouseout', mouseout);
 
@@ -168,7 +168,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegCVX/Pong_global_mean_sigma-0.1.csv'
     .attr("text-anchor", "middle")  
     .style("font-size", "24px") 
     .style("text-decoration", "underline")  
-    .text("Pong GRe-mean, model=NoisyNet, sigma=0.001")
+    .text("Pong GRe-mean, model = RegCVX, sigma = 0.1")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
