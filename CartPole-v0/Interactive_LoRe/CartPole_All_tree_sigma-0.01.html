@@ -658,7 +658,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
     .attr("text-anchor", "middle")  
     .style("font-size", "24px") 
     .style("text-decoration", "underline")  
-    .text("CartPole LoRe, sigma = 0.01")
+    .text("CartPole LoRe, \u03C3 = 0.01")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
@@ -714,7 +714,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
 
     var i_0 = bisect(data_0, x0, 1);
     selectedData_0 = data_0[i_0];
-    var i_atk_0 = bisect(data_atk_0, x0, 1);
+    var i_atk_0 = bisect(data_atk_0, x0, 1) - 1;
     selectedData_atk_0 = data_atk_0[i_atk_0];
     focus_0
       .attr("cx", x(selectedData_0.x))
@@ -729,7 +729,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
 
     // var i_1 = bisect(data_1, x0, 1);
     // selectedData_1 = data_1[i_1];
-    // var i_atk_1 = bisect(data_atk_1, x0, 1);
+    // var i_atk_1 = bisect(data_atk_1, x0, 1) - 1;
     // selectedData_atk_1 = data_atk_1[i_atk_1];
     // focus_1
     //   .attr("cx", x(selectedData_1.x))
@@ -744,7 +744,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
 
     var i_2 = bisect(data_2, x0, 1);
     selectedData_2 = data_2[i_2];
-    var i_atk_2 = bisect(data_atk_2, x0, 1);
+    var i_atk_2 = bisect(data_atk_2, x0, 1) - 1;
     selectedData_atk_2 = data_atk_2[i_atk_2];
     focus_2
       .attr("cx", x(selectedData_2.x))
@@ -759,7 +759,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
 
     var i_3 = bisect(data_3, x0, 1);
     selectedData_3 = data_3[i_3];
-    var i_atk_3 = bisect(data_atk_3, x0, 1);
+    var i_atk_3 = bisect(data_atk_3, x0, 1) - 1;
     selectedData_atk_3 = data_atk_3[i_atk_3];
     focus_3
       .attr("cx", x(selectedData_3.x))
@@ -774,7 +774,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
 
     var i_4 = bisect(data_4, x0, 1);
     selectedData_4 = data_4[i_4];
-    var i_atk_4 = bisect(data_atk_4, x0, 1);
+    var i_atk_4 = bisect(data_atk_4, x0, 1) - 1;
     selectedData_atk_4 = data_atk_4[i_atk_4];
     focus_4
       .attr("cx", x(selectedData_4.x))
@@ -789,7 +789,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
 
     var i_5 = bisect(data_5, x0, 1);
     selectedData_5 = data_5[i_5];
-    var i_atk_5 = bisect(data_atk_5, x0, 1);
+    var i_atk_5 = bisect(data_atk_5, x0, 1) - 1;
     selectedData_atk_5 = data_atk_5[i_atk_5];
     focus_5
       .attr("cx", x(selectedData_5.x))
@@ -804,7 +804,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
 
     var i_6 = bisect(data_6, x0, 1);
     selectedData_6 = data_6[i_6];
-    var i_atk_6 = bisect(data_atk_6, x0, 1);
+    var i_atk_6 = bisect(data_atk_6, x0, 1) - 1;
     selectedData_atk_6 = data_atk_6[i_atk_6];
     focus_6
       .attr("cx", x(selectedData_6.x))
@@ -819,7 +819,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
 
     var i_7 = bisect(data_7, x0, 1);
     selectedData_7 = data_7[i_7];
-    var i_atk_7 = bisect(data_atk_7, x0, 1);
+    var i_atk_7 = bisect(data_atk_7, x0, 1) - 1;
     selectedData_atk_7 = data_atk_7[i_atk_7];
     focus_7
       .attr("cx", x(selectedData_7.x))
@@ -834,7 +834,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.01.csv',func
 
     var i_8 = bisect(data_8, x0, 1);
     selectedData_8 = data_8[i_8];
-    var i_atk_8 = bisect(data_atk_8, x0, 1);
+    var i_atk_8 = bisect(data_atk_8, x0, 1) - 1;
     selectedData_atk_8 = data_atk_8[i_atk_8];
     focus_8
       .attr("cx", x(selectedData_8.x))
