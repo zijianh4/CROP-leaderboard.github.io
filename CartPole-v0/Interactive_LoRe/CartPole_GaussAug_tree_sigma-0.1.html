@@ -151,9 +151,9 @@ d3.csv('./data/data_1109_CartPole_tree_GaussAug/CartPole_tree_sigma-0.1_attack.c
     .data(data_atk)
     .enter().append("path")
     .attr("class", "point")
-    .attr("d", d3.symbol().type(d3.symbolSquare).size(60))
+    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
     .attr("fill", '#d3db57')
-    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-180)"; });
 
   // Create a rect on top of the svg area: this rectangle recovers mouse position
   svg
@@ -193,7 +193,7 @@ d3.csv('./data/data_1109_CartPole_tree_GaussAug/CartPole_tree_sigma-0.1_attack.c
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("absolute bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
+      .html("absolute bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1f")(selectedData.y) + ")")
       .attr("x", 700)
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)
@@ -204,7 +204,7 @@ d3.csv('./data/data_1109_CartPole_tree_GaussAug/CartPole_tree_sigma-0.1_attack.c
       .attr("cx", x(selectedData_atk.x))
       .attr("cy", y(selectedData_atk.y))
     focusText_atk
-      .html("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1e")(selectedData_atk.y) + ")")
+      .html("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1f")(selectedData_atk.y) + ")")
       .attr("x", 770)
       .attr("y", 40)
       // .attr("x", x(selectedData.x)+5)
