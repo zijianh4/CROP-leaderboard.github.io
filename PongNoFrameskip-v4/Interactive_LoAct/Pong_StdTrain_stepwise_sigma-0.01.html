@@ -32,7 +32,7 @@ d3.csv('./data/data_1207_Pong_stepwise_StdTrain/Pong_stepwise_sigma-0.01.csv',fu
     .domain([0,500])
     .range([ 0, width ]);
   svg.append("g")
-    .style("font", "16px times")
+    .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
     .tickValues([0, 100, 200, 300, 400, 500])
@@ -51,7 +51,7 @@ d3.csv('./data/data_1207_Pong_stepwise_StdTrain/Pong_stepwise_sigma-0.01.csv',fu
     .domain([0, 0.006])
     .range([ height, 0 ]);
   svg.append("g")
-    .style("font", "16px times")
+    .style("font", "20px times")
     .call(d3.axisLeft(y)
     .tickValues([0, 0.002, 0.004, 0.006])
     .tickFormat(d3.format(".1e"))
@@ -132,7 +132,7 @@ d3.csv('./data/data_1207_Pong_stepwise_StdTrain/Pong_stepwise_sigma-0.01.csv',fu
   function mouseover() {
     focus.style("opacity", 1)
     focusText.style("opacity",1)
-    focusText.style("font-size", "16px")
+    focusText.style("font-size", "20px")
   }
 
   function mousemove() {
