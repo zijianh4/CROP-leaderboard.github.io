@@ -33,7 +33,7 @@ d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_s
     .domain([0, 0.0015])
     .range([ 0, width ]);
   svg.append("g")
-    .style("font", "16px times")
+    .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
     .tickValues([0, 0.0005, 0.001, 0.0015])
@@ -45,6 +45,7 @@ d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_s
       .attr("transform",
             "translate(" + (width/2) + " ," + 
                            (height + margin.top) + ")")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
       .text("attack magnitude \u03B5");
 
@@ -53,7 +54,7 @@ d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_s
     .domain([190, 210])
     .range([ height, 0 ]);
   svg.append("g")
-    .style("font", "16px times")
+    .style("font", "20px times")
     .call(d3.axisLeft(y)
     .tickValues([190, 195, 200, 205, 210])
     // .tickFormat(d3.format(".1e"))
@@ -65,8 +66,17 @@ d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_s
       .attr("y", 0 - margin.left)
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Reward"); 
+      .text("cumulative reward lower bound ")
+      .append("tspan")
+      .text("J")
+      .attr("text-decoration","underline")
+      .append("tspan")
+      .text("E")
+      .attr("dy",1)
+      .attr("font-size",10)
+      .attr("text-decoration","underline"); 
 
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
@@ -122,7 +132,7 @@ d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_s
     .attr("fill", "none")
     // .attr("stroke", "steelblue")
     .attr("stroke", '#50b131')
-    .attr("stroke-width", 1)
+    .attr("stroke-width", 3)
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
@@ -134,12 +144,21 @@ d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_s
     // .attr("class", "line")
     .attr("fill", "none")
     .attr("stroke", '#50b131')
-    .attr("stroke-width", 1)
+    .attr("stroke-width", 3)
     .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       )
+
+  //add markers
+  svg.selectAll(".point")
+    .data(data_atk)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
+    .attr("fill", '#50b131')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
   // Create a rect on top of the svg area: this rectangle recovers mouse position
   svg
@@ -154,9 +173,9 @@ d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_s
 
   svg.append("text")
     .attr("x", (width / 2))             
-    .attr("y", -20)
+    .attr("y", -40)
     .attr("text-anchor", "middle")  
-    .style("font-size", "20px") 
+    .style("font-size", "24px") 
     .style("text-decoration", "underline")  
     .text("CartPole GRe-median, model = GradDQN, sigma = 0.01")
 
@@ -179,7 +198,7 @@ d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_s
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("percentile bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
+      .text("percentile bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1f")(selectedData.y) + ")")
       .attr("x", 700)
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)
@@ -190,8 +209,8 @@ d3.csv('./data/data_1108_CartPole_global_median_GradDQN/CartPole_global_median_s
       .attr("cx", x(selectedData_atk.x))
       .attr("cy", y(selectedData_atk.y))
     focusText_atk
-      .html("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1e")(selectedData_atk.y) + ")")
-      .attr("x", 700)
+      .text("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1f")(selectedData_atk.y) + ")")
+      .attr("x", 793)
       .attr("y", 40)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
