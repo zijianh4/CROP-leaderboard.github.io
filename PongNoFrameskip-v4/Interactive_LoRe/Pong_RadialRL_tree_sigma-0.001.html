@@ -187,7 +187,7 @@ d3.csv('./data/data_1207_Pong_tree_RadialRL/Pong_tree_sigma-0.001_attack.csv',fu
   function mousemove() {
     // recover coordinate we need
     var x0 = x.invert(d3.mouse(this)[0]);
-    var i = bisect(data, x0, 1)-1;
+    var i = bisect(data, x0, 1);
     selectedData = data[i]
     focus
       .attr("cx", x(selectedData.x))
@@ -198,7 +198,7 @@ d3.csv('./data/data_1207_Pong_tree_RadialRL/Pong_tree_sigma-0.001_attack.csv',fu
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
-    var i_atk = bisect(data_atk, x0, 1);
+    var i_atk = bisect(data_atk, x0, 1)-1;
     selectedData_atk = data_atk[i_atk];
     focus_atk
       .attr("cx", x(selectedData_atk.x))
