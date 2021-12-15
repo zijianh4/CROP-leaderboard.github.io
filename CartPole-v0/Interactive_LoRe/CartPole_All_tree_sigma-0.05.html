@@ -10,10 +10,10 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 40, right: 800, bottom: 60, left: 100},
+var margin = {top: 100, right: 800, bottom: 60, left: 100},
 // var margin = {top: 1, right: 3, bottom: 3, left: 6},
     width = 1650 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    height = 700 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -43,7 +43,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegCVX/CartPole_tree_sigma-0.05.csv',func
     d3.csv('./data/data_1109_CartPole_tree_RegCVX/CartPole_tree_sigma-0.05_attack.csv',function(data_atk_7) {
 d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',function(data_8) {
     d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05_attack.csv',function(data_atk_8) {
-  //console.log(data)
+  // console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
     .domain([0, 0.06])
@@ -61,6 +61,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .attr("transform",
             "translate(" + (width/2) + " ," + 
                            (height + margin.top) + ")")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
       .text("Epsilon");
 
@@ -75,13 +76,18 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
     // .tickFormat(d3.format(".1e"))
     .tickSize(3));
 
+   // text label for the y axis
   svg.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left)
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Reward"); 
+      .text("cumulative reward lower bound ")
+      .append("tspan")
+      .text("J")
+      .attr("text-decoration","underline"); 
   
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
@@ -138,6 +144,15 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       );
+  
+  //add markers
+  svg.selectAll(".point_0")
+    .data(data_atk_0)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolCross).size(60))
+    .attr("fill", '#f77189')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-45)"; });
 
   // Create the circle that travels along the curve of chart
   // var focus_1 = svg
@@ -244,6 +259,15 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       );
+  
+  //add markers
+  svg.selectAll(".point_2")
+    .data(data_atk_2)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolTriangle).size(60))
+    .attr("fill", '#db57d3')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-180)"; });
 
   // Create the circle that travels along the curve of chart
   var focus_3 = svg
@@ -297,6 +321,15 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       );
+  
+  //add markers
+  svg.selectAll(".point_3")
+    .data(data_atk_3)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolCircle).size(60))
+    .attr("fill", '#57db5f')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
   // Create the circle that travels along the curve of chart
   var focus_4 = svg
@@ -350,6 +383,15 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       );
+  
+  //add markers
+  svg.selectAll(".point_4")
+    .data(data_atk_4)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
+    .attr("fill", '#50b131')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
   // Create the circle that travels along the curve of chart
   var focus_5 = svg
@@ -403,6 +445,15 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       );
+  
+  //add markers
+  svg.selectAll(".point_5")
+    .data(data_atk_5)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolSquare).size(60))
+    .attr("fill", '#db5f57')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
   // Create the circle that travels along the curve of chart
   var focus_6 = svg
@@ -456,6 +507,15 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       );
+  
+  //add markers
+  svg.selectAll(".point_6")
+    .data(data_atk_6)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
+    .attr("fill", '#d3db57')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-180)"; });
 
   // Create the circle that travels along the curve of chart
   var focus_7 = svg
@@ -509,6 +569,15 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       );
+  
+  //add markers
+  svg.selectAll(".point_7")
+    .data(data_atk_7)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolStar).size(60))
+    .attr("fill", '#5f57db')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
 
   // Create the circle that travels along the curve of chart
   var focus_8 = svg
@@ -563,6 +632,15 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .y(function(d) { return y(d.y) })
       );
   
+  //add markers
+  svg.selectAll(".point_8")
+    .data(data_atk_8)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolTriangle).size(60))
+    .attr("fill", '#57d3db')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
   // Create a rect on top of the svg area: this rectangle recovers mouse position
   svg
     .append('rect')
@@ -576,9 +654,9 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
 
   svg.append("text")
     .attr("x", (width / 2))             
-    .attr("y", -20)
+    .attr("y", -40)
     .attr("text-anchor", "middle")  
-    .style("font-size", "20px") 
+    .style("font-size", "24px") 
     .style("text-decoration", "underline")  
     .text("CartPole LoRe, sigma = 0.05")
 
@@ -642,7 +720,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .attr("cx", x(selectedData_0.x))
       .attr("cy", y(selectedData_0.y))
     focusText_0
-      .html("CARRL: percentile bound of reward: (" + d3.format(".1e")(selectedData_0.x) + ", " + d3.format(".1e")(selectedData_0.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_0.x) + ", " + d3.format(".1e")(selectedData_atk_0.y) + ")")
+      .html("CARRL: percentile bound of reward: (" + d3.format(".1e")(selectedData_0.x) + ", " + d3.format(".1f")(selectedData_0.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_0.x) + ", " + d3.format(".1f")(selectedData_atk_0.y) + ")")
       .attr("x", 800)
       .attr("y", 20)
     focus_atk_0
@@ -672,7 +750,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .attr("cx", x(selectedData_2.x))
       .attr("cy", y(selectedData_2.y))
     focusText_2
-      .html("RadialRL: percentile bound of reward: (" + d3.format(".1e")(selectedData_2.x) + ", " + d3.format(".1e")(selectedData_2.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_2.x) + ", " + d3.format(".1e")(selectedData_atk_2.y) + ")")
+      .html("RadialRL: percentile bound of reward: (" + d3.format(".1e")(selectedData_2.x) + ", " + d3.format(".1f")(selectedData_2.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_2.x) + ", " + d3.format(".1f")(selectedData_atk_2.y) + ")")
       .attr("x", 800)
       .attr("y", 40)
     focus_atk_2
@@ -687,7 +765,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .attr("cx", x(selectedData_3.x))
       .attr("cy", y(selectedData_3.y))
     focusText_3
-      .html("AdvTrain: percentile bound of reward: (" + d3.format(".1e")(selectedData_3.x) + ", " + d3.format(".1e")(selectedData_3.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_3.x) + ", " + d3.format(".1e")(selectedData_atk_3.y) + ")")
+      .html("AdvTrain: percentile bound of reward: (" + d3.format(".1e")(selectedData_3.x) + ", " + d3.format(".1f")(selectedData_3.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_3.x) + ", " + d3.format(".1f")(selectedData_atk_3.y) + ")")
       .attr("x", 800)
       .attr("y", 60)
     focus_atk_3
@@ -702,7 +780,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .attr("cx", x(selectedData_4.x))
       .attr("cy", y(selectedData_4.y))
     focusText_4
-      .html("GradDQN: percentile bound of reward: (" + d3.format(".1e")(selectedData_4.x) + ", " + d3.format(".1e")(selectedData_4.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_4.x) + ", " + d3.format(".1e")(selectedData_atk_4.y) + ")")
+      .html("GradDQN: percentile bound of reward: (" + d3.format(".1e")(selectedData_4.x) + ", " + d3.format(".1f")(selectedData_4.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_4.x) + ", " + d3.format(".1f")(selectedData_atk_4.y) + ")")
       .attr("x", 800)
       .attr("y", 80)
     focus_atk_4
@@ -717,7 +795,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .attr("cx", x(selectedData_5.x))
       .attr("cy", y(selectedData_5.y))
     focusText_5
-      .html("StdTrain: percentile bound of reward: (" + d3.format(".1e")(selectedData_5.x) + ", " + d3.format(".1e")(selectedData_5.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_5.x) + ", " + d3.format(".1e")(selectedData_atk_5.y) + ")")
+      .html("StdTrain: percentile bound of reward: (" + d3.format(".1e")(selectedData_5.x) + ", " + d3.format(".1f")(selectedData_5.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_5.x) + ", " + d3.format(".1f")(selectedData_atk_5.y) + ")")
       .attr("x", 800)
       .attr("y", 100)
     focus_atk_5
@@ -732,7 +810,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .attr("cx", x(selectedData_6.x))
       .attr("cy", y(selectedData_6.y))
     focusText_6
-      .html("GaussAug: percentile bound of reward: (" + d3.format(".1e")(selectedData_6.x) + ", " + d3.format(".1e")(selectedData_6.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_6.x) + ", " + d3.format(".1e")(selectedData_atk_6.y) + ")")
+      .html("GaussAug: percentile bound of reward: (" + d3.format(".1e")(selectedData_6.x) + ", " + d3.format(".1f")(selectedData_6.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_6.x) + ", " + d3.format(".1f")(selectedData_atk_6.y) + ")")
       .attr("x", 800)
       .attr("y", 120)
     focus_atk_6
@@ -747,7 +825,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .attr("cx", x(selectedData_7.x))
       .attr("cy", y(selectedData_7.y))
     focusText_7
-      .html("RegCVX: percentile bound of reward: (" + d3.format(".1e")(selectedData_7.x) + ", " + d3.format(".1e")(selectedData_7.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_7.x) + ", " + d3.format(".1e")(selectedData_atk_7.y) + ")")
+      .html("RegCVX: percentile bound of reward: (" + d3.format(".1e")(selectedData_7.x) + ", " + d3.format(".1f")(selectedData_7.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_7.x) + ", " + d3.format(".1f")(selectedData_atk_7.y) + ")")
       .attr("x", 800)
       .attr("y", 140)
     focus_atk_7
@@ -762,7 +840,7 @@ d3.csv('./data/data_1109_CartPole_tree_RegPGD/CartPole_tree_sigma-0.05.csv',func
       .attr("cx", x(selectedData_8.x))
       .attr("cy", y(selectedData_8.y))
     focusText_8
-      .html("RegPGD: percentile bound of reward: (" + d3.format(".1e")(selectedData_8.x) + ", " + d3.format(".1e")(selectedData_8.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_8.x) + ", " + d3.format(".1e")(selectedData_atk_8.y) + ")")
+      .html("RegPGD: percentile bound of reward: (" + d3.format(".1e")(selectedData_8.x) + ", " + d3.format(".1f")(selectedData_8.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_8.x) + ", " + d3.format(".1f")(selectedData_atk_8.y) + ")")
       .attr("x", 800)
       .attr("y", 160)
     focus_atk_8
