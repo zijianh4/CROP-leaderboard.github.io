@@ -151,9 +151,8 @@ d3.csv('./data/data_1107_CartPole_global_mean_RegPGD/CartPole_global_mean_sigma-
       );
 
   //add markers
-  svg.selectAll(".point")
-    .data(data_atk_0)
-    .enter().append("path")
+  svg.append("path")
+    .datum(data_atk_0)
     .attr("class", "point")
     .attr("d", d3.symbol().type(d3.symbolCross).size(60))
     .attr("fill", '#f77189')
