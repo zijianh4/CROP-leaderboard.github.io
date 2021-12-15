@@ -74,7 +74,7 @@ d3.csv('./data/data_1207_Pong_tree_RadialRL/Pong_tree_sigma-0.001_attack.csv',fu
       .attr("text-decoration","underline") 
 
   // This allows to find the closest X index of the mouse:
-  var bisect = d3.bisector(function(d) { return d.x; }).right;
+  var bisect = d3.bisector(function(d) { return d.x; }).left;
 
   // Create the circle that travels along the curve of chart
   var focus = svg
@@ -187,7 +187,7 @@ d3.csv('./data/data_1207_Pong_tree_RadialRL/Pong_tree_sigma-0.001_attack.csv',fu
   function mousemove() {
     // recover coordinate we need
     var x0 = x.invert(d3.mouse(this)[0]);
-    var i = bisect(data, x0, 1);
+    var i = bisect(data, x0, 1)-1;
     selectedData = data[i]
     focus
       .attr("cx", x(selectedData.x))
