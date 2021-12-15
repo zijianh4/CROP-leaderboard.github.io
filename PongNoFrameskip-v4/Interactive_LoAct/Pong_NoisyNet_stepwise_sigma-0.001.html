@@ -48,12 +48,12 @@ d3.csv('./data/data_1207_Pong_stepwise_NoisyNet/Pong_stepwise_sigma-0.001.csv',f
       .text("Step");
 
   // Add Y axis
-    .domain([0, 0.0005])
+  var y = d3.scaleLinear()
     .domain([0, 0.0005])
     .range([ height, 0 ]);
   svg.append("g")
     .style("font", "20px times")
-    .tickValues([0, 0.0001, 0.0002, 0.0003, 0.0004])
+    .call(d3.axisLeft(y)
     .tickValues([0, 0.0001, 0.0002, 0.0003, 0.0004])
     .tickFormat(d3.format(".1e"))
     .tickSize(3));
@@ -88,9 +88,9 @@ d3.csv('./data/data_1207_Pong_stepwise_NoisyNet/Pong_stepwise_sigma-0.001.csv',f
       .attr("text-anchor", "left")
       .attr("alignment-baseline", "middle")
   
-      .attr("fill", d3.color('#bb9832').brighter(1.1))
+  svg.append("path")
       .datum(data)
-      .attr("fill", d3.color("#bb9832").brighter(1.1))
+      .attr("fill", d3.color('#bb9832').brighter(1.1))
       .attr("stroke", "none")
       .attr("d", d3.area()
       .x(function(d) { return x(d.x) })
@@ -102,9 +102,9 @@ d3.csv('./data/data_1207_Pong_stepwise_NoisyNet/Pong_stepwise_sigma-0.001.csv',f
   svg
     .append("path")
     .datum(data)
-    .attr("stroke", '#bb9832')
+    .attr("fill", "none")
     // .attr("stroke", "steelblue")
-    .attr("stroke", "#bb9832")
+    .attr("stroke", '#bb9832')
     .attr("stroke-width", 1)
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
@@ -126,9 +126,9 @@ d3.csv('./data/data_1207_Pong_stepwise_NoisyNet/Pong_stepwise_sigma-0.001.csv',f
     .attr("x", (width / 2))             
     .attr("y", -20)
     .attr("text-anchor", "middle")  
-    .text("Pong LoAct, model = NoisyNet, sigma = 0.001")
+    .style("font-size", "20px") 
     .style("text-decoration", "underline")  
-    .text("Pong LoAct, model=NoisyNet, sigma=0.001")
+    .text("Pong LoAct, model = NoisyNet, sigma = 0.001")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
