@@ -198,32 +198,20 @@ d3.csv('./data/data_1107_CartPole_global_mean_CARRL/CartPole_global_mean_sigma-0
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .text("\u03B5, ")
+      .text("expectation bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1f")(selectedData.y) + ")")
       .attr("x", 700)
       .attr("y", 20)
-      .append("tspan")
-      .text("J")
-      .attr("text-decoration","underline")
-      .append("tspan")
-      .text("E")
-      // .attr("dy",1)
-      .attr("font-size",10)
-      .attr("text-decoration","underline")
-      .append("text")
-      .text(": (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1f")(selectedData.y) + ")")
-      // .attr("x", 700)
-      // .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
-    // var i_atk = bisect(data_atk, x0, 1);
-    // selectedData_atk = data_atk[i_atk]
-    // focus_atk
-    //   .attr("cx", x(selectedData_atk.x))
-    //   .attr("cy", y(selectedData_atk.y))
-    // focusText_atk
-    //   .text("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1f")(selectedData_atk.y) + ")")
-    //   .attr("x", 793)
-    //   .attr("y", 40)
+    var i_atk = bisect(data_atk, x0, 1);
+    selectedData_atk = data_atk[i_atk]
+    focus_atk
+      .attr("cx", x(selectedData_atk.x))
+      .attr("cy", y(selectedData_atk.y))
+    focusText_atk
+      .text("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1f")(selectedData_atk.y) + ")")
+      .attr("x", 793)
+      .attr("y", 40)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
     }
