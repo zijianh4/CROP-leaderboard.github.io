@@ -45,8 +45,9 @@ d3.csv('./data/data_1207_Freeway_tree_AdvTrain/Freeway_tree_sigma-0.1.csv',funct
       .attr("transform",
             "translate(" + (width/2) + " ," + 
                            (height + margin.top) + ")")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Epsilon");
+      .text("attack magnitude \u03B5");
 
   // Add Y axis
   var y = d3.scaleLinear()
@@ -58,15 +59,19 @@ d3.csv('./data/data_1207_Freeway_tree_AdvTrain/Freeway_tree_sigma-0.1.csv',funct
     .tickValues([0, 0.2, 0.4, 0.6, 0.8, 1])
     // .tickFormat(d3.format(".1e"))
     .tickSize(3));
-
-    // text label for the y axis
+  
+     // text label for the y axis
   svg.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left)
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Reward"); 
+      .text("cumulative reward lower bound ")
+      .append("tspan")
+      .text("J")
+      .attr("text-decoration","underline") 
 
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
@@ -154,11 +159,11 @@ d3.csv('./data/data_1207_Freeway_tree_AdvTrain/Freeway_tree_sigma-0.1.csv',funct
 
   svg.append("text")
     .attr("x", (width / 2))             
-    .attr("y", -20)
+    .attr("y", -40)
     .attr("text-anchor", "middle")  
-    .style("font-size", "20px") 
+    .style("font-size", "24px") 
     .style("text-decoration", "underline")  
-    .text("Freeway LoRe, model = AdvTrain, sigma = 0.1")
+    .text("Freeway LoRe, model = AdvTrain, σ = 0.1")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
