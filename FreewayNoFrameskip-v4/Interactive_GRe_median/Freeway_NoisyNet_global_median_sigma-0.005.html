@@ -33,7 +33,7 @@ d3.csv('./data/data_1207_Freeway_global_median_NoisyNet/Freeway_global_median_si
     .domain([0, 0.0008])
     .range([ 0, width ]);
   svg.append("g")
-    .style("font", "16px times")
+    .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
     .tickValues([0, 0.0002, 0.0004, 0.0006, 0.0008])
@@ -45,8 +45,9 @@ d3.csv('./data/data_1207_Freeway_global_median_NoisyNet/Freeway_global_median_si
       .attr("transform",
             "translate(" + (width/2) + " ," + 
                            (height + margin.top) + ")")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Epsilon");
+      .text("attack magnitude \u03B5");
 
   // Add Y axis
   var y = d3.scaleLinear()
@@ -59,14 +60,23 @@ d3.csv('./data/data_1207_Freeway_global_median_NoisyNet/Freeway_global_median_si
     // .tickFormat(d3.format(".1e"))
     .tickSize(3));
 
-    // text label for the y axis
+     // text label for the y axis
   svg.append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left)
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
-      .text("Reward"); 
+      .text("cumulative reward lower bound ")
+      .append("tspan")
+      .text("J")
+      .attr("text-decoration","underline")
+      .append("tspan")
+      .text("P")
+      .attr("dy",1)
+      .attr("font-size",10)
+      .attr("text-decoration","underline"); 
 
   // This allows to find the closest X index of the mouse:
   var bisect = d3.bisector(function(d) { return d.x; }).left;
@@ -154,11 +164,11 @@ d3.csv('./data/data_1207_Freeway_global_median_NoisyNet/Freeway_global_median_si
 
   svg.append("text")
     .attr("x", (width / 2))             
-    .attr("y", -20)
+    .attr("y", -40)
     .attr("text-anchor", "middle")  
-    .style("font-size", "20px") 
+    .style("font-size", "24px") 
     .style("text-decoration", "underline")  
-    .text("Freeway GRe-median, model = NoisyNet, sigma = 0.005")
+    .text("Freeway GRe-median, model = NoisyNet,  σ = 0.005")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
