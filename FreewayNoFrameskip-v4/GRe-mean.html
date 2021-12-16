@@ -882,7 +882,7 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
   function mouseover() {
     focus.style("opacity", 1)
     focusText.style("opacity",1)
-    focusText.style("font-size", "8px")
+    focusText.style("font-size", "10px")
   }
 
   function mousemove() {
@@ -894,7 +894,7 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("(" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1e")(selectedData.y) + ")")
+      .html("(" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1f")(selectedData.y) + ")")
       .attr("x", 20)
       .attr("y", 5)
       // .attr("x", x(selectedData.x)+5)
