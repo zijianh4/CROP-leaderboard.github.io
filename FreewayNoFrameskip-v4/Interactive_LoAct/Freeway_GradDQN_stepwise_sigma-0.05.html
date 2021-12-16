@@ -32,7 +32,7 @@ d3.csv('./data/data_1207_Freeway_stepwise_GradDQN/Freeway_stepwise_sigma-0.05.cs
     .domain([0,500])
     .range([ 0, width ]);
   svg.append("g")
-    .style("font", "16px times")
+    .style("font", "20px times")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x)
     .tickValues([0, 100, 200, 300, 400, 500])
@@ -43,6 +43,7 @@ d3.csv('./data/data_1207_Freeway_stepwise_GradDQN/Freeway_stepwise_sigma-0.05.cs
       .attr("transform",
             "translate(" + (width/2) + " ," + 
                            (height + margin.top) + ")")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
       .text("Step");
 
@@ -51,7 +52,7 @@ d3.csv('./data/data_1207_Freeway_stepwise_GradDQN/Freeway_stepwise_sigma-0.05.cs
     .domain([0.092, 0.1])
     .range([ height, 0 ]);
   svg.append("g")
-    .style("font", "16px times")
+    .style("font", "20px times")
     .call(d3.axisLeft(y)
     .tickValues([0.092, 0.094, 0.096, 0.098])
     .tickFormat(d3.format(".1e"))
@@ -63,6 +64,7 @@ d3.csv('./data/data_1207_Freeway_stepwise_GradDQN/Freeway_stepwise_sigma-0.05.cs
       .attr("y", 0 - margin.left)
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
+      .style("font-size", "20px")
       .style("text-anchor", "middle")
       .text("r"); 
 
@@ -126,13 +128,13 @@ d3.csv('./data/data_1207_Freeway_stepwise_GradDQN/Freeway_stepwise_sigma-0.05.cs
     .attr("text-anchor", "middle")  
     .style("font-size", "20px") 
     .style("text-decoration", "underline")  
-    .text("Freeway LoAct, model = GradDQN, sigma = 0.05")
+    .text("Freeway LoAct, model = GradDQN, σ = 0.05")
 
   // What happens when the mouse move -> show the annotations at the right positions.
   function mouseover() {
     focus.style("opacity", 1)
     focusText.style("opacity",1)
-    focusText.style("font-size", "16px")
+    focusText.style("font-size", "20px")
   }
 
   function mousemove() {
