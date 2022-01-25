@@ -526,6 +526,63 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
       <div id="FreewayNoFrameskip-v4_LoRe"></div>
     </section>
 
+    <section>
+      <div class="heading_second" id="highway-fast-v0_LoAct_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          highway-fast-v0 (LoAct)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certiﬁcation for per-state action in terms of certiﬁed radius r at time steps = 30. Each column corresponds to one smoothing variance &sigma; and each row corresponds to one RL algorithm. For each figure, the x-axis is time step <i>t</i>, and the y-axis is the certified radius <i>r<sub>t</sub></i>. The shaded area represents the standard deviation.
+        </p>
+      </div>
+
+      <div id="highway-fast-v0_LoAct"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="highway-fast-v0_GRe-mean_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          highway-fast-v0 (GRe-mean)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>expection bound</i> <i><u>J<sub>E</sub></u></i> at time steps = 30. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="highway-fast-v0_GRe-mean"></div>
+    </section>
+
+    <section>
+      <div class="heading_second" id="highway-fast-v0_GRe-median_heading">
+        <u>
+          <div style="opacity:0;">1<br>1</div> 
+          <!-- Needed to introduce a margin for the navigation bar between leaderboards -->
+          Leaderboard:
+          highway-fast-v0 (GRe-median)
+        </u>
+      </div>
+
+      <div class="overview">
+        <p class="doublealign">
+          Robustness certification as cumulative reward in terms of <i>percentile bound</i> <i><u>J<sub>P</sub> (p = 50%)</u></i> at time steps = 30. Each column corresponds to one smoothing variance. Solid lines represent the certified reward bounds of different methods, and dashed lines show the empirical performance under PGD attack. 
+        </p>
+      </div>
+
+      <div id="highway-fast-v0-median"></div>
+    </section>
+
     <!-- <section>
       <div class="heading" id="div_imagenet_Linf_heading">
         <p>
@@ -724,6 +781,9 @@ clean_acc, robust_acc <span style="color: #333333">=</span> benchmark(model,
     $("#FreewayNoFrameskip-v4_GRe-mean").load("./FreewayNoFrameskip-v4/GRe-mean.html");
     $("#FreewayNoFrameskip-v4_GRe-median").load("./FreewayNoFrameskip-v4/GRe-median.html");
     $("#FreewayNoFrameskip-v4_LoRe").load("./FreewayNoFrameskip-v4/LoRe.html");
+    $("#highway-fast-v0_LoAct").load("./highway-fast-v0/LoAct.html");
+    $("#highway-fast-v0_GRe-mean").load("./highway-fast-v0/GRe-mean.html");
+    $("#highway-fast-v0_GRe-median").load("./highway-fast-v0/GRe-median.html");
     // $("#BoxingNoFrameskip-v4_LoAct").load("./BoxingNoFrameskip-v4/LoAct.html");
     // $("#BoxingNoFrameskip-v4_GRe").load("./BoxingNoFrameskip-v4/GRe.html");
     // $("#BoxingNoFrameskip-v4_LoRe").load("./BoxingNoFrameskip-v4/LoRe.html");
