@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 100, right: 300, bottom: 200, left: 100},
+// var margin = {top: 1, right: 3, bottom: 3, left: 6},
+    width = 1150 - margin.left - margin.right,
+    height = 850 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv('./data/data_0126_highway-fast_stepwise_CARRL/highway-fast_stepwise_sigma-0.1.csv', function(data_0){
+d3.csv('./data/data_0126_highway-fast_stepwise_NoisyNet/highway-fast_stepwise_sigma-0.1.csv', function(data_1){
+d3.csv('./data/data_0126_highway-fast_stepwise_RadialRL/highway-fast_stepwise_sigma-0.1.csv', function(data_2){
+d3.csv('./data/data_0126_highway-fast_stepwise_AdvTrain/highway-fast_stepwise_sigma-0.1.csv', function(data_3){
+d3.csv('./data/data_0126_highway-fast_stepwise_GradDQN/highway-fast_stepwise_sigma-0.1.csv', function(data_4){
+d3.csv('./data/data_0126_highway-fast_stepwise_StdTrain/highway-fast_stepwise_sigma-0.1.csv', function(data_5){
+d3.csv('./data/data_0126_highway-fast_stepwise_GaussAug/highway-fast_stepwise_sigma-0.1.csv', function(data_6){
+d3.csv('./data/data_0126_highway-fast_stepwise_RegCVX/highway-fast_stepwise_sigma-0.1.csv', function(data_7){
+d3.csv('./data/data_0126_highway-fast_stepwise_RegPGD/highway-fast_stepwise_sigma-0.1.csv', function(data_8){
+  // console.log(data_0)
+  // Add X axis --> it is a date format
+  var x = d3.scaleLinear()
+    .domain([0,30])
+    .range([ 0, width ]);
+  svg.append("g")
+    .style("font", "20px times")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x)
+    .tickValues([0, 10, 20, 30])
+    .tickSize(3));
+
+  // text label for the x axis
+  svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top) + ")")
+      .style("text-anchor", "middle")
+      .text("Step");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([0, 0.25])
+    .range([ height, 0 ]);
+  svg.append("g")
+    .style("font", "20px times")
+    .call(d3.axisLeft(y)
+    .tickValues([0, 0.1, 0.2])
+    .tickFormat(d3.format(".1e"))
+    .tickSize(3));
+
+  // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("R (Radius)"); 
+
+  // This allows to find the closest X index of the mouse:
+  var bisect = d3.bisector(function(d) { return d.x; }).left;
+
+  // Create the circle that travels along the curve of chart
+  var focus_0 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "#f77189")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_0 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#f77189')
+  
+  svg.append("path")
+      .datum(data_0)
+      .attr("fill", d3.color("#f77189").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
+  
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_0)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#f77189")
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+
+  // Create the circle that travels along the curve of chart
+  var focus_1 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "#bb9832")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_1 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#bb9832')
+
+  svg.append("path")
+      .datum(data_1)
+      .attr("fill", d3.color("#bb9832").brighter(1.1))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_1)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#bb9832")
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+  
+  // Create the circle that travels along the curve of chart
+  var focus_2 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "#db57d3")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_2 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#db57d3')
+
+  svg.append("path")
+      .datum(data_2)
+      .attr("fill", d3.color("#db57d3").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_2)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#db57d3")
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+  
+  // Create the circle that travels along the curve of chart
+  var focus_3 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "#57db5f")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_3 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#57db5f')
+
+  svg.append("path")
+      .datum(data_3)
+      .attr("fill", d3.color("#57db5f").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_3)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#57db5f")
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+  
+  // Create the circle that travels along the curve of chart
+  var focus_4 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "#50b131")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_4 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#50b131')
+
+  svg.append("path")
+      .datum(data_4)
+      .attr("fill", d3.color("#50b131").brighter(2.5))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_4)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#50b131")
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+  
+  // Create the circle that travels along the curve of chart
+  var focus_5 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "#db5f57")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_5 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#db5f57')
+
+  svg.append("path")
+      .datum(data_5)
+      .attr("fill", d3.color("#db5f57").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_5)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#db5f57")
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+  
+  // Create the circle that travels along the curve of chart
+  var focus_6 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "#d3db57")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_6 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#d3db57')
+
+  svg.append("path")
+      .datum(data_6)
+      .attr("fill", d3.color("#d3db57").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_6)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#d3db57")
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+  
+  // Create the circle that travels along the curve of chart
+  var focus_7 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "#5f57db")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_7 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#5f57db')
+
+  svg.append("path")
+      .datum(data_7)
+      .attr("fill", d3.color("#5f57db").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_7)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#5f57db")
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+  
+  // Create the circle that travels along the curve of chart
+  var focus_8 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "#57d3db")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_8 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#57d3db')
+
+  svg.append("path")
+      .datum(data_8)
+      .attr("fill", d3.color("#57d3db").brighter(2))
+      .attr("stroke", "none")
+      .attr("d", d3.area()
+      .x(function(d) { return x(d.x) })
+      .y0(function(d) { return y(d.y_hi) })
+      .y1(function(d) { return y(d.y_lo) })
+      )
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_8)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", "#57d3db")
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+  // Create a rect on top of the svg area: this rectangle recovers mouse position
+  svg
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width)
+    .attr('height', height)
+    .on('mouseover', mouseover)
+    .on('mousemove', mousemove)
+    .on('mouseout', mouseout);
+
+   svg.append("text")
+    .attr("x", (width / 2))             
+    .attr("y", -40)
+    .attr("text-anchor", "middle")  
+    .style("font-size", "24px") 
+    .style("text-decoration", "underline")  
+    .text("highway-fast LoAct, \u03C3 = 0.1")
+
+  // What happens when the mouse move -> show the annotations at the right positions.
+  function mouseover() {
+    focus_0.style("opacity", 1)
+    focusText_0.style("opacity",1)
+    focusText_0.style("font-size", "20px")
+
+    focus_1.style("opacity", 1)
+    focusText_1.style("opacity",1)
+    focusText_1.style("font-size", "20px")
+
+    focus_2.style("opacity", 1)
+    focusText_2.style("opacity",1)
+    focusText_2.style("font-size", "20px")
+
+    focus_3.style("opacity", 1)
+    focusText_3.style("opacity",1)
+    focusText_3.style("font-size", "20px")
+
+    focus_4.style("opacity", 1)
+    focusText_4.style("opacity",1)
+    focusText_4.style("font-size", "20px")
+
+    focus_5.style("opacity", 1)
+    focusText_5.style("opacity",1)
+    focusText_5.style("font-size", "20px")
+
+    focus_6.style("opacity", 1)
+    focusText_6.style("opacity",1)
+    focusText_6.style("font-size", "20px")
+
+    focus_7.style("opacity", 1)
+    focusText_7.style("opacity",1)
+    focusText_7.style("font-size", "20px")
+
+    focus_7.style("opacity", 1)
+    focusText_8.style("opacity",1)
+    focusText_8.style("font-size", "20px")
+  }
+
+  function mousemove() {
+    // recover coordinate we need
+    var x0 = x.invert(d3.mouse(this)[0]);
+    var i_0 = bisect(data_0, x0, 1);
+    selectedData_0 = data_0[i_0]
+    focus_0
+      .attr("cx", x(selectedData_0.x))
+      .attr("cy", y(selectedData_0.y))
+    focusText_0
+      .html("CARRL: (" + selectedData_0.x + ", " + d3.format(".1e")(selectedData_0.y) + ")")
+      .attr("x", 800)
+      .attr("y", 20)
+      // .attr("x", x(selectedData.x)+5)
+      // .attr("y", y(selectedData.y))
+
+    var i_1 = bisect(data_1, x0, 1);
+    selectedData_1 = data_1[i_1]
+    focus_1
+      .attr("cx", x(selectedData_1.x))
+      .attr("cy", y(selectedData_1.y))
+    focusText_1
+      .html("NoisyNet: (" + selectedData_1.x + ", " + d3.format(".1e")(selectedData_1.y) + ")")
+      .attr("x", 800)
+      .attr("y", 40)
+
+    var i_2 = bisect(data_2, x0, 1);
+    selectedData_2 = data_2[i_2]
+    focus_2
+      .attr("cx", x(selectedData_2.x))
+      .attr("cy", y(selectedData_2.y))
+    focusText_2
+      .html("RadialRL: (" + selectedData_2.x + ", " + d3.format(".1e")(selectedData_2.y) + ")")
+      .attr("x", 800)
+      .attr("y", 60)
+
+    var i_3 = bisect(data_3, x0, 1);
+    selectedData_3 = data_3[i_3]
+    focus_3
+      .attr("cx", x(selectedData_3.x))
+      .attr("cy", y(selectedData_3.y))
+    focusText_3
+      .html("AdvTrain: (" + selectedData_3.x + ", " + d3.format(".1e")(selectedData_3.y) + ")")
+      .attr("x", 800)
+      .attr("y", 80)
+
+    var i_4 = bisect(data_4, x0, 1);
+    selectedData_4 = data_4[i_4]
+    focus_4
+      .attr("cx", x(selectedData_4.x))
+      .attr("cy", y(selectedData_4.y))
+    focusText_4
+      .html("GradDQN: (" + selectedData_4.x + ", " + d3.format(".1e")(selectedData_4.y) + ")")
+      .attr("x", 800)
+      .attr("y", 100)
+
+    var i_5 = bisect(data_5, x0, 1);
+    selectedData_5 = data_5[i_5]
+    focus_5
+      .attr("cx", x(selectedData_5.x))
+      .attr("cy", y(selectedData_5.y))
+    focusText_5
+      .html("StdTrain: (" + selectedData_5.x + ", " + d3.format(".1e")(selectedData_5.y) + ")")
+      .attr("x", 800)
+      .attr("y", 120)
+
+    var i_6 = bisect(data_6, x0, 1);
+    selectedData_6 = data_6[i_6]
+    focus_6
+      .attr("cx", x(selectedData_6.x))
+      .attr("cy", y(selectedData_6.y))
+    focusText_6
+      .html("GaussAug: (" + selectedData_6.x + ", " + d3.format(".1e")(selectedData_6.y) + ")")
+      .attr("x", 800)
+      .attr("y", 140)
+
+    var i_7 = bisect(data_7, x0, 1);
+    selectedData_7 = data_7[i_7]
+    focus_7
+      .attr("cx", x(selectedData_7.x))
+      .attr("cy", y(selectedData_7.y))
+    focusText_7
+      .html("RegCVX: (" + selectedData_7.x + ", " + d3.format(".1e")(selectedData_7.y) + ")")
+      .attr("x", 800)
+      .attr("y", 160)
+
+    var i_8 = bisect(data_8, x0, 1);
+    selectedData_8 = data_8[i_8]
+    focus_8
+      .attr("cx", x(selectedData_8.x))
+      .attr("cy", y(selectedData_8.y))
+    focusText_8
+      .html("RegPGD: (" + selectedData_8.x + ", " + d3.format(".1e")(selectedData_8.y) + ")")
+      .attr("x", 800)
+      .attr("y", 180)
+    }
+
+  function mouseout() {
+    focus_0.style("opacity", 0)
+    focusText_0.style("opacity", 0)
+
+    focus_1.style("opacity", 0)
+    focusText_1.style("opacity", 0)
+
+    focus_2.style("opacity", 0)
+    focusText_2.style("opacity", 0)
+
+    focus_3.style("opacity", 0)
+    focusText_3.style("opacity", 0)
+
+    focus_4.style("opacity", 0)
+    focusText_4.style("opacity", 0)
+
+    focus_5.style("opacity", 0)
+    focusText_5.style("opacity", 0)
+
+    focus_6.style("opacity", 0)
+    focusText_6.style("opacity", 0)
+
+    focus_7.style("opacity", 0)
+    focusText_7.style("opacity", 0)
+
+    focus_8.style("opacity", 0)
+    focusText_8.style("opacity", 0)
+  }
+
+});
+});
+});
+});
+});
+});
+});
+});
+});
+
+</script>
