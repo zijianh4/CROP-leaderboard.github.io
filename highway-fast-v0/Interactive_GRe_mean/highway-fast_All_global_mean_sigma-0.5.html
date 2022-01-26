@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 100, right: 700, bottom: 60, left: 100},
+// var margin = {top: 1, right: 3, bottom: 3, left: 6},
+    width = 1550 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv('./data/data_0126_highway-fast_global_mean_CARRL/highway-fast_global_mean_sigma-0.5.csv',function(data_0) {
+    d3.csv('./data/data_0126_highway-fast_global_mean_CARRL/highway-fast_global_mean_sigma-0.5_attack.csv',function(data_atk_0) {
+d3.csv('./data/data_0126_highway-fast_global_mean_NoisyNet/highway-fast_global_mean_sigma-0.5.csv',function(data_1) {
+    d3.csv('./data/data_0126_highway-fast_global_mean_NoisyNet/highway-fast_global_mean_sigma-0.5_attack.csv',function(data_atk_1) {
+d3.csv('./data/data_0126_highway-fast_global_mean_RadialRL/highway-fast_global_mean_sigma-0.5.csv',function(data_2) {
+    d3.csv('./data/data_0126_highway-fast_global_mean_RadialRL/highway-fast_global_mean_sigma-0.5_attack.csv',function(data_atk_2) {
+d3.csv('./data/data_0126_highway-fast_global_mean_AdvTrain/highway-fast_global_mean_sigma-0.5.csv',function(data_3) {
+    d3.csv('./data/data_0126_highway-fast_global_mean_AdvTrain/highway-fast_global_mean_sigma-0.5_attack.csv',function(data_atk_3) {
+d3.csv('./data/data_0126_highway-fast_global_mean_GradDQN/highway-fast_global_mean_sigma-0.5.csv',function(data_4) {
+    d3.csv('./data/data_0126_highway-fast_global_mean_GradDQN/highway-fast_global_mean_sigma-0.5_attack.csv',function(data_atk_4) {
+d3.csv('./data/data_0126_highway-fast_global_mean_StdTrain/highway-fast_global_mean_sigma-0.5.csv',function(data_5) {
+    d3.csv('./data/data_0126_highway-fast_global_mean_StdTrain/highway-fast_global_mean_sigma-0.5_attack.csv',function(data_atk_5) {
+d3.csv('./data/data_0126_highway-fast_global_mean_GaussAug/highway-fast_global_mean_sigma-0.5.csv',function(data_6) {
+    d3.csv('./data/data_0126_highway-fast_global_mean_GaussAug/highway-fast_global_mean_sigma-0.5_attack.csv',function(data_atk_6) {
+d3.csv('./data/data_0126_highway-fast_global_mean_RegCVX/highway-fast_global_mean_sigma-0.5.csv',function(data_7) {
+    d3.csv('./data/data_0126_highway-fast_global_mean_RegCVX/highway-fast_global_mean_sigma-0.5_attack.csv',function(data_atk_7) {
+d3.csv('./data/data_0126_highway-fast_global_mean_RegPGD/highway-fast_global_mean_sigma-0.5.csv',function(data_8) {
+    d3.csv('./data/data_0126_highway-fast_global_mean_RegPGD/highway-fast_global_mean_sigma-0.5_attack.csv',function(data_atk_8) {
+  // console.log(data)
+  // Add X axis --> it is a date format
+  var x = d3.scaleLinear()
+    .domain([0, 0.08])
+    .range([ 0, width ]);
+  svg.append("g")
+    .style("font", "20px times")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x)
+    .tickValues([0, 0.02, 0.04, 0.06, 0.08])
+    .tickFormat(d3.format(".1e"))
+    .tickSize(3));
+  
+  // text label for the x axis
+  svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top) + ")")
+      .style("font-size", "20px")
+      .style("text-anchor", "middle")
+      .text("attack magnitude \u03B5");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([-15, 15])
+    .range([ height, 0 ]);
+  svg.append("g")
+    .style("font", "20px times")
+    .call(d3.axisLeft(y)
+    .tickValues([-15, -10, -5, 0, 5, 10])
+    // .tickFormat(d3.format(".1e"))
+    .tickSize(3));
+
+    // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("font-size", "20px")
+      .style("text-anchor", "middle")
+      .text("cumulative reward lower bound ")
+      .append("tspan")
+      .text("J")
+      .attr("text-decoration","underline")
+      .append("tspan")
+      .text("E")
+      .attr("dy",1)
+      .attr("font-size",10)
+      .attr("text-decoration","underline"); 
+  
+  // This allows to find the closest X index of the mouse:
+  var bisect = d3.bisector(function(d) { return d.x; }).left;
+
+  // Create the circle that travels along the curve of chart
+  var focus_0 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#f77189')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_0 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#f77189')
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk_0 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#f77189')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_0)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#f77189')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk_0)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#f77189')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add markers
+  svg.selectAll(".point_0")
+    .data(data_atk_0)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolCross).size(60))
+    .attr("fill", '#f77189')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-45)"; });
+
+  // Create the circle that travels along the curve of chart
+  var focus_1 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#bb9832')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_1 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#bb9832')
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk_1 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#bb9832')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_1)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#bb9832')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk_1)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#bb9832')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add markers
+  svg.selectAll(".point_1")
+    .data(data_atk_1)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolDiamond).size(60))
+    .attr("fill", '#bb9832')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+  // Create the circle that travels along the curve of chart
+  var focus_2 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#db57d3')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_2 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#db57d3')
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk_2 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#db57d3')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_2)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#db57d3')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk_2)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#db57d3')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add markers
+  svg.selectAll(".point_2")
+    .data(data_atk_2)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolTriangle).size(60))
+    .attr("fill", '#db57d3')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-180)"; });
+
+  // Create the circle that travels along the curve of chart
+  var focus_3 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#57db5f')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_3 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#57db5f')
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk_3 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#57db5f')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_3)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#57db5f')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk_3)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#57db5f')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add markers
+  svg.selectAll(".point_3")
+    .data(data_atk_3)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolCircle).size(60))
+    .attr("fill", '#57db5f')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+  // Create the circle that travels along the curve of chart
+  var focus_4 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#50b131')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_4 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#50b131')
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk_4 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#50b131')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_4)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#50b131')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk_4)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#50b131')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+
+  //add markers
+  svg.selectAll(".point_4")
+    .data(data_atk_4)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
+    .attr("fill", '#50b131')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+  // Create the circle that travels along the curve of chart
+  var focus_5 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#db5f57')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_5 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#db5f57')
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk_5 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#db5f57')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_5)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#db5f57')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk_5)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#db5f57')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add markers
+  svg.selectAll(".point_5")
+    .data(data_atk_5)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolSquare).size(60))
+    .attr("fill", '#db5f57')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+  // Create the circle that travels along the curve of chart
+  var focus_6 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#d3db57')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_6 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#d3db57')
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk_6 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#d3db57')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_6)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#d3db57')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk_6)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#d3db57')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add markers
+  svg.selectAll(".point_6")
+    .data(data_atk_6)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
+    .attr("fill", '#d3db57')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-180)"; });
+
+  // Create the circle that travels along the curve of chart
+  var focus_7 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#5f57db')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_7 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#5f57db')
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk_7 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#5f57db')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_7)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#5f57db')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk_7)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#5f57db')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add markers
+  svg.selectAll(".point_7")
+    .data(data_atk_7)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolStar).size(60))
+    .attr("fill", '#5f57db')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+  // Create the circle that travels along the curve of chart
+  var focus_8 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#57d3db')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_8 = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .style('fill', '#57d3db')
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk_8 = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", '#57d3db')
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data_8)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#57d3db')
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk_8)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#57d3db')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add markers
+  svg.selectAll(".point_8")
+    .data(data_atk_8)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolTriangle).size(60))
+    .attr("fill", '#57d3db')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+  // Create a rect on top of the svg area: this rectangle recovers mouse position
+  svg
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width)
+    .attr('height', height)
+    .on('mouseover', mouseover)
+    .on('mousemove', mousemove)
+    .on('mouseout', mouseout);
+
+  svg.append("text")
+    .attr("x", (width / 2))             
+    .attr("y", -40)
+    .attr("text-anchor", "middle")  
+    .style("font-size", "24px") 
+    .style("text-decoration", "underline")  
+    .text("highway-fast GRe-mean, \u03C3 = 0.5")
+
+  // What happens when the mouse move -> show the annotations at the right positions.
+  function mouseover() {
+    focus_0.style("opacity", 1)
+    focusText_0.style("opacity",1)
+    focusText_0.style("font-size", "20px")
+    focus_atk_0.style("opacity", 1)
+
+    focus_1.style("opacity", 1)
+    focusText_1.style("opacity",1)
+    focusText_1.style("font-size", "20px")
+    focus_atk_1.style("opacity", 1)
+
+    focus_2.style("opacity", 1)
+    focusText_2.style("opacity",1)
+    focusText_2.style("font-size", "20px")
+    focus_atk_2.style("opacity", 1)
+
+    focus_3.style("opacity", 1)
+    focusText_3.style("opacity",1)
+    focusText_3.style("font-size", "20px")
+    focus_atk_3.style("opacity", 1)
+
+    focus_4.style("opacity", 1)
+    focusText_4.style("opacity",1)
+    focusText_4.style("font-size", "20px")
+    focus_atk_4.style("opacity", 1)
+
+    focus_5.style("opacity", 1)
+    focusText_5.style("opacity",1)
+    focusText_5.style("font-size", "20px")
+    focus_atk_5.style("opacity", 1)
+
+    focus_6.style("opacity", 1)
+    focusText_6.style("opacity",1)
+    focusText_6.style("font-size", "20px")
+    focus_atk_6.style("opacity", 1)
+
+    focus_7.style("opacity", 1)
+    focusText_7.style("opacity",1)
+    focusText_7.style("font-size", "20px")
+    focus_atk_7.style("opacity", 1)
+
+    focus_8.style("opacity", 1)
+    focusText_8.style("opacity",1)
+    focusText_8.style("font-size", "20px")
+    focus_atk_8.style("opacity", 1)
+  }
+
+  function mousemove() {
+    // recover coordinate we need
+    var x0 = x.invert(d3.mouse(this)[0]);
+
+    var i_0 = bisect(data_0, x0, 1);
+    selectedData_0 = data_0[i_0];
+    var i_atk_0 = bisect(data_atk_0, x0, 1) - 1;
+    selectedData_atk_0 = data_atk_0[i_atk_0];
+    focus_0
+      .attr("cx", x(selectedData_0.x))
+      .attr("cy", y(selectedData_0.y))
+    focusText_0
+      .html("CARRL: expectation bound of reward: (" + d3.format(".1e")(selectedData_0.x) + ", " + d3.format(".1f")(selectedData_0.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_0.x) + ", " + d3.format(".1f")(selectedData_atk_0.y) + ")")
+      .attr("x", 700)
+      .attr("y", 20)
+    focus_atk_0
+      .attr("cx", x(selectedData_atk_0.x))
+      .attr("cy", y(selectedData_atk_0.y))
+
+    var i_1 = bisect(data_1, x0, 1);
+    selectedData_1 = data_1[i_1];
+    var i_atk_1 = bisect(data_atk_1, x0, 1) - 1;
+    selectedData_atk_1 = data_atk_1[i_atk_1];
+    focus_1
+      .attr("cx", x(selectedData_1.x))
+      .attr("cy", y(selectedData_1.y))
+    focusText_1
+      .html("NoisyNet: expectation bound of reward: (" + d3.format(".1e")(selectedData_1.x) + ", " + d3.format(".1f")(selectedData_1.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_1.x) + ", " + d3.format(".1f")(selectedData_atk_1.y) + ")")
+      .attr("x", 700)
+      .attr("y", 40)
+    focus_atk_1
+      .attr("cx", x(selectedData_atk_1.x))
+      .attr("cy", y(selectedData_atk_1.y))
+
+    var i_2 = bisect(data_2, x0, 1);
+    selectedData_2 = data_2[i_2];
+    var i_atk_2 = bisect(data_atk_2, x0, 1) - 1;
+    selectedData_atk_2 = data_atk_2[i_atk_2];
+    focus_2
+      .attr("cx", x(selectedData_2.x))
+      .attr("cy", y(selectedData_2.y))
+    focusText_2
+      .html("RadialRL: expectation bound of reward: (" + d3.format(".1e")(selectedData_2.x) + ", " + d3.format(".1f")(selectedData_2.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_2.x) + ", " + d3.format(".1f")(selectedData_atk_2.y) + ")")
+      .attr("x", 700)
+      .attr("y", 60)
+    focus_atk_2
+      .attr("cx", x(selectedData_atk_2.x))
+      .attr("cy", y(selectedData_atk_2.y))
+
+    var i_3 = bisect(data_3, x0, 1);
+    selectedData_3 = data_3[i_3];
+    var i_atk_3 = bisect(data_atk_3, x0, 1) - 1;
+    selectedData_atk_3 = data_atk_3[i_atk_3];
+    focus_3
+      .attr("cx", x(selectedData_3.x))
+      .attr("cy", y(selectedData_3.y))
+    focusText_3
+      .html("AdvTrain: expectation bound of reward: (" + d3.format(".1e")(selectedData_3.x) + ", " + d3.format(".1f")(selectedData_3.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_3.x) + ", " + d3.format(".1f")(selectedData_atk_3.y) + ")")
+      .attr("x", 700)
+      .attr("y", 80)
+    focus_atk_3
+      .attr("cx", x(selectedData_atk_3.x))
+      .attr("cy", y(selectedData_atk_3.y))
+
+    var i_4 = bisect(data_4, x0, 1);
+    selectedData_4 = data_4[i_4];
+    var i_atk_4 = bisect(data_atk_4, x0, 1) - 1;
+    selectedData_atk_4 = data_atk_4[i_atk_4];
+    focus_4
+      .attr("cx", x(selectedData_4.x))
+      .attr("cy", y(selectedData_4.y))
+    focusText_4
+      .html("GradDQN: expectation bound of reward: (" + d3.format(".1e")(selectedData_4.x) + ", " + d3.format(".1f")(selectedData_4.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_4.x) + ", " + d3.format(".1f")(selectedData_atk_4.y) + ")")
+      .attr("x", 700)
+      .attr("y", 100)
+    focus_atk_4
+      .attr("cx", x(selectedData_atk_4.x))
+      .attr("cy", y(selectedData_atk_4.y))
+
+    var i_5 = bisect(data_5, x0, 1);
+    selectedData_5 = data_5[i_5];
+    var i_atk_5 = bisect(data_atk_5, x0, 1) - 1;
+    selectedData_atk_5 = data_atk_5[i_atk_5];
+    focus_5
+      .attr("cx", x(selectedData_5.x))
+      .attr("cy", y(selectedData_5.y))
+    focusText_5
+      .html("StdTrain: expectation bound of reward: (" + d3.format(".1e")(selectedData_5.x) + ", " + d3.format(".1f")(selectedData_5.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_5.x) + ", " + d3.format(".1f")(selectedData_atk_5.y) + ")")
+      .attr("x", 700)
+      .attr("y", 120)
+    focus_atk_5
+      .attr("cx", x(selectedData_atk_5.x))
+      .attr("cy", y(selectedData_atk_5.y))
+
+    var i_6 = bisect(data_6, x0, 1);
+    selectedData_6 = data_6[i_6];
+    var i_atk_6 = bisect(data_atk_6, x0, 1) - 1;
+    selectedData_atk_6 = data_atk_6[i_atk_6];
+    focus_6
+      .attr("cx", x(selectedData_6.x))
+      .attr("cy", y(selectedData_6.y))
+    focusText_6
+      .html("GaussAug: expectation bound of reward: (" + d3.format(".1e")(selectedData_6.x) + ", " + d3.format(".1f")(selectedData_6.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_6.x) + ", " + d3.format(".1f")(selectedData_atk_6.y) + ")")
+      .attr("x", 700)
+      .attr("y", 140)
+    focus_atk_6
+      .attr("cx", x(selectedData_atk_6.x))
+      .attr("cy", y(selectedData_atk_6.y))
+
+    var i_7 = bisect(data_7, x0, 1);
+    selectedData_7 = data_7[i_7];
+    var i_atk_7 = bisect(data_atk_7, x0, 1) - 1;
+    selectedData_atk_7 = data_atk_7[i_atk_7];
+    focus_7
+      .attr("cx", x(selectedData_7.x))
+      .attr("cy", y(selectedData_7.y))
+    focusText_7
+      .html("RegCVX: expectation bound of reward: (" + d3.format(".1e")(selectedData_7.x) + ", " + d3.format(".1f")(selectedData_7.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_7.x) + ", " + d3.format(".1f")(selectedData_atk_7.y) + ")")
+      .attr("x", 700)
+      .attr("y", 160)
+    focus_atk_7
+      .attr("cx", x(selectedData_atk_7.x))
+      .attr("cy", y(selectedData_atk_7.y))
+
+    var i_8 = bisect(data_8, x0, 1);
+    selectedData_8 = data_8[i_8];
+    var i_atk_8 = bisect(data_atk_8, x0, 1) - 1;
+    selectedData_atk_8 = data_atk_8[i_atk_8];
+    focus_8
+      .attr("cx", x(selectedData_8.x))
+      .attr("cy", y(selectedData_8.y))
+    focusText_8
+      .html("RegPGD: expectation bound of reward: (" + d3.format(".1e")(selectedData_8.x) + ", " + d3.format(".1f")(selectedData_8.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_8.x) + ", " + d3.format(".1f")(selectedData_atk_8.y) + ")")
+      .attr("x", 700)
+      .attr("y", 180)
+    focus_atk_8
+      .attr("cx", x(selectedData_atk_8.x))
+      .attr("cy", y(selectedData_atk_8.y))
+    }
+
+  function mouseout() {
+    focus_0.style("opacity", 0)
+    focusText_0.style("opacity", 0)
+    focus_atk_0.style("opacity", 0)
+    
+    focus_1.style("opacity", 0)
+    focusText_1.style("opacity", 0)
+    focus_atk_1.style("opacity", 0)
+
+    focus_2.style("opacity", 0)
+    focusText_2.style("opacity", 0)
+    focus_atk_2.style("opacity", 0)
+
+    focus_3.style("opacity", 0)
+    focusText_3.style("opacity", 0)
+    focus_atk_3.style("opacity", 0)
+
+    focus_4.style("opacity", 0)
+    focusText_4.style("opacity", 0)
+    focus_atk_4.style("opacity", 0)
+
+    focus_5.style("opacity", 0)
+    focusText_5.style("opacity", 0)
+    focus_atk_5.style("opacity", 0)
+
+    focus_6.style("opacity", 0)
+    focusText_6.style("opacity", 0)
+    focus_atk_6.style("opacity", 0)
+
+    focus_7.style("opacity", 0)
+    focusText_7.style("opacity", 0)
+    focus_atk_7.style("opacity", 0)
+
+    focus_8.style("opacity", 0)
+    focusText_8.style("opacity", 0)
+    focus_atk_8.style("opacity", 0)
+  }
+});
+});
+});
+});
+});
+});
+});
+});
+});
+});
+});
+});
+});
+});
+});
+});
+});
+});
+
+</script>

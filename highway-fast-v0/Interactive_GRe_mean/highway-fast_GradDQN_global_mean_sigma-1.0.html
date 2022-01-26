@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+
+<script>
+
+// set the dimensions and margins of the graph
+var margin = {top: 100, right: 450, bottom: 200, left: 100},
+// var margin = {top: 1, right: 3, bottom: 3, left: 6},
+    width = 1300 - margin.left - margin.right,
+    height = 850 - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = d3.select("#my_dataviz")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
+
+//Read the data
+d3.csv('./data/data_0126_highway-fast_global_mean_GradDQN/highway-fast_global_mean_sigma-1.0.csv',function(data) {
+d3.csv('./data/data_0126_highway-fast_global_mean_GradDQN/highway-fast_global_mean_sigma-1.0_attack.csv',function(data_atk) {
+  // console.log(data)
+  // Add X axis --> it is a date format
+  var x = d3.scaleLinear()
+    .domain([0, 0.15])
+    .range([ 0, width ]);
+  svg.append("g")
+    .style("font", "20px times")
+    .attr("transform", "translate(0," + height + ")")
+    .call(d3.axisBottom(x)
+    .tickValues([0, 0.05, 0.1, 0.15])
+    .tickFormat(d3.format(".1e"))
+    .tickSize(3));
+  
+  // text label for the x axis
+  svg.append("text")             
+      .attr("transform",
+            "translate(" + (width/2) + " ," + 
+                           (height + margin.top) + ")")
+      .style("font-size", "20px")
+      .style("text-anchor", "middle")
+      .text("attack magnitude \u03B5");
+
+  // Add Y axis
+  var y = d3.scaleLinear()
+    .domain([-15, 15])
+    .range([ height, 0 ]);
+  svg.append("g")
+    .style("font", "20px times")
+    .call(d3.axisLeft(y)
+    .tickValues([-15, -10, -5, 0, 5, 10])
+    // .tickFormat(d3.format(".1e"))
+    .tickSize(3));
+
+    // text label for the y axis
+  svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("font-size", "20px")
+      .style("text-anchor", "middle")
+      .text("cumulative reward lower bound ")
+      .append("tspan")
+      .text("J")
+      .attr("text-decoration","underline")
+      .append("tspan")
+      .text("E")
+      .attr("dy",1)
+      .attr("font-size",10)
+      .attr("text-decoration","underline"); 
+
+  // This allows to find the closest X index of the mouse:
+  var bisect = d3.bisector(function(d) { return d.x; }).left;
+
+  // Create the circle that travels along the curve of chart
+  var focus = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+
+  // Create the circle that travels along the curve of chart
+  var focus_atk = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText_atk = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+  
+  // svg.append("path")
+  //     .datum(data)
+  //     .attr("fill", d3.color(color_idx).brighter(brightness))
+  //     .attr("stroke", "none")
+  //     .attr("d", d3.area()
+  //     .x(function(d) { return x(d.x) })
+  //     .y0(function(d) { return y(d.y_hi) })
+  //     .y1(function(d) { return y(d.y_lo) })
+  //     )
+
+  // Add the line
+  svg
+    .append("path")
+    .datum(data)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", '#50b131')
+    .attr("stroke-width", 3)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
+  
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#50b131')
+    .attr("stroke-width", 3)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
+
+  //add markers
+  svg.selectAll(".point")
+    .data(data_atk)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
+    .attr("fill", '#50b131')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+
+  // Create a rect on top of the svg area: this rectangle recovers mouse position
+  svg
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width)
+    .attr('height', height)
+    .on('mouseover', mouseover)
+    .on('mousemove', mousemove)
+    .on('mouseout', mouseout);
+
+  svg.append("text")
+    .attr("x", (width / 2))             
+    .attr("y", -40)
+    .attr("text-anchor", "middle")  
+    .style("font-size", "24px") 
+    .style("text-decoration", "underline")  
+    .text("highway-fast GRe-mean, model = GradDQN, σ = 1.0")
+
+  // What happens when the mouse move -> show the annotations at the right positions.
+  function mouseover() {
+    focus.style("opacity", 1)
+    focusText.style("opacity",1)
+    focusText.style("font-size", "20px")
+    focus_atk.style("opacity", 1)
+    focusText_atk.style("opacity",1)
+    focusText_atk.style("font-size", "20px")
+  }
+
+  function mousemove() {
+    // recover coordinate we need
+    var x0 = x.invert(d3.mouse(this)[0]);
+    var i = bisect(data, x0, 1);
+    selectedData = data[i]
+    focus
+      .attr("cx", x(selectedData.x))
+      .attr("cy", y(selectedData.y))
+    focusText
+      .text("expectation bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1f")(selectedData.y) + ")")
+      .attr("x", 700)
+      .attr("y", 20)
+      // .attr("x", x(selectedData.x)+5)
+      // .attr("y", y(selectedData.y))
+    var i_atk = bisect(data_atk, x0, 1) - 1;
+    selectedData_atk = data_atk[i_atk]
+    focus_atk
+      .attr("cx", x(selectedData_atk.x))
+      .attr("cy", y(selectedData_atk.y))
+    focusText_atk
+      .text("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1f")(selectedData_atk.y) + ")")
+      .attr("x", 793)
+      .attr("y", 40)
+      // .attr("x", x(selectedData.x)+5)
+      // .attr("y", y(selectedData.y))
+    }
+  function mouseout() {
+    focus.style("opacity", 0)
+    focusText.style("opacity", 0)
+    focus_atk.style("opacity", 0)
+    focusText_atk.style("opacity", 0)
+  }
+
+});
+});
+
+</script>
