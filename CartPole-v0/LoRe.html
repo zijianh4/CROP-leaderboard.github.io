@@ -746,6 +746,7 @@ d3.csv('./CartPole-v0/Interactive_LoRe/data/data_1109_CartPole_tree_'+data_path+
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
+      .curve(d3.curveStepAfter)
       );
   
   //add the dashed line
