@@ -26,7 +26,7 @@ var svg = d3.select("#my_dataviz")
 
 //Read the data
 d3.csv('./data/data_1207_Pong_global_mean_GaussAug/Pong_global_mean_sigma-0.05.csv',function(data) {
-// d3.csv('./data/data_1207_Pong_global_mean_CARRL/Pong_global_mean_sigma-0.001_attack.csv',function(data_atk) {
+d3.csv('./data/data_1207_Pong_global_mean_GaussAug/Pong_global_mean_sigma-0.05_attack.csv',function(data_atk) {
   // console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
@@ -99,21 +99,21 @@ d3.csv('./data/data_1207_Pong_global_mean_GaussAug/Pong_global_mean_sigma-0.05.c
       .attr("alignment-baseline", "middle")
 
   // Create the circle that travels along the curve of chart
-  // var focus_atk = svg
-  //   .append('g')
-  //   .append('circle')
-  //     .style("fill", "none")
-  //     .attr("stroke", "black")
-  //     .attr('r', 8.5)
-  //     .style("opacity", 0)
+  var focus_atk = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 8.5)
+      .style("opacity", 0)
 
   // Create the text that travels along the curve of chart
-  // var focusText_atk = svg
-  //   .append('g')
-  //   .append('text')
-  //     .style("opacity", 0)
-  //     .attr("text-anchor", "left")
-  //     .attr("alignment-baseline", "middle")
+  var focusText_atk = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
   
   // svg.append("path")
   //     .datum(data)
@@ -139,18 +139,27 @@ d3.csv('./data/data_1207_Pong_global_mean_GaussAug/Pong_global_mean_sigma-0.05.c
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", '#f77189')
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     )
+  svg.append("path")
+    .datum(data_atk)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", '#d3db57')
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
 
+  //add markers
+  svg.selectAll(".point")
+    .data(data_atk)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
+    .attr("fill", '#d3db57')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ") rotate(-180)"; });
+    
   // Create a rect on top of the svg area: this rectangle recovers mouse position
   svg
     .append('rect')
@@ -175,9 +184,9 @@ d3.csv('./data/data_1207_Pong_global_mean_GaussAug/Pong_global_mean_sigma-0.05.c
     focus.style("opacity", 1)
     focusText.style("opacity",1)
     focusText.style("font-size", "20px")
-    // focus_atk.style("opacity", 1)
-    // focusText_atk.style("opacity",1)
-    // focusText_atk.style("font-size", "20px")
+    focus_atk.style("opacity", 1)
+    focusText_atk.style("opacity",1)
+    focusText_atk.style("font-size", "20px")
   }
 
   function mousemove() {
@@ -194,22 +203,23 @@ d3.csv('./data/data_1207_Pong_global_mean_GaussAug/Pong_global_mean_sigma-0.05.c
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
-    // selectedData_atk = data_atk[i]
-    // focus_atk
-    //   .attr("cx", x(selectedData_atk.x))
-    //   .attr("cy", y(selectedData_atk.y))
-    // focusText_atk
-    //   .html("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1e")(selectedData_atk.y) + ")")
-    //   .attr("x", 700)
-    //   .attr("y", 40)
+    var i_atk = bisect(data_atk, x0, 1) - 1;
+    selectedData_atk = data_atk[i]
+    focus_atk
+      .attr("cx", x(selectedData_atk.x))
+      .attr("cy", y(selectedData_atk.y))
+    focusText_atk
+      .html("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1e")(selectedData_atk.y) + ")")
+      .attr("x", 700)
+      .attr("y", 40)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
     }
   function mouseout() {
     focus.style("opacity", 0)
     focusText.style("opacity", 0)
-    // focus_atk.style("opacity", 0)
-    // focusText_atk.style("opacity", 0)
+    focus_atk.style("opacity", 0)
+    focusText_atk.style("opacity", 0)
   }
 
 });
