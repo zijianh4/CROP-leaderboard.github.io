@@ -773,7 +773,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegPGD/Pong_global_mean_sigma-0.1.csv'
 
     var i_3 = bisect(data_3, x0, 1);
     selectedData_3 = data_3[i_3];
-    var i_atk_3 = bisect(data_atk_3, x0, 1);
+    var i_atk_3 = bisect(data_atk_3, x0, 1) - 1;
     selectedData_atk_3 = data_atk_3[i_atk_3] - 1;
     focus_3
       .attr("cx", x(selectedData_3.x))
@@ -788,7 +788,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegPGD/Pong_global_mean_sigma-0.1.csv'
 
     var i_4 = bisect(data_4, x0, 1);
     selectedData_4 = data_4[i_4];
-    var i_atk_4 = bisect(data_atk_4, x0, 1);
+    var i_atk_4 = bisect(data_atk_4, x0, 1) - 1;
     selectedData_atk_4 = data_atk_4[i_atk_4];
     focus_4
       .attr("cx", x(selectedData_4.x))
@@ -803,7 +803,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegPGD/Pong_global_mean_sigma-0.1.csv'
 
     var i_5 = bisect(data_5, x0, 1);
     selectedData_5 = data_5[i_5];
-    var i_atk_5 = bisect(data_atk_5, x0, 1);
+    var i_atk_5 = bisect(data_atk_5, x0, 1) - 1;
     selectedData_atk_5 = data_atk_5[i_atk_5];
     focus_5
       .attr("cx", x(selectedData_5.x))
@@ -818,8 +818,8 @@ d3.csv('./data/data_1207_Pong_global_mean_RegPGD/Pong_global_mean_sigma-0.1.csv'
 
     var i_6 = bisect(data_6, x0, 1);
     selectedData_6 = data_6[i_6];
-    // var i_atk_6 = bisect(data_atk_6, x0, 1);
-    // selectedData_atk_6 = data_atk_6[i_atk_6];
+    var i_atk_6 = bisect(data_atk_6, x0, 1) - 1;
+    selectedData_atk_6 = data_atk_6[i_atk_6];
     focus_6
       .attr("cx", x(selectedData_6.x))
       .attr("cy", y(selectedData_6.y))
@@ -833,7 +833,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegPGD/Pong_global_mean_sigma-0.1.csv'
 
     var i_7 = bisect(data_7, x0, 1);
     selectedData_7 = data_7[i_7];
-    var i_atk_7 = bisect(data_atk_7, x0, 1);
+    var i_atk_7 = bisect(data_atk_7, x0, 1) - 1;
     selectedData_atk_7 = data_atk_7[i_atk_7];
     focus_7
       .attr("cx", x(selectedData_7.x))
@@ -848,7 +848,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegPGD/Pong_global_mean_sigma-0.1.csv'
 
     var i_8 = bisect(data_8, x0, 1);
     selectedData_8 = data_8[i_8];
-    var i_atk_8 = bisect(data_atk_8, x0, 1);
+    var i_atk_8 = bisect(data_atk_8, x0, 1) - 1;
     selectedData_atk_8 = data_atk_8[i_atk_8];
     focus_8
       .attr("cx", x(selectedData_8.x))
