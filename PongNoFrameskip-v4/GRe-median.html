@@ -686,7 +686,7 @@ var svg = d3.select(dev_id)
 
 //Read the data
 d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path+'.csv',function(data) {
-// d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path+'_attack.csv',function(data_atk) {
+d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path+'_attack.csv',function(data_atk) {
   // console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
@@ -755,17 +755,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
       );
   
   // //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx)
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     )
+  svg.append("path")
+    .datum(data_atk)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx)
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
 
   // Create a rect on top of the svg area: this rectangle recovers mouse position
   svg
@@ -807,7 +807,7 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
   }
 
 })
-// })
+})
 };
 (function(){
 var dev_ids = ['#Pong_GRe_median_NoisyNet_0001', '#Pong_GRe_median_NoisyNet_0005', '#Pong_GRe_median_NoisyNet_001', '#Pong_GRe_median_NoisyNet_003', '#Pong_GRe_median_NoisyNet_005', '#Pong_GRe_median_NoisyNet_01', '#Pong_GRe_median_RadialRL_0001', '#Pong_GRe_median_RadialRL_0005', '#Pong_GRe_median_RadialRL_001', '#Pong_GRe_median_RadialRL_003', '#Pong_GRe_median_RadialRL_005', '#Pong_GRe_median_RadialRL_01', '#Pong_GRe_median_AdvTrain_0001', '#Pong_GRe_median_AdvTrain_0005', '#Pong_GRe_median_AdvTrain_001', '#Pong_GRe_median_AdvTrain_003', '#Pong_GRe_median_AdvTrain_005', '#Pong_GRe_median_AdvTrain_01', '#Pong_GRe_median_GradDQN_0001', '#Pong_GRe_median_GradDQN_0005', '#Pong_GRe_median_GradDQN_001', '#Pong_GRe_median_GradDQN_003', '#Pong_GRe_median_GradDQN_005', '#Pong_GRe_median_GradDQN_01', '#Pong_GRe_median_StdTrain_0001', '#Pong_GRe_median_StdTrain_0005', '#Pong_GRe_median_StdTrain_001', '#Pong_GRe_median_StdTrain_003', '#Pong_GRe_median_StdTrain_005', '#Pong_GRe_median_StdTrain_01', '#Pong_GRe_median_GaussAug_0001', '#Pong_GRe_median_GaussAug_0005', '#Pong_GRe_median_GaussAug_001', '#Pong_GRe_median_GaussAug_003', '#Pong_GRe_median_GaussAug_005', '#Pong_GRe_median_GaussAug_01', '#Pong_GRe_median_RegCVX_0001', '#Pong_GRe_median_RegCVX_0005', '#Pong_GRe_median_RegCVX_001', '#Pong_GRe_median_RegCVX_003', '#Pong_GRe_median_RegCVX_005', '#Pong_GRe_median_RegCVX_01', '#Pong_GRe_median_RegPGD_0001', '#Pong_GRe_median_RegPGD_0005', '#Pong_GRe_median_RegPGD_001','#Pong_GRe_median_RegPGD_003', '#Pong_GRe_median_RegPGD_005', '#Pong_GRe_median_RegPGD_01'];
@@ -849,24 +849,24 @@ var svg = d3.select(dev_id)
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[0]+'.csv',function(data_0) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[0]+'_attack.csv',function(data_atk_0) {
+// d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[0]+'.csv',function(data_0) {
+//     d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[0]+'_attack.csv',function(data_atk_0) {
 d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[1]+'.csv',function(data_1) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[1]+'_attack.csv',function(data_atk_1) {
+    d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[1]+'_attack.csv',function(data_atk_1) {
 d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[2]+'.csv',function(data_2) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[2]+'_attack.csv',function(data_atk_2) {
+    d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[2]+'_attack.csv',function(data_atk_2) {
 d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[3]+'.csv',function(data_3) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[3]+'_attack.csv',function(data_atk_3) {
+    d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[3]+'_attack.csv',function(data_atk_3) {
 d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[4]+'.csv',function(data_4) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[4]+'_attack.csv',function(data_atk_4) {
+    d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[4]+'_attack.csv',function(data_atk_4) {
 d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[5]+'.csv',function(data_5) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[5]+'_attack.csv',function(data_atk_5) {
+    d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[5]+'_attack.csv',function(data_atk_5) {
 d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[6]+'.csv',function(data_6) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[6]+'_attack.csv',function(data_atk_6) {
+    d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[6]+'_attack.csv',function(data_atk_6) {
 d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[7]+'.csv',function(data_7) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[7]+'_attack.csv',function(data_atk_7) {
-// d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[8]+'.csv',function(data_8) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[8]+'_attack.csv',function(data_atk_8) {
+    d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[7]+'_attack.csv',function(data_atk_7) {
+d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[8]+'.csv',function(data_8) {
+    d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_median_'+data_path[8]+'_attack.csv',function(data_atk_8) {
   //console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
@@ -892,17 +892,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
     .tickSize(3));
 
   // Add the line
-  svg
-    .append("path")
-    .datum(data_0)
-    .attr("fill", "none")
-    // .attr("stroke", "steelblue")
-    .attr("stroke", color_idx[0])
-    .attr("stroke-width", 1)
-    .attr("d", d3.line()
-      .x(function(d) { return x(d.x) })
-      .y(function(d) { return y(d.y) })
-      );
+  // svg
+  //   .append("path")
+  //   .datum(data_0)
+  //   .attr("fill", "none")
+  //   // .attr("stroke", "steelblue")
+  //   .attr("stroke", color_idx[0])
+  //   .attr("stroke-width", 1)
+  //   .attr("d", d3.line()
+  //     .x(function(d) { return x(d.x) })
+  //     .y(function(d) { return y(d.y) })
+  //     );
   
   //add the dashed line
   // svg.append("path")
@@ -931,17 +931,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_1)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[1])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_1)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[1])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
 
   // Add the line
   svg
@@ -957,17 +957,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_2)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[2])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_2)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[2])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
   
   // Add the line
   svg
@@ -983,17 +983,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_3)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[3])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_3)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[3])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
 
   // Add the line
   svg
@@ -1009,17 +1009,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_4)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[4])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_4)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[4])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
 
   // Add the line
   svg
@@ -1035,17 +1035,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_5)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[5])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_5)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[5])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
   
   // Add the line
   svg
@@ -1061,17 +1061,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_6)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[6])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_6)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[6])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
   
   // Add the line
   svg
@@ -1087,17 +1087,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_7)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[7])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_7)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[7])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
   
   // Add the line
   svg
@@ -1113,17 +1113,17 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_8)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[8])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_8)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[8])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
 
 });
 });
@@ -1133,26 +1133,26 @@ d3.csv('./PongNoFrameskip-v4/Interactive_GRe_median/data/data_1207_Pong_global_m
 });
 });
 });
-// });
-// });
-// });
-// });
-// });
-// });
-// });
-// });
+});
+});
+});
+});
+});
+});
+});
+});
 // });
 // });
 };
 (function(){
 var dev_ids = ['#Pong_GRe_median_All_0001', '#Pong_GRe_median_All_0005', '#Pong_GRe_median_All_001', '#Pong_GRe_median_All_003', '#Pong_GRe_median_All_005', '#Pong_GRe_median_All_01'];
 
-var data_paths = [['NoisyNet/Pong_global_median_sigma-0.001', 'RadialRL/Pong_global_median_sigma-0.001', 'AdvTrain/Pong_global_median_sigma-0.001', 'GradDQN/Pong_global_median_sigma-0.001', 'stdTrain/Pong_global_median_sigma-0.001', 'GaussAug/Pong_global_median_sigma-0.001', 'RegCVX/Pong_global_median_sigma-0.001', 'RegPGD/Pong_global_median_sigma-0.001'], 
-['NoisyNet/Pong_global_median_sigma-0.005', 'RadialRL/Pong_global_median_sigma-0.005', 'AdvTrain/Pong_global_median_sigma-0.005', 'GradDQN/Pong_global_median_sigma-0.005', 'stdTrain/Pong_global_median_sigma-0.005', 'GaussAug/Pong_global_median_sigma-0.005', 'RegCVX/Pong_global_median_sigma-0.005', 'RegPGD/Pong_global_median_sigma-0.005'],
-['NoisyNet/Pong_global_median_sigma-0.01', 'RadialRL/Pong_global_median_sigma-0.01', 'AdvTrain/Pong_global_median_sigma-0.01', 'GradDQN/Pong_global_median_sigma-0.01', 'stdTrain/Pong_global_median_sigma-0.01', 'GaussAug/Pong_global_median_sigma-0.01', 'RegCVX/Pong_global_median_sigma-0.01', 'RegPGD/Pong_global_median_sigma-0.01'],
-['NoisyNet/Pong_global_median_sigma-0.03', 'RadialRL/Pong_global_median_sigma-0.03', 'AdvTrain/Pong_global_median_sigma-0.03', 'GradDQN/Pong_global_median_sigma-0.03', 'stdTrain/Pong_global_median_sigma-0.03', 'GaussAug/Pong_global_median_sigma-0.03', 'RegCVX/Pong_global_median_sigma-0.03', 'RegPGD/Pong_global_median_sigma-0.03'],
-['NoisyNet/Pong_global_median_sigma-0.05', 'RadialRL/Pong_global_median_sigma-0.05', 'AdvTrain/Pong_global_median_sigma-0.05', 'GradDQN/Pong_global_median_sigma-0.05', 'stdTrain/Pong_global_median_sigma-0.05', 'GaussAug/Pong_global_median_sigma-0.05', 'RegCVX/Pong_global_median_sigma-0.05', 'RegPGD/Pong_global_median_sigma-0.05'],
-['NoisyNet/Pong_global_median_sigma-0.1', 'RadialRL/Pong_global_median_sigma-0.1', 'AdvTrain/Pong_global_median_sigma-0.1', 'GradDQN/Pong_global_median_sigma-0.1', 'stdTrain/Pong_global_median_sigma-0.1', 'GaussAug/Pong_global_median_sigma-0.1', 'RegCVX/Pong_global_median_sigma-0.1', 'RegPGD/Pong_global_median_sigma-0.1']];
+var data_paths = [['CARRL/Pong_global_median_sigma-0.001', 'NoisyNet/Pong_global_median_sigma-0.001', 'RadialRL/Pong_global_median_sigma-0.001', 'AdvTrain/Pong_global_median_sigma-0.001', 'GradDQN/Pong_global_median_sigma-0.001', 'stdTrain/Pong_global_median_sigma-0.001', 'GaussAug/Pong_global_median_sigma-0.001', 'RegCVX/Pong_global_median_sigma-0.001', 'RegPGD/Pong_global_median_sigma-0.001'], 
+['CARRL/Pong_global_median_sigma-0.005', 'NoisyNet/Pong_global_median_sigma-0.005', 'RadialRL/Pong_global_median_sigma-0.005', 'AdvTrain/Pong_global_median_sigma-0.005', 'GradDQN/Pong_global_median_sigma-0.005', 'stdTrain/Pong_global_median_sigma-0.005', 'GaussAug/Pong_global_median_sigma-0.005', 'RegCVX/Pong_global_median_sigma-0.005', 'RegPGD/Pong_global_median_sigma-0.005'],
+['CARRL/Pong_global_median_sigma-0.01', 'NoisyNet/Pong_global_median_sigma-0.01', 'RadialRL/Pong_global_median_sigma-0.01', 'AdvTrain/Pong_global_median_sigma-0.01', 'GradDQN/Pong_global_median_sigma-0.01', 'stdTrain/Pong_global_median_sigma-0.01', 'GaussAug/Pong_global_median_sigma-0.01', 'RegCVX/Pong_global_median_sigma-0.01', 'RegPGD/Pong_global_median_sigma-0.01'],
+['CARRL/Pong_global_median_sigma-0.03', 'NoisyNet/Pong_global_median_sigma-0.03', 'RadialRL/Pong_global_median_sigma-0.03', 'AdvTrain/Pong_global_median_sigma-0.03', 'GradDQN/Pong_global_median_sigma-0.03', 'stdTrain/Pong_global_median_sigma-0.03', 'GaussAug/Pong_global_median_sigma-0.03', 'RegCVX/Pong_global_median_sigma-0.03', 'RegPGD/Pong_global_median_sigma-0.03'],
+['CARRL/Pong_global_median_sigma-0.05', 'NoisyNet/Pong_global_median_sigma-0.05', 'RadialRL/Pong_global_median_sigma-0.05', 'AdvTrain/Pong_global_median_sigma-0.05', 'GradDQN/Pong_global_median_sigma-0.05', 'stdTrain/Pong_global_median_sigma-0.05', 'GaussAug/Pong_global_median_sigma-0.05', 'RegCVX/Pong_global_median_sigma-0.05', 'RegPGD/Pong_global_median_sigma-0.05'],
+['CARRL/Pong_global_median_sigma-0.1', 'NoisyNet/Pong_global_median_sigma-0.1', 'RadialRL/Pong_global_median_sigma-0.1', 'AdvTrain/Pong_global_median_sigma-0.1', 'GradDQN/Pong_global_median_sigma-0.1', 'stdTrain/Pong_global_median_sigma-0.1', 'GaussAug/Pong_global_median_sigma-0.1', 'RegCVX/Pong_global_median_sigma-0.1', 'RegPGD/Pong_global_median_sigma-0.1']];
 
 var x_ranges = [[0, 0.00015], [0, 0.0008], [0, 0.0015], [0, 0.005], [0, 0.008], [0, 0.016]];
 
@@ -1162,7 +1162,7 @@ var y_ranges = [[-6, 6], [-14, 8], [-12, 6], [-14, 6], [-14, 6], [-14, 6]];
 
 var y_tick_values_ls = [[-6, -3, 0, 3, 6], [-12, -8, -4, 0, 4], [-9, -6, -3, 0, 3, 6], [-12, -8, -4, 0, 4], [-12, -8, -4, 0, 4], [-12, -8, -4, 0, 4]];
 
-var color_idx_ls = ['#bb9832', '#db57d3', '#57db5f', '#50b131', '#db5f57', '#d3db57', '#5f57db', '#57d3db'];
+var color_idx_ls = ['#f77189', '#bb9832', '#db57d3', '#57db5f', '#50b131', '#db5f57', '#d3db57', '#5f57db', '#57d3db'];
 
 // var brightness_ls = [];
 
