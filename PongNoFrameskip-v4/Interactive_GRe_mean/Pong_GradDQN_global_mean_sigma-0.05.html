@@ -198,18 +198,18 @@ d3.csv('./data/data_1207_Pong_global_mean_GradDQN/Pong_global_mean_sigma-0.05_at
       .attr("cx", x(selectedData.x))
       .attr("cy", y(selectedData.y))
     focusText
-      .html("expectation bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1f")(selectedData.y) + ")")
+      .text("expectation bound of reward: (" + d3.format(".1e")(selectedData.x) + ", " + d3.format(".1f")(selectedData.y) + ")")
       .attr("x", 700)
       .attr("y", 20)
       // .attr("x", x(selectedData.x)+5)
       // .attr("y", y(selectedData.y))
     var i_atk = bisect(data_atk, x0, 1) - 1;
-    selectedData_atk = data_atk[i]
+    selectedData_atk = data_atk[i_atk]
     focus_atk
       .attr("cx", x(selectedData_atk.x))
       .attr("cy", y(selectedData_atk.y))
     focusText_atk
-      .html("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1e")(selectedData_atk.y) + ")")
+      .text("empirical reward: (" + d3.format(".1e")(selectedData_atk.x) + ", " + d3.format(".1e")(selectedData_atk.y) + ")")
       .attr("x", 700)
       .attr("y", 40)
       // .attr("x", x(selectedData.x)+5)

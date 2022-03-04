@@ -774,7 +774,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegPGD/Pong_global_mean_sigma-0.03.csv
     var i_3 = bisect(data_3, x0, 1);
     selectedData_3 = data_3[i_3];
     var i_atk_3 = bisect(data_atk_3, x0, 1) - 1;
-    selectedData_atk_3 = data_atk_3[i_atk_3] - 1;
+    selectedData_atk_3 = data_atk_3[i_atk_3];
     focus_3
       .attr("cx", x(selectedData_3.x))
       .attr("cy", y(selectedData_3.y))

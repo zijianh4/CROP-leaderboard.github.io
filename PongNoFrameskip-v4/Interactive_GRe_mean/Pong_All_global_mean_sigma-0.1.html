@@ -774,7 +774,7 @@ d3.csv('./data/data_1207_Pong_global_mean_RegPGD/Pong_global_mean_sigma-0.1.csv'
     var i_3 = bisect(data_3, x0, 1);
     selectedData_3 = data_3[i_3];
     var i_atk_3 = bisect(data_atk_3, x0, 1) - 1;
-    selectedData_atk_3 = data_atk_3[i_atk_3] - 1;
+    selectedData_atk_3 = data_atk_3[i_atk_3];
     focus_3
       .attr("cx", x(selectedData_3.x))
       .attr("cy", y(selectedData_3.y))
@@ -812,9 +812,9 @@ d3.csv('./data/data_1207_Pong_global_mean_RegPGD/Pong_global_mean_sigma-0.1.csv'
       .html("StdTrain: expectation bound of reward: (" + d3.format(".1e")(selectedData_5.x) + ", " + d3.format(".1f")(selectedData_5.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_5.x) + ", " + d3.format(".1f")(selectedData_atk_5.y) + ")")
       .attr("x", 700)
       .attr("y", 120)
-    // focus_atk_5
-    //   .attr("cx", x(selectedData_atk_5.x))
-    //   .attr("cy", y(selectedData_atk_5.y))
+    focus_atk_5
+      .attr("cx", x(selectedData_atk_5.x))
+      .attr("cy", y(selectedData_atk_5.y))
 
     var i_6 = bisect(data_6, x0, 1);
     selectedData_6 = data_6[i_6];
