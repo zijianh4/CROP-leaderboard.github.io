@@ -728,7 +728,7 @@ d3.csv('./data/data_1207_Pong_global_median_RegPGD/Pong_global_median_sigma-0.1.
       .attr("cx", x(selectedData_5.x))
       .attr("cy", y(selectedData_5.y))
     focusText_5
-      .html("StdTrain: percentile bound of reward: (" .html("StdTrain: percentile bound of reward: (" + d3.format(".1e")(selectedData_5.x) + ", " + d3.format(".1f")(selectedData_5.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_5.x) + ", " + d3.format(".1f")(selectedData_atk_5.y) + ")")
+      .html("StdTrain: percentile bound of reward: (" + d3.format(".1e")(selectedData_5.x) + ", " + d3.format(".1f")(selectedData_5.y) + "), empirical reward: (" + d3.format(".1e")(selectedData_atk_5.x) + ", " + d3.format(".1f")(selectedData_atk_5.y) + ")")
       .attr("x", 800)
       .attr("y", 120)
     focus_atk_5
