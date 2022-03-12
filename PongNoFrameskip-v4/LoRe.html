@@ -209,7 +209,7 @@
         </td>
     </tr>
     
-    <!-- <tr>
+    <tr>
         <td class="ranktd">3</td>
         <td class="methoddt">
             <a href="https://arxiv.org/abs/1712.03632" target="_blank">GradDQN</a>
@@ -234,7 +234,7 @@
         <td class="venuetd_2">
             <div id="Pong_LoRe_GradDQN_01" onclick="window.open('https://crop-leaderboard.me/PongNoFrameskip-v4/Interactive_LoRe/Pong_GradDQN_tree_sigma-0.1.html')" onmouseover="document.body.style.cursor = 'pointer'" onmouseout="document.body.style.cursor = 'default'"></div>
         </td>
-    </tr> -->
+    </tr>
     
     <tr>
         <td class="ranktd">4</td>
@@ -580,23 +580,23 @@ d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_pa
 (function(){
 // var dev_ids = ['#Pong_LoRe_RadialRL_0001', '#Pong_LoRe_RadialRL_0005', '#Pong_LoRe_RadialRL_001', '#Pong_LoRe_RadialRL_003', '#Pong_LoRe_RadialRL_005', '#Pong_LoRe_RadialRL_01', '#Pong_LoRe_AdvTrain_0001', '#Pong_LoRe_AdvTrain_0005', '#Pong_LoRe_AdvTrain_001', '#Pong_LoRe_AdvTrain_003', '#Pong_LoRe_AdvTrain_005', '#Pong_LoRe_AdvTrain_01', '#Pong_LoRe_GradDQN_0001', '#Pong_LoRe_GradDQN_0005', '#Pong_LoRe_GradDQN_001', '#Pong_LoRe_GradDQN_003', '#Pong_LoRe_GradDQN_005', '#Pong_LoRe_GradDQN_01', '#Pong_LoRe_StdTrain_0001', '#Pong_LoRe_StdTrain_0005', '#Pong_LoRe_StdTrain_001', '#Pong_LoRe_StdTrain_003', '#Pong_LoRe_StdTrain_005', '#Pong_LoRe_StdTrain_01', '#Pong_LoRe_GaussAug_0001', '#Pong_LoRe_GaussAug_0005', '#Pong_LoRe_GaussAug_001', '#Pong_LoRe_GaussAug_003', '#Pong_LoRe_GaussAug_005', '#Pong_LoRe_GaussAug_01', '#Pong_LoRe_RegCVX_0001', '#Pong_LoRe_RegCVX_0005', '#Pong_LoRe_RegCVX_001', '#Pong_LoRe_RegCVX_003', '#Pong_LoRe_RegCVX_005', '#Pong_LoRe_RegCVX_01', '#Pong_LoRe_RegPGD_0001', '#Pong_LoRe_RegPGD_0005', '#Pong_LoRe_RegPGD_001','#Pong_LoRe_RegPGD_003', '#Pong_LoRe_RegPGD_005', '#Pong_LoRe_RegPGD_01'];
 
-var dev_ids = ['#Pong_LoRe_RadialRL_0001', '#Pong_LoRe_RadialRL_0005', '#Pong_LoRe_RadialRL_001', '#Pong_LoRe_RadialRL_003', '#Pong_LoRe_RadialRL_005', '#Pong_LoRe_RadialRL_01', '#Pong_LoRe_AdvTrain_0001', '#Pong_LoRe_AdvTrain_0005', '#Pong_LoRe_AdvTrain_001', '#Pong_LoRe_AdvTrain_003', '#Pong_LoRe_AdvTrain_005', '#Pong_LoRe_AdvTrain_01', '#Pong_LoRe_StdTrain_0001', '#Pong_LoRe_StdTrain_0005', '#Pong_LoRe_StdTrain_001', '#Pong_LoRe_StdTrain_003', '#Pong_LoRe_StdTrain_005', '#Pong_LoRe_StdTrain_01', '#Pong_LoRe_GaussAug_0001', '#Pong_LoRe_GaussAug_0005', '#Pong_LoRe_GaussAug_001', '#Pong_LoRe_GaussAug_003', '#Pong_LoRe_GaussAug_005', '#Pong_LoRe_GaussAug_01', '#Pong_LoRe_RegCVX_0001', '#Pong_LoRe_RegCVX_0005', '#Pong_LoRe_RegCVX_001', '#Pong_LoRe_RegCVX_003', '#Pong_LoRe_RegCVX_005', '#Pong_LoRe_RegCVX_01', '#Pong_LoRe_RegPGD_0001', '#Pong_LoRe_RegPGD_0005', '#Pong_LoRe_RegPGD_001','#Pong_LoRe_RegPGD_003', '#Pong_LoRe_RegPGD_005', '#Pong_LoRe_RegPGD_01'];
+var dev_ids = ['#Pong_LoRe_RadialRL_0001', '#Pong_LoRe_RadialRL_0005', '#Pong_LoRe_RadialRL_001', '#Pong_LoRe_RadialRL_003', '#Pong_LoRe_RadialRL_005', '#Pong_LoRe_RadialRL_01', '#Pong_LoRe_AdvTrain_0001', '#Pong_LoRe_AdvTrain_0005', '#Pong_LoRe_AdvTrain_001', '#Pong_LoRe_AdvTrain_003', '#Pong_LoRe_AdvTrain_005', '#Pong_LoRe_AdvTrain_01', '#Pong_LoRe_GradDQN_0001', '#Pong_LoRe_GradDQN_0005', '#Pong_LoRe_GradDQN_001', '#Pong_LoRe_GradDQN_003', '#Pong_LoRe_GradDQN_003', '#Pong_LoRe_GradDQN_005', '#Pong_LoRe_GradDQN_01', '#Pong_LoRe_StdTrain_0001', '#Pong_LoRe_StdTrain_0005', '#Pong_LoRe_StdTrain_001', '#Pong_LoRe_StdTrain_003', '#Pong_LoRe_StdTrain_005', '#Pong_LoRe_StdTrain_01', '#Pong_LoRe_GaussAug_0001', '#Pong_LoRe_GaussAug_0005', '#Pong_LoRe_GaussAug_001', '#Pong_LoRe_GaussAug_003', '#Pong_LoRe_GaussAug_005', '#Pong_LoRe_GaussAug_01', '#Pong_LoRe_RegCVX_0001', '#Pong_LoRe_RegCVX_0005', '#Pong_LoRe_RegCVX_001', '#Pong_LoRe_RegCVX_003', '#Pong_LoRe_RegCVX_005', '#Pong_LoRe_RegCVX_01', '#Pong_LoRe_RegPGD_0001', '#Pong_LoRe_RegPGD_0005', '#Pong_LoRe_RegPGD_001','#Pong_LoRe_RegPGD_003', '#Pong_LoRe_RegPGD_005', '#Pong_LoRe_RegPGD_01'];
 
 // var data_paths = ['RadialRL/Pong_tree_sigma-0.001', 'RadialRL/Pong_tree_sigma-0.005', 'RadialRL/Pong_tree_sigma-0.01', 'RadialRL/Pong_tree_sigma-0.03', 'RadialRL/Pong_tree_sigma-0.05', 'RadialRL/Pong_tree_sigma-0.1','AdvTrain/Pong_tree_sigma-0.001','AdvTrain/Pong_tree_sigma-0.005','AdvTrain/Pong_tree_sigma-0.01','AdvTrain/Pong_tree_sigma-0.03','AdvTrain/Pong_tree_sigma-0.05','AdvTrain/Pong_tree_sigma-0.1', 'GradDQN/Pong_tree_sigma-0.001', 'GradDQN/Pong_tree_sigma-0.005', 'GradDQN/Pong_tree_sigma-0.01', 'GradDQN/Pong_tree_sigma-0.03', 'GradDQN/Pong_tree_sigma-0.05', 'GradDQN/Pong_tree_sigma-0.1', 'StdTrain/Pong_tree_sigma-0.001', 'StdTrain/Pong_tree_sigma-0.005', 'StdTrain/Pong_tree_sigma-0.01', 'StdTrain/Pong_tree_sigma-0.03', 'StdTrain/Pong_tree_sigma-0.05', 'StdTrain/Pong_tree_sigma-0.1', 'GaussAug/Pong_tree_sigma-0.001', 'GaussAug/Pong_tree_sigma-0.005', 'GaussAug/Pong_tree_sigma-0.01', 'GaussAug/Pong_tree_sigma-0.03', 'GaussAug/Pong_tree_sigma-0.05', 'GaussAug/Pong_tree_sigma-0.1', 'RegCVX/Pong_tree_sigma-0.001', 'RegCVX/Pong_tree_sigma-0.005', 'RegCVX/Pong_tree_sigma-0.01', 'RegCVX/Pong_tree_sigma-0.03', 'RegCVX/Pong_tree_sigma-0.05', 'RegCVX/Pong_tree_sigma-0.1', 'RegPGD/Pong_tree_sigma-0.001', 'RegPGD/Pong_tree_sigma-0.005', 'RegPGD/Pong_tree_sigma-0.01', 'RegPGD/Pong_tree_sigma-0.03', 'RegPGD/Pong_tree_sigma-0.05', 'RegPGD/Pong_tree_sigma-0.1'];
 
-var data_paths = ['RadialRL/Pong_tree_sigma-0.001', 'RadialRL/Pong_tree_sigma-0.005', 'RadialRL/Pong_tree_sigma-0.01', 'RadialRL/Pong_tree_sigma-0.03', 'RadialRL/Pong_tree_sigma-0.05', 'RadialRL/Pong_tree_sigma-0.1','AdvTrain/Pong_tree_sigma-0.001','AdvTrain/Pong_tree_sigma-0.005','AdvTrain/Pong_tree_sigma-0.01','AdvTrain/Pong_tree_sigma-0.03','AdvTrain/Pong_tree_sigma-0.05','AdvTrain/Pong_tree_sigma-0.1', 'StdTrain/Pong_tree_sigma-0.001', 'StdTrain/Pong_tree_sigma-0.005', 'StdTrain/Pong_tree_sigma-0.01', 'StdTrain/Pong_tree_sigma-0.03', 'StdTrain/Pong_tree_sigma-0.05', 'StdTrain/Pong_tree_sigma-0.1', 'GaussAug/Pong_tree_sigma-0.001', 'GaussAug/Pong_tree_sigma-0.005', 'GaussAug/Pong_tree_sigma-0.01', 'GaussAug/Pong_tree_sigma-0.03', 'GaussAug/Pong_tree_sigma-0.05', 'GaussAug/Pong_tree_sigma-0.1', 'RegCVX/Pong_tree_sigma-0.001', 'RegCVX/Pong_tree_sigma-0.005', 'RegCVX/Pong_tree_sigma-0.01', 'RegCVX/Pong_tree_sigma-0.03', 'RegCVX/Pong_tree_sigma-0.05', 'RegCVX/Pong_tree_sigma-0.1', 'RegPGD/Pong_tree_sigma-0.001', 'RegPGD/Pong_tree_sigma-0.005', 'RegPGD/Pong_tree_sigma-0.01', 'RegPGD/Pong_tree_sigma-0.03', 'RegPGD/Pong_tree_sigma-0.05', 'RegPGD/Pong_tree_sigma-0.1'];
+var data_paths = ['RadialRL/Pong_tree_sigma-0.001', 'RadialRL/Pong_tree_sigma-0.005', 'RadialRL/Pong_tree_sigma-0.01', 'RadialRL/Pong_tree_sigma-0.03', 'RadialRL/Pong_tree_sigma-0.05', 'RadialRL/Pong_tree_sigma-0.1','AdvTrain/Pong_tree_sigma-0.001','AdvTrain/Pong_tree_sigma-0.005','AdvTrain/Pong_tree_sigma-0.01','AdvTrain/Pong_tree_sigma-0.03','AdvTrain/Pong_tree_sigma-0.05','AdvTrain/Pong_tree_sigma-0.1', 'GradDQN/Pong_tree_sigma-0.001', 'GradDQN/Pong_tree_sigma-0.005', 'GradDQN/Pong_tree_sigma-0.01', 'GradDQN/Pong_tree_sigma-0.03', 'GradDQN/Pong_tree_sigma-0.05', 'GradDQN/Pong_tree_sigma-0.1', 'StdTrain/Pong_tree_sigma-0.001', 'StdTrain/Pong_tree_sigma-0.005', 'StdTrain/Pong_tree_sigma-0.01', 'StdTrain/Pong_tree_sigma-0.03', 'StdTrain/Pong_tree_sigma-0.05', 'StdTrain/Pong_tree_sigma-0.1', 'GaussAug/Pong_tree_sigma-0.001', 'GaussAug/Pong_tree_sigma-0.005', 'GaussAug/Pong_tree_sigma-0.01', 'GaussAug/Pong_tree_sigma-0.03', 'GaussAug/Pong_tree_sigma-0.05', 'GaussAug/Pong_tree_sigma-0.1', 'RegCVX/Pong_tree_sigma-0.001', 'RegCVX/Pong_tree_sigma-0.005', 'RegCVX/Pong_tree_sigma-0.01', 'RegCVX/Pong_tree_sigma-0.03', 'RegCVX/Pong_tree_sigma-0.05', 'RegCVX/Pong_tree_sigma-0.1', 'RegPGD/Pong_tree_sigma-0.001', 'RegPGD/Pong_tree_sigma-0.005', 'RegPGD/Pong_tree_sigma-0.01', 'RegPGD/Pong_tree_sigma-0.03', 'RegPGD/Pong_tree_sigma-0.05', 'RegPGD/Pong_tree_sigma-0.1'];
 
-var x_ranges = [[0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12]];
+var x_ranges = [[0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12], [0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12]];
 
-var x_tick_values_ls = [[0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1]];
+var x_tick_values_ls = [[0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1], [0, 0.0005, 0.001, 0.0015], [0, 0.002, 0.004, 0.006], [0, 0.005, 0.01], [0, 0.01, 0.02], [0, 0.02, 0.04, 0.06], [0, 0.05, 0.1]];
 
-var y_ranges = [[0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1]];
+var y_ranges = [[0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1], [0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1]];
 
-var y_tick_values_ls = [[0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1]];
+var y_tick_values_ls = [[0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1]];
 
 // var color_idx_ls = ['#db57d3', '#db57d3', '#db57d3', '#db57d3', '#db57d3', '#db57d3', '#57db5f', '#57db5f', '#57db5f', '#57db5f', '#57db5f', '#57db5f', '#50b131', '#50b131', '#50b131', '#50b131', '#50b131', '#50b131', '#db5f57', '#db5f57', '#db5f57', '#db5f57', '#db5f57', '#db5f57', '#d3db57', '#d3db57', '#d3db57', '#d3db57', '#d3db57', '#d3db57', '#5f57db', '#5f57db', '#5f57db', '#5f57db', '#5f57db', '#5f57db', '#57d3db', '#57d3db', '#57d3db', '#57d3db', '#57d3db', '#57d3db'];
 
-var color_idx_ls = ['#db57d3', '#db57d3', '#db57d3', '#db57d3', '#db57d3', '#db57d3', '#57db5f', '#57db5f', '#57db5f', '#57db5f', '#57db5f', '#57db5f', '#db5f57', '#db5f57', '#db5f57', '#db5f57', '#db5f57', '#db5f57', '#d3db57', '#d3db57', '#d3db57', '#d3db57', '#d3db57', '#d3db57', '#5f57db', '#5f57db', '#5f57db', '#5f57db', '#5f57db', '#5f57db', '#57d3db', '#57d3db', '#57d3db', '#57d3db', '#57d3db', '#57d3db'];
+var color_idx_ls = ['#db57d3', '#db57d3', '#db57d3', '#db57d3', '#db57d3', '#db57d3', '#57db5f', '#57db5f', '#57db5f', '#57db5f', '#57db5f', '#57db5f', '#50b131', '#50b131', '#50b131', '#50b131', '#50b131', '#50b131', '#db5f57', '#db5f57', '#db5f57', '#db5f57', '#db5f57', '#db5f57', '#d3db57', '#d3db57', '#d3db57', '#d3db57', '#d3db57', '#d3db57', '#5f57db', '#5f57db', '#5f57db', '#5f57db', '#5f57db', '#5f57db', '#57d3db', '#57d3db', '#57d3db', '#57d3db', '#57d3db', '#57d3db'];
 
 // var brightness_ls = [];
 
@@ -635,8 +635,8 @@ d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_pa
     d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[4]+'_attack.csv',function(data_atk_4) {
 d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[5]+'.csv',function(data_5) {
     d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[5]+'_attack.csv',function(data_atk_5) {
-// d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[6]+'.csv',function(data_6) {
-    // d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[6]+'_attack.csv',function(data_atk_6) {
+d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[6]+'.csv',function(data_6) {
+    d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[6]+'_attack.csv',function(data_atk_6) {
 // d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[7]+'.csv',function(data_7) {
     // d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[7]+'_attack.csv',function(data_atk_7) {
 // d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_path[8]+'.csv',function(data_8) {
@@ -821,31 +821,31 @@ d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_pa
       .y(function(d) { return y(d.y) })
       );
   
-  // Add the line
-  // svg
-  //   .append("path")
-  //   .datum(data_6)
-  //   .attr("fill", "none")
-  //   // .attr("stroke", "steelblue")
-  //   .attr("stroke", color_idx[6])
-  //   .attr("stroke-width", 1)
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  Add the line
+  svg
+    .append("path")
+    .datum(data_6)
+    .attr("fill", "none")
+    // .attr("stroke", "steelblue")
+    .attr("stroke", color_idx[6])
+    .attr("stroke-width", 1)
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
   
-  //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_6)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[6])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  add the dashed line
+  svg.append("path")
+    .datum(data_atk_6)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[6])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
   
   // Add the line
   // svg
@@ -911,8 +911,8 @@ d3.csv('./PongNoFrameskip-v4/Interactive_LoRe/data/data_1207_Pong_tree_'+data_pa
 });
 });
 });
-// });
-// });
+});
+});
 // });
 // });
 // });
@@ -928,12 +928,12 @@ var dev_ids = ['#Pong_LoRe_All_0001', '#Pong_LoRe_All_0005', '#Pong_LoRe_All_001
 // ['RadialRL/Pong_tree_sigma-0.05', 'AdvTrain/Pong_tree_sigma-0.05', 'GradDQN/Pong_tree_sigma-0.05', 'StdTrain/Pong_tree_sigma-0.05', 'GaussAug/Pong_tree_sigma-0.05', 'RegCVX/Pong_tree_sigma-0.05', 'RegPGD/Pong_tree_sigma-0.05'],
 // ['RadialRL/Pong_tree_sigma-0.1', 'AdvTrain/Pong_tree_sigma-0.1', 'GradDQN/Pong_tree_sigma-0.1', 'StdTrain/Pong_tree_sigma-0.1', 'GaussAug/Pong_tree_sigma-0.1', 'RegCVX/Pong_tree_sigma-0.1', 'RegPGD/Pong_tree_sigma-0.1']];
 
-var data_paths = [['RadialRL/Pong_tree_sigma-0.001', 'AdvTrain/Pong_tree_sigma-0.001', 'StdTrain/Pong_tree_sigma-0.001', 'GaussAug/Pong_tree_sigma-0.001', 'RegCVX/Pong_tree_sigma-0.001', 'RegPGD/Pong_tree_sigma-0.001'], 
-['RadialRL/Pong_tree_sigma-0.005', 'AdvTrain/Pong_tree_sigma-0.005', 'StdTrain/Pong_tree_sigma-0.005', 'GaussAug/Pong_tree_sigma-0.005', 'RegCVX/Pong_tree_sigma-0.005', 'RegPGD/Pong_tree_sigma-0.005'],
-['RadialRL/Pong_tree_sigma-0.01', 'AdvTrain/Pong_tree_sigma-0.01', 'StdTrain/Pong_tree_sigma-0.01', 'GaussAug/Pong_tree_sigma-0.01', 'RegCVX/Pong_tree_sigma-0.01', 'RegPGD/Pong_tree_sigma-0.01'],
-['RadialRL/Pong_tree_sigma-0.03', 'AdvTrain/Pong_tree_sigma-0.03', 'StdTrain/Pong_tree_sigma-0.03', 'GaussAug/Pong_tree_sigma-0.03', 'RegCVX/Pong_tree_sigma-0.03', 'RegPGD/Pong_tree_sigma-0.03'],
-['RadialRL/Pong_tree_sigma-0.05', 'AdvTrain/Pong_tree_sigma-0.05', 'StdTrain/Pong_tree_sigma-0.05', 'GaussAug/Pong_tree_sigma-0.05', 'RegCVX/Pong_tree_sigma-0.05', 'RegPGD/Pong_tree_sigma-0.05'],
-['RadialRL/Pong_tree_sigma-0.1', 'AdvTrain/Pong_tree_sigma-0.1', 'StdTrain/Pong_tree_sigma-0.1', 'GaussAug/Pong_tree_sigma-0.1', 'RegCVX/Pong_tree_sigma-0.1', 'RegPGD/Pong_tree_sigma-0.1']];
+var data_paths = [['RadialRL/Pong_tree_sigma-0.001', 'AdvTrain/Pong_tree_sigma-0.001', 'GradDQN/Pong_tree_sigma-0.001', 'StdTrain/Pong_tree_sigma-0.001', 'GaussAug/Pong_tree_sigma-0.001', 'RegCVX/Pong_tree_sigma-0.001', 'RegPGD/Pong_tree_sigma-0.001'], 
+['RadialRL/Pong_tree_sigma-0.005', 'AdvTrain/Pong_tree_sigma-0.005', 'GradDQN/Pong_tree_sigma-0.005', 'StdTrain/Pong_tree_sigma-0.005', 'GaussAug/Pong_tree_sigma-0.005', 'RegCVX/Pong_tree_sigma-0.005', 'RegPGD/Pong_tree_sigma-0.005'],
+['RadialRL/Pong_tree_sigma-0.01', 'AdvTrain/Pong_tree_sigma-0.01', 'GradDQN/Pong_tree_sigma-0.01', 'StdTrain/Pong_tree_sigma-0.01', 'GaussAug/Pong_tree_sigma-0.01', 'RegCVX/Pong_tree_sigma-0.01', 'RegPGD/Pong_tree_sigma-0.01'],
+['RadialRL/Pong_tree_sigma-0.03', 'AdvTrain/Pong_tree_sigma-0.03', 'GradDQN/Pong_tree_sigma-0.03', 'StdTrain/Pong_tree_sigma-0.03', 'GaussAug/Pong_tree_sigma-0.03', 'RegCVX/Pong_tree_sigma-0.03', 'RegPGD/Pong_tree_sigma-0.03'],
+['RadialRL/Pong_tree_sigma-0.05', 'AdvTrain/Pong_tree_sigma-0.05', 'GradDQN/Pong_tree_sigma-0.05', 'StdTrain/Pong_tree_sigma-0.05', 'GaussAug/Pong_tree_sigma-0.05', 'RegCVX/Pong_tree_sigma-0.05', 'RegPGD/Pong_tree_sigma-0.05'],
+['RadialRL/Pong_tree_sigma-0.1', 'AdvTrain/Pong_tree_sigma-0.1', 'GradDQN/Pong_tree_sigma-0.1', 'StdTrain/Pong_tree_sigma-0.1', 'GaussAug/Pong_tree_sigma-0.1', 'RegCVX/Pong_tree_sigma-0.1', 'RegPGD/Pong_tree_sigma-0.1']];
 
 var x_ranges = [[0, 0.0016], [0, 0.008], [0, 0.015], [0, 0.03], [0, 0.06], [0, 0.12]];
 
@@ -944,7 +944,7 @@ var y_ranges = [[0,2], [0,2], [0, 2], [0, 2], [0,1], [0, 1]];
 var y_tick_values_ls = [[0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1, 2], [0, 1], [0, 1]];
 
 // var color_idx_ls = ['#db57d3', '#57db5f', '#50b131', '#db5f57', '#d3db57', '#5f57db', '#57d3db'];
-var color_idx_ls = ['#db57d3', '#57db5f', '#db5f57', '#d3db57', '#5f57db', '#57d3db'];
+var color_idx_ls = ['#db57d3', '#57db5f', '#50b131', '#db5f57', '#d3db57', '#5f57db', '#57d3db'];
 
 // var brightness_ls = [];
 
