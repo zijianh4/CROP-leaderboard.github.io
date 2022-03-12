@@ -236,6 +236,7 @@ d3.csv('./data/data_1207_Freeway_tree_RegPGD/Freeway_tree_sigma-0.1.csv',functio
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
+      .curve(d3.curveStepAfter)
       );
   
   //add the dashed line
@@ -298,6 +299,7 @@ d3.csv('./data/data_1207_Freeway_tree_RegPGD/Freeway_tree_sigma-0.1.csv',functio
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
+      .curve(d3.curveStepAfter)
       );
   
   //add the dashed line
@@ -360,6 +362,7 @@ d3.csv('./data/data_1207_Freeway_tree_RegPGD/Freeway_tree_sigma-0.1.csv',functio
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
+      .curve(d3.curveStepAfter)
       );
   
   //add the dashed line
@@ -374,7 +377,16 @@ d3.csv('./data/data_1207_Freeway_tree_RegPGD/Freeway_tree_sigma-0.1.csv',functio
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       );
-
+  
+  //add markers
+  svg.selectAll(".point_4")
+    .data(data_atk_4)
+    .enter().append("path")
+    .attr("class", "point")
+    .attr("d", d3.symbol().type(d3.symbolWye).size(60))
+    .attr("fill", '#50b131')
+    .attr("transform", function(d) { return "translate(" + x(d.x) + "," + y(d.y) + ")"; });
+    
   // Create the circle that travels along the curve of chart
   var focus_5 = svg
     .append('g')
@@ -413,6 +425,7 @@ d3.csv('./data/data_1207_Freeway_tree_RegPGD/Freeway_tree_sigma-0.1.csv',functio
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
+      .curve(d3.curveStepAfter)
       );
   
   //add the dashed line
@@ -475,6 +488,7 @@ d3.csv('./data/data_1207_Freeway_tree_RegPGD/Freeway_tree_sigma-0.1.csv',functio
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
+      .curve(d3.curveStepAfter)
       );
   
   //add the dashed line
@@ -537,6 +551,7 @@ d3.csv('./data/data_1207_Freeway_tree_RegPGD/Freeway_tree_sigma-0.1.csv',functio
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
+      .curve(d3.curveStepAfter)
       );
   
   //add the dashed line
@@ -599,6 +614,7 @@ d3.csv('./data/data_1207_Freeway_tree_RegPGD/Freeway_tree_sigma-0.1.csv',functio
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
+      .curve(d3.curveStepAfter)
       );
   
   //add the dashed line

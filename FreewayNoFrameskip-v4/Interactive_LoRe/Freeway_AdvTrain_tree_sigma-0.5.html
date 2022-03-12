@@ -131,6 +131,7 @@ d3.csv('./data/data_1207_Freeway_tree_AdvTrain/Freeway_tree_sigma-0.5_attack.csv
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
+      .curve(d3.curveStepAfter)
       );
   
   //add the dashed line
