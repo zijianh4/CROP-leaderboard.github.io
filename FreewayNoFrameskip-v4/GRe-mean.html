@@ -785,7 +785,7 @@ var svg = d3.select(dev_id)
 
 //Read the data
 d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path+'.csv',function(data) {
-// d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path+'_attack.csv',function(data_atk) {
+d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path+'_attack.csv',function(data_atk) {
   // console.log(data)
   // Add X axis --> it is a date format
   var x = d3.scaleLinear()
@@ -853,18 +853,18 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       .y(function(d) { return y(d.y) })
       );
   
-  // //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx)
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     )
+  //add the dashed line
+  svg.append("path")
+    .datum(data_atk)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx)
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      )
 
   // Create a rect on top of the svg area: this rectangle recovers mouse position
   svg
@@ -906,7 +906,7 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
   }
 
 })
-// })
+})
 };
 (function(){
 var dev_ids = ['#Freeway_GRe_mean_NoisyNet_0005', '#Freeway_GRe_mean_NoisyNet_005', '#Freeway_GRe_mean_NoisyNet_01', '#Freeway_GRe_mean_NoisyNet_05', '#Freeway_GRe_mean_NoisyNet_075', '#Freeway_GRe_mean_NoisyNet_1', '#Freeway_GRe_mean_RadialRL_0005', '#Freeway_GRe_mean_RadialRL_005', '#Freeway_GRe_mean_RadialRL_01', '#Freeway_GRe_mean_RadialRL_05', '#Freeway_GRe_mean_RadialRL_075', '#Freeway_GRe_mean_RadialRL_1', '#Freeway_GRe_mean_AdvTrain_0005', '#Freeway_GRe_mean_AdvTrain_005', '#Freeway_GRe_mean_AdvTrain_01', '#Freeway_GRe_mean_AdvTrain_05', '#Freeway_GRe_mean_AdvTrain_075', '#Freeway_GRe_mean_AdvTrain_1', '#Freeway_GRe_mean_GradDQN_0005', '#Freeway_GRe_mean_GradDQN_005', '#Freeway_GRe_mean_GradDQN_01', '#Freeway_GRe_mean_GradDQN_05', '#Freeway_GRe_mean_GradDQN_075', '#Freeway_GRe_mean_GradDQN_1', '#Freeway_GRe_mean_StdTrain_0005', '#Freeway_GRe_mean_StdTrain_005', '#Freeway_GRe_mean_StdTrain_01', '#Freeway_GRe_mean_StdTrain_05', '#Freeway_GRe_mean_StdTrain_075', '#Freeway_GRe_mean_StdTrain_1', '#Freeway_GRe_mean_GaussAug_0005', '#Freeway_GRe_mean_GaussAug_005', '#Freeway_GRe_mean_GaussAug_01', '#Freeway_GRe_mean_GaussAug_05', '#Freeway_GRe_mean_GaussAug_075', '#Freeway_GRe_mean_GaussAug_1', '#Freeway_GRe_mean_RegCVX_0005', '#Freeway_GRe_mean_RegCVX_005', '#Freeway_GRe_mean_RegCVX_01', '#Freeway_GRe_mean_RegCVX_05', '#Freeway_GRe_mean_RegCVX_075', '#Freeway_GRe_mean_RegCVX_1', '#Freeway_GRe_mean_RegPGD_0005', '#Freeway_GRe_mean_RegPGD_005', '#Freeway_GRe_mean_RegPGD_01', '#Freeway_GRe_mean_RegPGD_05', '#Freeway_GRe_mean_RegPGD_075', '#Freeway_GRe_mean_RegPGD_1'];
@@ -949,21 +949,21 @@ var svg = d3.select(dev_id)
 
 //Read the data
 d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[0]+'.csv',function(data_0) {
-    // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[0]+'_attack.csv',function(data_atk_0) {
+    d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[0]+'_attack.csv',function(data_atk_0) {
 d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[1]+'.csv',function(data_1) {
-    // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[1]+'_attack.csv',function(data_atk_1) {
+    d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[1]+'_attack.csv',function(data_atk_1) {
 d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[2]+'.csv',function(data_2) {
-    // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[2]+'_attack.csv',function(data_atk_2) {
+    d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[2]+'_attack.csv',function(data_atk_2) {
 d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[3]+'.csv',function(data_3) {
-    // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[3]+'_attack.csv',function(data_atk_3) {
+    d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[3]+'_attack.csv',function(data_atk_3) {
 d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[4]+'.csv',function(data_4) {
-    // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[4]+'_attack.csv',function(data_atk_4) {
+    d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[4]+'_attack.csv',function(data_atk_4) {
 d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[5]+'.csv',function(data_5) {
-    // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[5]+'_attack.csv',function(data_atk_5) {
+    d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[5]+'_attack.csv',function(data_atk_5) {
 d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[6]+'.csv',function(data_6) {
-    // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[6]+'_attack.csv',function(data_atk_6) {
+    d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[6]+'_attack.csv',function(data_atk_6) {
 d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[7]+'.csv',function(data_7) {
-    // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[7]+'_attack.csv',function(data_atk_7) {
+    d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[7]+'_attack.csv',function(data_atk_7) {
 // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[8]+'.csv',function(data_8) {
     // d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_global_mean_'+data_path[8]+'_attack.csv',function(data_atk_8) {
   //console.log(data)
@@ -1004,17 +1004,17 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_0)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[0])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_0)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[0])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
 
   // Add the line
   svg
@@ -1030,17 +1030,17 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_1)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[1])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_1)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[1])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
 
   // Add the line
   svg
@@ -1056,17 +1056,17 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_2)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[2])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_2)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[2])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
   
   // Add the line
   svg
@@ -1082,17 +1082,17 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_3)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[3])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_3)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[3])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
 
   // Add the line
   svg
@@ -1108,17 +1108,17 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_4)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[4])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_4)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[4])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
 
   // Add the line
   svg
@@ -1134,17 +1134,17 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_5)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[5])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_5)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[5])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
   
   // Add the line
   svg
@@ -1160,17 +1160,17 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_6)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[6])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
+  svg.append("path")
+    .datum(data_atk_6)
+    // .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", color_idx[6])
+    .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
+    .attr("d", d3.line()
+      .x(function(d) { return x(d.x) })
+      .y(function(d) { return y(d.y) })
+      );
   
   // Add the line
   svg
@@ -1186,30 +1186,30 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
       );
   
   //add the dashed line
-  // svg.append("path")
-  //   .datum(data_atk_7)
-  //   // .attr("class", "line")
-  //   .attr("fill", "none")
-  //   .attr("stroke", color_idx[7])
-  //   .attr("stroke-width", 1)
-  //   .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.x) })
-  //     .y(function(d) { return y(d.y) })
-  //     );
-  
-  // Add the line
-  svg
-    .append("path")
-    .datum(data_8)
+  svg.append("path")
+    .datum(data_atk_7)
+    // .attr("class", "line")
     .attr("fill", "none")
-    // .attr("stroke", "steelblue")
-    .attr("stroke", color_idx[8])
+    .attr("stroke", color_idx[7])
     .attr("stroke-width", 1)
+    .style("stroke-dasharray", ("3, 3"))  // <== This line here!!
     .attr("d", d3.line()
       .x(function(d) { return x(d.x) })
       .y(function(d) { return y(d.y) })
       );
+  
+  // Add the line
+  // svg
+  //   .append("path")
+  //   .datum(data_8)
+  //   .attr("fill", "none")
+  //   // .attr("stroke", "steelblue")
+  //   .attr("stroke", color_idx[8])
+  //   .attr("stroke-width", 1)
+  //   .attr("d", d3.line()
+  //     .x(function(d) { return x(d.x) })
+  //     .y(function(d) { return y(d.y) })
+  //     );
   
   //add the dashed line
   // svg.append("path")
@@ -1232,14 +1232,14 @@ d3.csv('./FreewayNoFrameskip-v4/Interactive_GRe_mean/data/data_1207_Freeway_glob
 });
 });
 });
-// });
-// });
-// });
-// });
-// });
-// });
-// });
-// });
+});
+});
+});
+});
+});
+});
+});
+});
 // });
 // });
 };
